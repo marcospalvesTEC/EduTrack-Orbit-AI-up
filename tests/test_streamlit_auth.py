@@ -18,7 +18,21 @@ def test_demo_login_opens_authenticated_home():
 
     assert not app.exception
     assert app.session_state["auth_current_user"]["email"] == DEMO_EMAIL
-    assert any(item.value == "EduTrack Orbit AI" for item in app.title)
+    assert any("Início do estudante" in item.value for item in app.markdown)
+    assert not app.get("plotly_chart")
+
+
+def test_dashboard_retains_analytics_separate_from_home():
+    app = AppTest.from_file(PROJECT_ROOT / "pages/1_Dashboard.py", default_timeout=15)
+    app.session_state["auth_current_user"] = {"name": "Estudante Demo", "email": DEMO_EMAIL}
+    app.session_state["auth_demo_users"] = {}
+    app.session_state["auth_recovery_email"] = None
+    app.run()
+
+    assert not app.exception
+    assert any("Dashboard de Desempenho" in item.value for item in app.markdown)
+    assert len(app.get("plotly_chart")) == 2
+    assert not any("Início do estudante" in item.value for item in app.markdown)
 
 
 def test_protected_pages_stop_without_login():

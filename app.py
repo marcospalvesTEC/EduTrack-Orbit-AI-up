@@ -2,9 +2,11 @@
 
 import streamlit as st
 from src.core.auth_session import current_user, initialize_auth_state, render_session_sidebar
+from src.core.metrics import calculate_dashboard_metrics
 from src.services.data_service import data_service_for_user, load_academic_data
 from src.ui.auth import render_auth_portal
 from src.ui.components import render_header
+from src.ui.figma_dashboard import render_dashboard
 from src.ui.theme import inject_custom_css
 
 # Page Configuration
@@ -60,11 +62,8 @@ with st.sidebar:
                     st.session_state["confirm_clear_data"] = False
                     st.rerun()
 
-render_header(
-    title="Bem-vindo ao EduTrack Orbit AI",
-    description="Seu painel central para acompanhar disciplinas, prazos e métricas de desempenho acadêmico.",
-    icon="🚀",
-)
+# The Figma overview provides its own visible heading and accessible main label.
+render_dashboard(user, subjects, tasks, calculate_dashboard_metrics(tasks, subjects))
 
 if not subjects:
     if getattr(service, "is_remote", False):
@@ -84,37 +83,3 @@ if not subjects:
             if st.button("Explorar com dados de exemplo", width="stretch"):
                 service.reset_to_defaults()
                 st.rerun()
-
-col1, col2 = st.columns([3, 2])
-
-with col1:
-    st.markdown(f"### Olá, {user['name'].split()[0]} 👋")
-    if tasks:
-        pending = [task for task in tasks if task.status.value != "Concluída"]
-        pending.sort(key=lambda task: task.due_date)
-        if pending:
-            next_task = pending[0]
-            st.markdown(f"**Próxima entrega:** {next_task.title}")
-            st.caption(f"{next_task.subject_name} · {next_task.due_date.strftime('%d/%m/%Y')}")
-        else:
-            st.success("Todas as tarefas cadastradas estão concluídas.")
-    else:
-        st.caption("Adicione tarefas para visualizar aqui suas próximas entregas.")
-
-    quick_subject, quick_task, quick_dashboard = st.columns(3)
-    if quick_subject.button("Nova disciplina", width="stretch"):
-        st.switch_page("pages/2_Disciplinas.py")
-    if quick_task.button("Nova tarefa", width="stretch", disabled=not subjects):
-        st.switch_page("pages/3_Tarefas.py")
-    if quick_dashboard.button("Ver dashboard", width="stretch"):
-        st.switch_page("pages/1_Dashboard.py")
-
-with col2:
-    st.markdown("### 📊 Status Rápido")
-    total_tasks = len(tasks)
-    completed_tasks = sum(1 for t in tasks if t.status.value == "Concluída")
-    rate = round((completed_tasks / total_tasks * 100.0), 1) if total_tasks > 0 else 0.0
-
-    st.metric("Total de Disciplinas", len(subjects))
-    st.metric("Total de Tarefas", total_tasks)
-    st.metric("Taxa Global de Conclusão", f"{rate}%")
