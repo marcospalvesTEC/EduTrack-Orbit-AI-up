@@ -1,0 +1,217 @@
+/* Figma Tarefas / Desktop / Light, frame 139:46 — adapted for Streamlit. */
+.stApp:has(.orbit-tasks-page) { background: #f8fafc; }
+.stApp:has(.orbit-tasks-page) [data-testid="stMainBlockContainer"] {
+  width: 100%; max-width: none; padding: 0 32px 2rem; }
+.orbit-tasks-page { margin: 0 -32px; color: #11184f;
+  font-family: Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; }
+.orbit-tasks-topbar { min-height: 96px; padding: 20px 32px; background: #fff;
+  display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.orbit-tasks-topbar h1 { margin: 0 0 4px; color: #0f1757; font-size: 22px; line-height: 27px; }
+.orbit-tasks-topbar p { margin: 0; color: #6b7280; font-size: 12px; }
+.orbit-tasks-header-icons { display: flex; align-items: center; gap: 16px; }
+.orbit-tasks-global-search { width: 300px; height: 44px; padding: 0 16px;
+  border: 1px solid #e5e7eb; border-radius: 22px; background: #f8fafc;
+  display: flex; align-items: center; gap: 10px; color: #6b7280; font-size: 12px; }
+.orbit-tasks-global-search img { width: 18px; height: 18px; }
+.orbit-tasks-bell { width: 44px; height: 44px; border: 1px solid #e5e7eb;
+  border-radius: 50%; background: #fff; display: grid; place-items: center; }
+.orbit-tasks-bell img { width: 20px; height: 20px; }
+.stApp:has(.orbit-tasks-page) [data-testid="stHorizontalBlock"]:has(.orbit-task-intro) {
+  min-height: 90px; align-items: center; }
+.orbit-task-intro h1 { margin: 0; color: #11184f; font-size: 28px; line-height: 38px; }
+.orbit-task-intro p { margin: 2px 0 0; color: #71758a; font-size: 13px; }
+.st-key-new_task_action button { min-height: 44px; border: 1px solid #7c3aed !important;
+  border-radius: 12px; background: #7c3aed !important; color: #fff !important; font-weight: 600; }
+.st-key-new_task_action button:hover { border-color: #6d28d9 !important;
+  background: #6d28d9 !important; color: #fff !important; }
+.stApp:has(.orbit-tasks-page) [data-testid="stTextInput"] input,
+.stApp:has(.orbit-tasks-page) [data-testid="stSelectbox"] div[data-baseweb="select"] > div {
+  min-height: 48px; border-color: #e6e8f0; border-radius: 12px; background: #fff; }
+.orbit-task-metrics { margin: 14px 0 12px; display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; }
+.orbit-task-metrics div { min-height: 96px; padding: 16px 20px; border: 1px solid #e6e8f0;
+  border-radius: 16px; background: #fff; display: flex; flex-direction: column; gap: 7px; }
+.orbit-task-metrics span { color: #71758a; font-size: 12px; }
+.orbit-task-metrics strong { color: #11184f; font-size: 22px; line-height: 28px; }
+.orbit-task-metrics .todo { color: #7c3aed; }
+.orbit-task-metrics .doing { color: #f59e0b; }
+.orbit-task-metrics .done { color: #10b981; }
+.stApp:has(.orbit-tasks-page) [class*="st-key-task_board_"] {
+  min-height: 394px; padding: 0 4px 10px; border: 1px solid #e6e8f0;
+  border-radius: 16px; background: #f8f9fc; }
+.orbit-task-board-title { min-height: 46px; padding: 2px 2px 10px;
+  display: flex; align-items: center; gap: 5px; color: #11184f; }
+.orbit-task-board-title strong { font-size: 16px; }
+.orbit-task-board-title span { color: #71758a; font-size: 13px; }
+.stApp:has(.orbit-tasks-page) [class*="st-key-task_container_"] {
+  position: relative; min-height: 126px; margin-bottom: 10px; overflow: hidden;
+  border: 1px solid #e3e6ef; border-radius: 14px; background: #fff;
+  box-shadow: 0 1px 2px rgba(17,24,79,.02); transition: border-color .18s ease,
+  box-shadow .18s ease, transform .18s ease; }
+.stApp:has(.orbit-tasks-page) [class*="st-key-task_container_"]:hover {
+  border-color: #a78bfa; box-shadow: 0 8px 24px rgba(124,58,237,.1);
+  transform: translateY(-1px); }
+.orbit-task-card { min-height: 124px; padding: 10px 4px 8px; color: #4f5368; }
+.orbit-task-card h2 { margin: 0 0 5px; color: #11184f; font-size: 14px;
+  line-height: 19px; overflow-wrap: anywhere; }
+.orbit-task-card p { margin: 0 0 8px; color: #71758a; font-size: 11px; line-height: 15px; }
+.orbit-task-card small { display: block; margin-top: 7px; color: #71758a; font-size: 11px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.orbit-task-priority { display: inline-flex; padding: 3px 7px; border-radius: 999px;
+  font-size: 10px; line-height: 14px; }
+.priority-alta { color: #b42318; background: #fee4e2; }
+.priority-media { color: #b54708; background: #fef0c7; }
+.priority-baixa { color: #027a48; background: #d1fadf; }
+.stApp:has(.orbit-tasks-page) [class*="st-key-task_container_"]
+  [class*="st-key-task_card_"] { position: absolute; inset: 0; z-index: 2; }
+.stApp:has(.orbit-tasks-page) [class*="st-key-task_container_"]
+  [class*="st-key-task_card_"] button { position: absolute; inset: 0; width: 100%; height: 100%;
+  padding: 0; border: 0 !important; background: transparent !important; box-shadow: none !important; }
+.stApp:has(.orbit-tasks-page) [class*="st-key-task_container_"]
+  [class*="st-key-task_card_"] button p { position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+.orbit-task-column-empty { min-height: 110px; padding: 36px 16px; text-align: center;
+  color: #8a8ea1; font-size: 12px; }
+.orbit-task-dialog-dark { position: absolute; width: 1px; height: 1px;
+  overflow: hidden; clip: rect(0,0,0,0); }
+.orbit-task-dialog-meta { display: grid; grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 12px; margin: 16px 0; }
+.orbit-task-dialog-meta div { padding: 14px; border: 1px solid #e6e8f0;
+  border-radius: 12px; background: #fff; }
+.orbit-task-dialog-meta span { display: block; color: #71758a; font-size: 11px; }
+.orbit-task-dialog-meta strong { display: block; margin-top: 4px; color: #11184f; font-size: 15px; }
+[data-testid="stDialog"] [data-testid="stFormSubmitButton"] button,
+[data-testid="stDialog"] [data-testid="stBaseButton-primary"] {
+  border-color: #7c3aed !important; background: #7c3aed !important; color: #fff !important; }
+[data-testid="stDialog"] [class*="st-key-delete_task_"] button:not(:disabled) {
+  border-color: #dc2626 !important; background: #dc2626 !important; color: #fff !important; }
+[data-testid="stDialog"] [class*="st-key-delete_task_"] button:not(:disabled):hover {
+  border-color: #b91c1c !important; background: #b91c1c !important; }
+
+/* Dark palette follows the official desktop dark frames. */
+.stApp:has(.orbit-tasks-dark),
+.stApp:has(.orbit-tasks-dark) [data-testid="stAppViewContainer"],
+.stApp:has(.orbit-tasks-dark) [data-testid="stMain"] {
+  background: #10111f !important; color: #f4f2ff; }
+.stApp:has(.orbit-tasks-dark) [data-testid="stHeader"] { background: #10111f !important; }
+.stApp:has(.orbit-tasks-dark) [data-testid="stSidebar"] { background: #1a1d30 !important; }
+.stApp:has(.orbit-tasks-dark) [data-testid="stSidebar"] * { color: #f4f2ff; }
+.stApp:has(.orbit-tasks-dark) [data-testid="stSidebarNav"] a[aria-current="page"] {
+  background: #34215f !important; color: #ede9fe !important; }
+.stApp:has(.orbit-tasks-dark) .orbit-tasks-topbar {
+  background: #1a1d30; border-bottom: 1px solid #2c3048; }
+.stApp:has(.orbit-tasks-dark) .orbit-tasks-topbar h1,
+.stApp:has(.orbit-tasks-dark) .orbit-task-intro h1 { color: #f7f5ff; }
+.stApp:has(.orbit-tasks-dark) .orbit-tasks-topbar p,
+.stApp:has(.orbit-tasks-dark) .orbit-task-intro p { color: #9fa3b8; }
+.stApp:has(.orbit-tasks-dark) .orbit-tasks-global-search,
+.stApp:has(.orbit-tasks-dark) .orbit-tasks-bell {
+  border-color: #30354e; background: #171a2c; color: #9fa3b8; }
+.stApp:has(.orbit-tasks-dark) [data-testid="stTextInput"] input,
+.stApp:has(.orbit-tasks-dark) [data-testid="stSelectbox"] div[data-baseweb="select"] > div {
+  border-color: #30354e !important; background: #191c2f !important;
+  color: #f4f2ff !important; }
+.stApp:has(.orbit-tasks-dark) [data-testid="stSelectbox"] span,
+.stApp:has(.orbit-tasks-dark) [data-testid="stSelectbox"] svg {
+  color: #f4f2ff !important; fill: #f4f2ff !important; }
+.stApp:has(.orbit-tasks-dark) [data-testid="stTextInput"] input::placeholder {
+  color: #898da4; opacity: 1; }
+.stApp:has(.orbit-tasks-dark) .orbit-task-metrics div,
+.stApp:has(.orbit-tasks-dark) [class*="st-key-task_container_"] {
+  border-color: #2d3149; background: #1a1d30; box-shadow: none; }
+.stApp:has(.orbit-tasks-dark) [class*="st-key-task_board_"] {
+  border-color: #292d44; background: #141625; }
+.stApp:has(.orbit-tasks-dark) .orbit-task-metrics span,
+.stApp:has(.orbit-tasks-dark) .orbit-task-card p,
+.stApp:has(.orbit-tasks-dark) .orbit-task-card small { color: #a7aabd; }
+.stApp:has(.orbit-tasks-dark) .orbit-task-metrics strong,
+.stApp:has(.orbit-tasks-dark) .orbit-task-board-title,
+.stApp:has(.orbit-tasks-dark) .orbit-task-card h2 { color: #f4f2ff; }
+.stApp:has(.orbit-tasks-dark) [class*="st-key-task_container_"]:hover {
+  border-color: #7c3aed; box-shadow: 0 10px 28px rgba(0,0,0,.24); }
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark),
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark) > div,
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark) [data-testid="stDialogBody"],
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark) form {
+  border-color: #30354e !important; background: #181b2d !important; color: #f4f2ff !important; }
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark) h1,
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark) h2,
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark) h3,
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark) p,
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark) label,
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark) span,
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark) strong { color: #f4f2ff !important; }
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark) input,
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark) textarea,
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark) div[data-baseweb="select"] > div,
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark) [data-testid="stDateInput"] input,
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark) [data-testid="stDateInput"] button {
+  border-color: #626985 !important; background: #121525 !important;
+  color: #f4f2ff !important; -webkit-text-fill-color: #f4f2ff !important; color-scheme: dark; }
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark) [data-testid="stDateInput"] {
+  margin-top: 5px !important; background: transparent !important;
+  display: flex !important; flex-direction: column !important; gap: 6px !important; }
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark)
+  [data-testid="stDateInput"] div[data-baseweb="input"] {
+  border: 1px solid #d8dbea !important; border-radius: 8px !important;
+  background: #121525 !important; box-shadow: none !important; }
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark)
+  [data-testid="stDateInput"] > div,
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark)
+  [data-testid="stDateInput"] > div > div,
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark)
+  [data-testid="stDateInput"] > div > div > div {
+  background: #121525 !important; background-color: #121525 !important; }
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark)
+  [data-testid="stDateInput"] div[data-baseweb="input"] *,
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark)
+  [data-testid="stDateInput"] div:has(> input),
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark)
+  [data-testid="stDateInput"] input {
+  background: transparent !important; background-color: transparent !important;
+  color: #f4f2ff !important; -webkit-text-fill-color: #f4f2ff !important; }
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark) [data-testid="stTextInput"] input,
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark) [data-testid="stTextArea"] textarea,
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark)
+  div[data-baseweb="select"] > div {
+  border-color: #626985 !important; box-shadow: none !important; }
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark) div[data-baseweb="select"] * {
+  background-color: #121525 !important; }
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark)
+  div[data-baseweb="select"] div:has(> svg) {
+  background: #121525 !important; color: #c4b5fd !important; }
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark)
+  div[data-baseweb="select"] > div > div:last-child {
+  border-color: #30354e !important; background: #121525 !important;
+  color: #f4f2ff !important; }
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark) div[data-baseweb="select"] svg {
+  color: #c4b5fd !important; fill: #c4b5fd !important; }
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark) [data-baseweb="tab-list"] {
+  border-bottom-color: #30354e !important; }
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark) [data-baseweb="tab"] {
+  color: #a7aabd !important; }
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark)
+  [data-baseweb="tab"][aria-selected="true"] {
+  color: #c4b5fd !important; border-bottom: 3px solid #7c3aed !important;
+  box-shadow: inset 0 -2px 0 #7c3aed !important; }
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark) [data-baseweb="tab-highlight"] {
+  background-color: #7c3aed !important; }
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark) button[aria-label="Close"] svg,
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark) button[aria-label="Fechar"] svg {
+  color: #f4f2ff !important; fill: #f4f2ff !important; stroke: #f4f2ff !important; }
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark) .orbit-task-dialog-meta div {
+  border-color: #30354e; background: #1f2237; }
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark) .orbit-task-dialog-meta span {
+  color: #a7aabd !important; }
+[data-testid="stDialog"]:has(.orbit-task-dialog-dark) [data-testid="stAlert"] {
+  border-color: #7c5b24 !important; background: #3a2b16 !important; }
+
+@media (max-width: 700px) {
+  .stApp:has(.orbit-tasks-page) [data-testid="stMainBlockContainer"] { padding: 0 16px 2rem; }
+  .orbit-tasks-page { margin: 0 -16px; }
+  .orbit-tasks-topbar { min-height: 80px; padding: 16px; }
+  .orbit-tasks-topbar h1 { font-size: 18px; }
+  .orbit-tasks-global-search { display: none; }
+  .orbit-task-metrics { grid-template-columns: minmax(0,1fr); }
+  .orbit-task-dialog-meta { grid-template-columns: minmax(0,1fr); }
+}
