@@ -1,0 +1,277 @@
+/* Figma Disciplinas / Desktop / Light, frame 107:18 — adapted for Streamlit. */
+.stApp:has(.orbit-subjects-page) { background: #f8fafc; }
+.stApp:has(.orbit-subjects-page) [data-testid="stMainBlockContainer"] {
+  width: 100%; max-width: none; padding: 0 32px 2rem; }
+.orbit-subjects-page { margin: 0 -32px; color: #11184f;
+  font-family: Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; }
+.orbit-subjects-topbar { min-height: 96px; padding: 20px 32px; background: white;
+  display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.orbit-subjects-topbar h1 { margin: 0 0 4px; color: #0f1757; font-size: 22px; line-height: 27px; }
+.orbit-subjects-topbar p { margin: 0; color: #6b7280; font-size: 12px; }
+.orbit-subjects-header-icons { display: flex; align-items: center; gap: 16px; }
+.orbit-subjects-global-search { width: 300px; height: 44px; padding: 0 16px;
+  border: 1px solid #e5e7eb; border-radius: 22px; background: #f8fafc;
+  display: flex; align-items: center; gap: 10px; color: #6b7280; font-size: 12px; }
+.orbit-subjects-global-search img { width: 18px; height: 18px; }
+.orbit-subjects-bell { width: 44px; height: 44px; border: 1px solid #e5e7eb;
+  border-radius: 50%; background: white; display: grid; place-items: center; }
+.orbit-subjects-bell img { width: 20px; height: 20px; }
+.stApp:has(.orbit-subjects-page) [data-testid="stHorizontalBlock"]:has(.orbit-subject-intro) {
+  min-height: 98px; align-items: center; }
+.orbit-subject-intro { padding-top: 0; }
+.orbit-subject-intro h1 { margin: 0; color: #11184f; font-size: 28px; line-height: 34px; }
+.orbit-subject-intro p { margin: 6px 0 0; color: #71758a; font-size: 13px; }
+.orbit-subject-metrics { margin: 4px 0 14px; display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; }
+.orbit-subject-metrics div { min-height: 104px; padding: 18px 20px; border: 1px solid #e6e8f0;
+  border-radius: 16px; background: white; display: flex; flex-direction: column; gap: 8px; }
+.orbit-subject-metrics span { color: #71758a; font-size: 12px; }
+.orbit-subject-metrics strong { color: #11184f; font-size: 22px; }
+.orbit-subject-grid-marker { height: 0; }
+.stApp:has(.orbit-subjects-page) [class*="st-key-subject_container_"] {
+  position: relative; min-height: 240px; overflow: hidden; border: 1px solid #e6e8f0;
+  border-radius: 18px; background: white;
+  box-shadow: 0 1px 2px rgba(17,24,79,.02); transition: border-color .18s ease,
+  box-shadow .18s ease, transform .18s ease; }
+.stApp:has(.orbit-subjects-page) [class*="st-key-subject_container_"]:hover {
+  border-color: #a78bfa; box-shadow: 0 10px 28px rgba(124,58,237,.11);
+  transform: translateY(-2px); }
+.orbit-subject-card { min-height: 238px; padding: 18px 6px 12px; color: #4f5368; }
+.orbit-subject-accent { display: block; width: 48px; height: 6px; margin-bottom: 12px;
+  border-radius: 999px; }
+.orbit-subject-card h2 { margin: 0 0 8px; color: #11184f; font-size: 18px;
+  line-height: 23px; overflow-wrap: anywhere; }
+.orbit-subject-card p { margin: 2px 0; color: #4f5368; font-size: 12px; line-height: 17px; }
+.stApp:has(.orbit-subjects-page) [class*="st-key-subject_container_"]
+  [class*="st-key-subject_card_"] { position: absolute; inset: 0; z-index: 2; }
+.stApp:has(.orbit-subjects-page) [class*="st-key-subject_container_"]
+  [class*="st-key-subject_card_"] button {
+  position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: 0 !important;
+  background: transparent !important; box-shadow: none !important; }
+.stApp:has(.orbit-subjects-page) [class*="st-key-subject_container_"]
+  [class*="st-key-subject_card_"] button p {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.stApp:has(.orbit-subjects-page) [class*="st-key-subject_container_"]
+  [class*="st-key-subject_card_"] button:focus-visible {
+  outline: 3px solid rgba(124,58,237,.34) !important; outline-offset: -4px; }
+.orbit-subject-empty { min-height: 180px; padding: 60px 24px; text-align: center;
+  border: 1px solid #e6e8f0; border-radius: 18px; background: white; color: #71758a; }
+.stApp:has(.orbit-subjects-page) [data-testid="stTextInput"] input,
+.stApp:has(.orbit-subjects-page) [data-testid="stSelectbox"] div[data-baseweb="select"] > div {
+  min-height: 48px; border-color: #e6e8f0; border-radius: 12px; background: white; }
+.stApp:has(.orbit-subjects-page) button[kind="primary"] { min-height: 44px; border-radius: 12px; }
+.st-key-manage_subjects_action button,
+.st-key-new_subject_action button { min-height: 44px; border-radius: 12px; font-weight: 600; }
+.st-key-manage_subjects_action button {
+  border: 1px solid #7c3aed !important; background: #f3efff !important;
+  color: #6d28d9 !important; }
+.st-key-manage_subjects_action button:hover {
+  border-color: #6d28d9 !important; background: #e9e1ff !important;
+  color: #5b21b6 !important; }
+.st-key-new_subject_action button {
+  border: 1px solid #7c3aed !important; background: #7c3aed !important;
+  color: #fff !important; }
+.st-key-new_subject_action button:hover {
+  border-color: #6d28d9 !important; background: #6d28d9 !important; color: #fff !important; }
+[data-testid="stDialog"] [data-testid="stFormSubmitButton"] button,
+[data-testid="stDialog"] [data-testid="stBaseButton-primary"] {
+  border-color: #7c3aed !important; background: #7c3aed !important; color: #fff !important; }
+[data-testid="stDialog"] [data-testid="stFormSubmitButton"] button:hover,
+[data-testid="stDialog"] [data-testid="stBaseButton-primary"]:hover {
+  border-color: #6d28d9 !important; background: #6d28d9 !important; color: #fff !important; }
+[data-testid="stDialog"] .stProgress > div > div > div > div,
+[data-testid="stDialog"] [data-testid="stProgressBar"] > div > div > div > div,
+[data-testid="stDialog"] [data-testid="stProgressBar"] [role="progressbar"] > div {
+  background-color: #7c3aed !important; border-radius: 999px !important; }
+[data-testid="stDialog"] [data-baseweb="tab"][aria-selected="true"] {
+  color: #6d28d9; border-bottom-color: #7c3aed; }
+[data-testid="stDialog"] [class*="st-key-delete_subject_"] button:not(:disabled) {
+  border-color: #dc2626; background: #dc2626; color: #fff; }
+[data-testid="stDialog"] [class*="st-key-delete_subject_"] button:not(:disabled):hover {
+  border-color: #b91c1c; background: #b91c1c; color: #fff; }
+.orbit-subject-dialog-accent { width: 48px; height: 6px; margin: 0 0 10px;
+  border-radius: 999px; }
+[data-testid="stDialog"] [data-testid="stHeadingWithActionElements"] {
+  width: 100%; min-width: 0; }
+[data-testid="stDialog"] [data-testid="stHeadingWithActionElements"] h3 {
+  width: 100%; margin: 0; color: #11184f; overflow-wrap: normal; word-break: normal; }
+.orbit-subject-dialog-metrics { width: 100%; margin: 18px 0; display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr)); gap: 12px; }
+.orbit-subject-dialog-metrics div { min-width: 0; padding: 14px; border: 1px solid #e6e8f0;
+  border-radius: 12px; background: #fff; }
+.orbit-subject-dialog-metrics span { display: block; color: #71758a; font-size: 12px; }
+.orbit-subject-dialog-metrics strong { display: block; margin-top: 5px; color: #11184f;
+  font-size: 24px; line-height: 28px; }
+
+/* Figma Disciplinas / Desktop / Dark. */
+.stApp:has(.orbit-subjects-dark),
+.stApp:has(.orbit-subjects-dark) [data-testid="stAppViewContainer"],
+.stApp:has(.orbit-subjects-dark) [data-testid="stMain"] {
+  background: #10111f !important; color: #f4f2ff; }
+.stApp:has(.orbit-subjects-dark) [data-testid="stHeader"] {
+  background: #10111f !important; }
+.stApp:has(.orbit-subjects-dark) [data-testid="stSidebar"] {
+  background: #1a1d30 !important; }
+.stApp:has(.orbit-subjects-dark) [data-testid="stSidebar"] p,
+.stApp:has(.orbit-subjects-dark) [data-testid="stSidebar"] span,
+.stApp:has(.orbit-subjects-dark) [data-testid="stSidebar"] label,
+.stApp:has(.orbit-subjects-dark) [data-testid="stSidebar"] h1,
+.stApp:has(.orbit-subjects-dark) [data-testid="stSidebar"] h2,
+.stApp:has(.orbit-subjects-dark) [data-testid="stSidebar"] h3 {
+  color: #f4f2ff !important; }
+.stApp:has(.orbit-subjects-dark) [data-testid="stSidebarNav"] a[aria-current="page"] {
+  background: #34215f !important; color: #ede9fe !important; }
+.stApp:has(.orbit-subjects-dark) .orbit-subjects-topbar {
+  background: #1a1d30 !important; border-bottom: 1px solid #2c3048; }
+.stApp:has(.orbit-subjects-dark) .orbit-subjects-topbar h1,
+.stApp:has(.orbit-subjects-dark) .orbit-subject-intro h1 { color: #f7f5ff; }
+.stApp:has(.orbit-subjects-dark) .orbit-subjects-topbar p,
+.stApp:has(.orbit-subjects-dark) .orbit-subject-intro p { color: #9fa3b8; }
+.stApp:has(.orbit-subjects-dark) .orbit-subjects-global-search {
+  border-color: #30354e; background: #171a2c; color: #9fa3b8; }
+.stApp:has(.orbit-subjects-dark) .orbit-subjects-bell {
+  border-color: #30354e; background: #171a2c; }
+.stApp:has(.orbit-subjects-dark) .orbit-subject-metrics div,
+.stApp:has(.orbit-subjects-dark) [class*="st-key-subject_container_"] {
+  border-color: #2d3149 !important; background: #1a1d30 !important;
+  box-shadow: none; }
+.stApp:has(.orbit-subjects-dark) .orbit-subject-metrics span,
+.stApp:has(.orbit-subjects-dark) .orbit-subject-card p { color: #a7aabd; }
+.stApp:has(.orbit-subjects-dark) .orbit-subject-metrics strong,
+.stApp:has(.orbit-subjects-dark) .orbit-subject-card h2 { color: #f4f2ff; }
+.stApp:has(.orbit-subjects-dark) [class*="st-key-subject_container_"]:hover {
+  border-color: #7c3aed; box-shadow: 0 12px 32px rgba(0,0,0,.24); }
+.stApp:has(.orbit-subjects-dark) .orbit-subject-empty {
+  border-color: #2d3149; background: #1a1d30; color: #a7aabd; }
+.stApp:has(.orbit-subjects-dark) [data-testid="stTextInput"] input,
+.stApp:has(.orbit-subjects-dark) [data-testid="stSelectbox"] div[data-baseweb="select"] > div {
+  border-color: #30354e !important; background: #191c2f !important;
+  color: #f4f2ff !important; }
+.stApp:has(.orbit-subjects-dark) [data-testid="stSelectbox"] [data-baseweb="select"],
+.stApp:has(.orbit-subjects-dark) [data-testid="stSelectbox"] [data-baseweb="select"] > div,
+.stApp:has(.orbit-subjects-dark) [data-testid="stSelectbox"] [data-baseweb="select"] input {
+  background: #191c2f !important; color: #f4f2ff !important; }
+.stApp:has(.orbit-subjects-dark) [data-testid="stSelectbox"] svg,
+.stApp:has(.orbit-subjects-dark) [data-testid="stSelectbox"] span {
+  color: #f4f2ff !important; fill: #f4f2ff !important; }
+.stApp:has(.orbit-subjects-dark) [data-testid="stTextInput"] input::placeholder {
+  color: #898da4; opacity: 1; }
+.stApp:has(.orbit-subjects-dark) .st-key-manage_subjects_action button {
+  border-color: #7c3aed !important; background: #271b49 !important;
+  color: #c4b5fd !important; }
+.stApp:has(.orbit-subjects-dark) .st-key-manage_subjects_action button:hover {
+  border-color: #8b5cf6 !important; background: #34215f !important;
+  color: #ede9fe !important; }
+.orbit-subject-dialog-dark { position: absolute; width: 1px; height: 1px;
+  overflow: hidden; clip: rect(0,0,0,0); }
+[data-testid="stDialog"]:has(.orbit-subject-dialog-dark) {
+  border-color: #30354e !important; background: #181b2d !important;
+  color: #f4f2ff !important; }
+[data-testid="stDialog"]:has(.orbit-subject-dialog-dark) > div,
+[data-testid="stDialog"]:has(.orbit-subject-dialog-dark) [data-testid="stDialogBody"],
+[data-testid="stDialog"]:has(.orbit-subject-dialog-dark) [data-testid="stForm"],
+[data-testid="stDialog"]:has(.orbit-subject-dialog-dark) form {
+  border-color: #30354e !important; background: #181b2d !important;
+  color: #f4f2ff !important; }
+[data-testid="stDialog"]:has(.orbit-subject-dialog-dark)
+  [data-testid="stVerticalBlockBorderWrapper"] {
+  border-color: #30354e !important; background: #1f2237 !important; }
+[data-testid="stDialog"]:has(.orbit-subject-dialog-dark) [data-baseweb="modal"],
+[data-testid="stDialog"]:has(.orbit-subject-dialog-dark) div[role="dialog"],
+[data-testid="stDialog"]:has(.orbit-subject-dialog-dark) div[role="dialog"] > div {
+  background: #181b2d !important; color: #f4f2ff !important; }
+[data-testid="stDialog"]:has(.orbit-subject-dialog-dark) h1,
+[data-testid="stDialog"]:has(.orbit-subject-dialog-dark) h2,
+[data-testid="stDialog"]:has(.orbit-subject-dialog-dark) h3,
+[data-testid="stDialog"]:has(.orbit-subject-dialog-dark) p,
+[data-testid="stDialog"]:has(.orbit-subject-dialog-dark) label,
+[data-testid="stDialog"]:has(.orbit-subject-dialog-dark) span {
+  color: #f4f2ff !important; }
+[data-testid="stDialog"]:has(.orbit-subject-dialog-dark) [data-baseweb="input"],
+[data-testid="stDialog"]:has(.orbit-subject-dialog-dark) [data-baseweb="textarea"],
+[data-testid="stDialog"]:has(.orbit-subject-dialog-dark) [data-baseweb="select"],
+[data-testid="stDialog"]:has(.orbit-subject-dialog-dark) [data-testid="stDateInput"],
+[data-testid="stDialog"]:has(.orbit-subject-dialog-dark) [data-testid="stDateInput"] > div,
+[data-testid="stDialog"]:has(.orbit-subject-dialog-dark) input,
+[data-testid="stDialog"]:has(.orbit-subject-dialog-dark) textarea {
+  border-color: #30354e !important; background: #121525 !important;
+  color: #f4f2ff !important; }
+[data-testid="stDialog"]:has(.orbit-subject-dialog-dark) [data-testid="stDateInput"],
+[data-testid="stDialog"]:has(.orbit-subject-dialog-dark) [data-testid="stDateInput"] div,
+[data-testid="stDialog"]:has(.orbit-subject-dialog-dark) [data-testid="stDateInput"] input,
+[data-testid="stDialog"]:has(.orbit-subject-dialog-dark) [data-testid="stDateInput"] button {
+  background-color: #121525 !important; color: #f4f2ff !important;
+  -webkit-text-fill-color: #f4f2ff !important; color-scheme: dark !important; }
+[data-testid="stDialog"]:has(.orbit-subject-dialog-dark) [data-testid="stDateInput"] svg {
+  color: #c4b5fd !important; fill: #c4b5fd !important; }
+[data-testid="stDialog"]:has(.orbit-subject-dialog-dark)
+  [data-testid="stDateInput"] input::-webkit-calendar-picker-indicator {
+  filter: invert(1) brightness(1.5); opacity: .82; }
+[data-testid="stDialog"]:has(.orbit-subject-dialog-dark) .orbit-subject-dialog-metrics div {
+  border-color: #30354e !important; background: #1f2237 !important; }
+.stApp:has(.orbit-subjects-dark) [data-testid="stDialog"] [data-baseweb="modal"],
+.stApp:has(.orbit-subjects-dark) [data-testid="stDialog"] div[role="dialog"],
+.stApp:has(.orbit-subjects-dark) [data-testid="stDialog"] div[role="dialog"] > div,
+body:has(.orbit-subjects-dark) [data-testid="stDialog"] [data-baseweb="modal"],
+body:has(.orbit-subjects-dark) [data-testid="stDialog"] div[role="dialog"],
+body:has(.orbit-subjects-dark) [data-testid="stDialog"] div[role="dialog"] > div {
+  background: #181b2d !important; color: #f4f2ff !important; }
+body:has(.orbit-subjects-dark) [data-testid="stDialog"] h1,
+body:has(.orbit-subjects-dark) [data-testid="stDialog"] h2,
+body:has(.orbit-subjects-dark) [data-testid="stDialog"] h3,
+body:has(.orbit-subjects-dark) [data-testid="stDialog"] p,
+body:has(.orbit-subjects-dark) [data-testid="stDialog"] label,
+body:has(.orbit-subjects-dark) [data-testid="stDialog"] span {
+  color: #f4f2ff !important; }
+body:has(.orbit-subjects-dark) .orbit-subject-dialog-metrics div {
+  border-color: #30354e; background: #1f2237; }
+body:has(.orbit-subjects-dark) .orbit-subject-dialog-metrics span { color: #a7aabd; }
+body:has(.orbit-subjects-dark) .orbit-subject-dialog-metrics strong { color: #f4f2ff; }
+body:has(.orbit-subjects-dark) [data-testid="stDialog"] input,
+body:has(.orbit-subjects-dark) [data-testid="stDialog"] textarea,
+body:has(.orbit-subjects-dark) [data-testid="stDialog"] div[data-baseweb="select"] > div {
+  border-color: #30354e !important; background: #121525 !important;
+  color: #f4f2ff !important; }
+body:has(.orbit-subjects-dark) [data-testid="stDialog"] [data-baseweb="input"],
+body:has(.orbit-subjects-dark) [data-testid="stDialog"] [data-baseweb="textarea"],
+body:has(.orbit-subjects-dark) [data-testid="stDialog"] [data-baseweb="select"],
+body:has(.orbit-subjects-dark) [data-testid="stDialog"] [data-baseweb="select"] > div {
+  border-color: #30354e !important; background: #121525 !important;
+  color: #f4f2ff !important; }
+body:has(.orbit-subjects-dark) [data-testid="stDialog"] [data-testid="stNumberInput"] button {
+  border-color: #30354e !important; background: #1f2237 !important;
+  color: #f4f2ff !important; }
+body:has(.orbit-subjects-dark) [data-testid="stDialog"] [data-baseweb="tab-list"] {
+  border-bottom-color: #30354e !important; }
+body:has(.orbit-subjects-dark) [data-testid="stDialog"] [data-baseweb="tab"] {
+  color: #a7aabd !important; }
+body:has(.orbit-subjects-dark) [data-testid="stDialog"] [data-baseweb="tab"][aria-selected="true"] {
+  color: #c4b5fd !important; border-bottom-color: #7c3aed !important; }
+body:has(.orbit-subjects-dark) [data-testid="stDialog"] [data-testid="stAlert"] {
+  border: 1px solid #7c5b24 !important; background: #3a2b16 !important;
+  color: #fde68a !important; }
+body:has(.orbit-subjects-dark) [data-testid="stDialog"] [data-testid="stAlert"] * {
+  color: #fde68a !important; }
+body:has(.orbit-subjects-dark) [data-testid="stDialog"] [role="progressbar"] > div,
+body:has(.orbit-subjects-dark) [data-testid="stDialog"] [data-testid="stProgressBar"] > div > div {
+  background: #7c3aed !important; }
+[data-testid="stDialog"] [class*="st-key-delete_subject_"] button:not(:disabled) {
+  border-color: #dc2626 !important; background: #dc2626 !important;
+  color: #fff !important; }
+[data-testid="stDialog"] [class*="st-key-delete_subject_"] button:not(:disabled) p {
+  color: #fff !important; }
+[data-testid="stDialog"] [class*="st-key-delete_subject_"] button:not(:disabled):hover {
+  border-color: #b91c1c !important; background: #b91c1c !important;
+  color: #fff !important; }
+@media (max-width: 700px) {
+  .stApp:has(.orbit-subjects-page) [data-testid="stMainBlockContainer"] { padding: 0 16px 2rem; }
+  .orbit-subjects-page { margin: 0 -16px; }
+  .orbit-subjects-topbar { min-height: 80px; padding: 16px; }
+  .orbit-subjects-topbar h1 { font-size: 18px; }
+  .orbit-subjects-global-search { display: none; }
+  .orbit-subject-metrics { grid-template-columns: minmax(0,1fr); }
+  .stApp:has(.orbit-subjects-page) [class*="st-key-subject_container_"],
+  .orbit-subject-card { min-height: 190px; }
+  .orbit-subject-dialog-metrics { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
