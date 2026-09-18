@@ -1,0 +1,332 @@
+/* Figma Agenda / Desktop / Light, frames 159:58 and 303:172 — Streamlit adaptation. */
+.stApp:has(.orbit-agenda-page) { background: #f8fafc; }
+.stApp:has(.orbit-agenda-page) [data-testid="stMainBlockContainer"] {
+  width: 100%; max-width: none; padding: 0 32px 2rem; }
+.orbit-agenda-page { margin: 0 -32px; color: #11184f;
+  font-family: Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; }
+.orbit-agenda-topbar { min-height: 96px; padding: 20px 32px; background: #fff;
+  display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.orbit-agenda-topbar h1 { margin: 0 0 4px; color: #0f1757; font-size: 22px; line-height: 27px; }
+.orbit-agenda-topbar p { margin: 0; color: #6b7280; font-size: 12px; }
+.orbit-agenda-header-icons { display: flex; align-items: center; gap: 16px; }
+.orbit-agenda-global-search { width: 300px; height: 44px; padding: 0 16px;
+  border: 1px solid #e5e7eb; border-radius: 22px; background: #f8fafc;
+  display: flex; align-items: center; gap: 10px; color: #6b7280; font-size: 12px; }
+.orbit-agenda-global-search img { width: 18px; height: 18px; }
+.orbit-agenda-bell { width: 44px; height: 44px; border: 1px solid #e5e7eb;
+  border-radius: 50%; background: #fff; display: grid; place-items: center; }
+.orbit-agenda-bell img { width: 20px; height: 20px; }
+.stApp:has(.orbit-agenda-page) [data-testid="stHorizontalBlock"]:has(.orbit-agenda-intro) {
+  min-height: 90px; align-items: center; }
+.orbit-agenda-intro h1 { margin: 0; color: #11184f; font-size: 28px; line-height: 38px; }
+.orbit-agenda-intro p { margin: 2px 0 0; color: #71758a; font-size: 13px; }
+.st-key-new_agenda_event button { min-height: 44px; border: 1px solid #7c3aed !important;
+  border-radius: 12px; background: #7c3aed !important; color: #fff !important; font-weight: 600; }
+.st-key-new_agenda_event button:hover { background: #6d28d9 !important; color: #fff !important; }
+.orbit-agenda-month-title { min-height: 44px; display: flex; align-items: center;
+  justify-content: center; color: #11184f; font-size: 16px; font-weight: 650; }
+.st-key-agenda_previous_month button,.st-key-agenda_next_month button {
+  min-height: 40px; border: 0 !important; background: transparent !important;
+  color: #11184f !important; font-size: 22px; box-shadow: none !important; }
+.stApp:has(.orbit-agenda-page) [data-testid="stRadio"] > label { display: none; }
+.stApp:has(.orbit-agenda-page) [data-testid="stRadio"] div[role="radiogroup"] {
+  min-height: 44px; padding: 4px; border: 1px solid #e6e8f0; border-radius: 12px;
+  background: #fff; display: flex; justify-content: flex-end; gap: 4px; }
+.stApp:has(.orbit-agenda-page) [data-testid="stRadio"] label {
+  min-width: 120px; min-height: 34px; padding: 0 14px; border-radius: 9px;
+  display: flex; align-items: center; justify-content: center; color: #71758a; }
+.stApp:has(.orbit-agenda-page) [data-testid="stRadio"] label:has(input:checked) {
+  background: #ece8fe; color: #7c3aed; }
+.stApp:has(.orbit-agenda-page) [data-testid="stRadio"] label > div:first-child { display: none; }
+.st-key-agenda_calendar_grid { overflow: hidden; padding: 0 8px 8px !important;
+  border: 1px solid #e6e8f0 !important; border-radius: 14px; background: #fff; }
+.orbit-agenda-weekdays { display: grid; grid-template-columns: repeat(7,minmax(0,1fr)); }
+.orbit-agenda-weekdays { min-height: 40px; border-bottom: 1px solid #e6e8f0; background: #fafbfc; }
+.orbit-agenda-weekdays div { padding: 13px 10px; color: #71758a; font-size: 10px; font-weight: 650; }
+.st-key-agenda_calendar_grid [class*="st-key-agenda_day_cell_"] {
+  position: relative; min-height: 94px; padding: 8px !important; overflow: hidden;
+  cursor: pointer;
+  border: 1px solid #eceef4 !important; border-radius: 8px; background: #fff;
+  transition: background .16s ease, box-shadow .16s ease; }
+.st-key-agenda_calendar_grid [class*="st-key-agenda_day_cell_"]:hover {
+  background: #f6f2ff; box-shadow: inset 0 0 0 1px #a78bfa; }
+.orbit-agenda-day-content strong { display: inline-grid; min-width: 22px; height: 22px;
+  place-items: center; color: #11184f; font-size: 11px; }
+.orbit-agenda-day-content header { min-height: 24px; margin-bottom: 2px;
+  display: flex; align-items: center; justify-content: space-between; gap: 4px; }
+.orbit-agenda-day-content.outside strong { color: #b6b9c7; }
+.orbit-agenda-day-content.today strong { border-radius: 50%; background: #7c3aed; color: #fff; }
+.st-key-agenda_calendar_grid [class*="st-key-open_agenda_day_"],
+[class*="st-key-agenda_week_day_"] [class*="st-key-open_agenda_week_day_"],
+.st-key-agenda_group_footer .st-key-open_agenda_group_work {
+  position: absolute !important; inset: 0 !important; z-index: 4; width: 100%; height: 100%; }
+.st-key-agenda_calendar_grid [class*="st-key-open_agenda_day_"] button,
+[class*="st-key-agenda_week_day_"] [class*="st-key-open_agenda_week_day_"] button,
+.st-key-agenda_group_footer .st-key-open_agenda_group_work button {
+  position: absolute !important; inset: 0 !important;
+  width: 100%; height: 100%; min-height: 100%; padding: 0;
+  border: 0 !important; background: transparent !important; box-shadow: none !important; }
+.st-key-agenda_calendar_grid [class*="st-key-open_agenda_day_"] [data-testid="stButton"],
+[class*="st-key-agenda_week_day_"] [class*="st-key-open_agenda_week_day_"] [data-testid="stButton"],
+.st-key-agenda_group_footer .st-key-open_agenda_group_work [data-testid="stButton"] {
+  position: absolute !important; inset: 0 !important; width: 100%; height: 100%; }
+.st-key-agenda_calendar_grid [class*="st-key-open_agenda_day_"] button:focus-visible,
+[class*="st-key-agenda_week_day_"] [class*="st-key-open_agenda_week_day_"] button:focus-visible {
+  outline: 2px solid #7c3aed !important; outline-offset: -3px; border-radius: 8px; }
+.st-key-agenda_calendar_grid [class*="st-key-open_agenda_day_"] button p,
+[class*="st-key-agenda_week_day_"] [class*="st-key-open_agenda_week_day_"] button p,
+.st-key-agenda_group_footer .st-key-open_agenda_group_work button p {
+  position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; }
+.orbit-agenda-event { display: block; margin-top: 4px; padding: 3px 5px; border-radius: 5px;
+  overflow: hidden; color: #4c1d95; font-size: 9px; line-height: 12px;
+  text-overflow: ellipsis; white-space: nowrap; }
+.orbit-agenda-event.event-purple { background: #ede9fe; color: #6d28d9; }
+.orbit-agenda-event.event-pink { background: #fce7f3; color: #be185d; }
+.orbit-agenda-event.event-orange { background: #ffedd5; color: #c2410c; }
+.orbit-agenda-event.event-green { background: #d1fae5; color: #047857; }
+.orbit-agenda-more { color: #7c3aed; font-size: 9px; font-weight: 650; white-space: nowrap; }
+.orbit-agenda-day-content,.orbit-agenda-week-day-content,.orbit-agenda-group-footer {
+  pointer-events: none; }
+.orbit-agenda-upcoming { min-height: 644px; padding: 20px; border: 1px solid #e6e8f0;
+  border-radius: 14px; background: #fff; }
+.orbit-agenda-upcoming h2 { margin: 0 0 20px; color: #11184f; font-size: 16px; }
+.orbit-agenda-upcoming h3 { margin: 20px 0 8px; color: #8a8ea1; font-size: 10px; }
+.orbit-agenda-upcoming article { position: relative; min-height: 58px; padding: 10px 0 10px 14px;
+  border-bottom: 1px solid #eceef4; display: grid; grid-template-columns: 46px 1fr; gap: 8px; }
+.orbit-agenda-upcoming article i { position: absolute; top: 12px; left: 0; width: 4px; height: 34px;
+  border-radius: 4px; background: #7c3aed; }
+.orbit-agenda-upcoming article i.event-pink { background: #ec4899; }
+.orbit-agenda-upcoming article i.event-orange { background: #f59e0b; }
+.orbit-agenda-upcoming article i.event-green { background: #10b981; }
+.orbit-agenda-upcoming time { color: #11184f; font-size: 11px; font-weight: 650; }
+.orbit-agenda-upcoming strong,.orbit-agenda-upcoming small { display: block; }
+.orbit-agenda-upcoming strong { color: #11184f; font-size: 11px; line-height: 15px; }
+.orbit-agenda-upcoming small { margin-top: 3px; color: #71758a; font-size: 9px; }
+.orbit-agenda-upcoming-empty,.orbit-agenda-empty { color: #8a8ea1; font-size: 11px; }
+.orbit-agenda-mini { min-height: 590px; padding: 18px 16px; border: 1px solid #e6e8f0;
+  border-radius: 14px; background: #fff; color: #11184f; }
+.orbit-agenda-mini > strong,.orbit-agenda-mini h3 { font-size: 12px; }
+.orbit-agenda-mini p { color: #4f5368; font-size: 10px; line-height: 22px; word-spacing: 5px; }
+.orbit-agenda-mini h3 { margin-top: 24px; }
+.orbit-agenda-mini span { display: block; margin: 8px 0; color: #11184f; font-size: 11px; }
+.orbit-agenda-mini i { display: inline-block; width: 7px; height: 7px; margin-right: 6px;
+  border-radius: 50%; background: #7c3aed; }
+.orbit-agenda-mini i.event-pink { background: #ec4899; }
+.orbit-agenda-mini i.event-orange { background: #f59e0b; }
+.orbit-agenda-mini i.event-green { background: #10b981; }
+.stApp:has(.orbit-agenda-page) [class*="st-key-agenda_week_day_"] {
+  position: relative; min-height: 430px; padding: 18px 10px !important;
+  border: 1px solid #e6e8f0 !important; border-radius: 14px; background: #fff;
+  overflow: hidden; transition: border-color .16s ease, transform .16s ease; }
+.stApp:has(.orbit-agenda-page) [class*="st-key-agenda_week_day_"] { cursor: pointer; }
+.stApp:has(.orbit-agenda-page) [class*="st-key-agenda_week_day_"]:hover {
+  border-color: #a78bfa !important; transform: translateY(-1px); }
+.orbit-agenda-week-day-content.current { margin: -18px -10px; padding: 18px 10px;
+  min-height: 428px; background: #f6f2ff; }
+.orbit-agenda-week-day-content h3 { margin: 0 0 18px; color: #11184f; font-size: 12px; }
+.orbit-agenda-week-day-content.current h3 { color: #7c3aed; }
+.orbit-agenda-week-day-content article { margin-bottom: 18px; }
+.orbit-agenda-week-day-content time,.orbit-agenda-week-day-content strong,
+.orbit-agenda-week-day-content small { display: block; }
+.orbit-agenda-week-day-content time { color: #71758a; font-size: 9px; }
+.orbit-agenda-week-day-content strong { margin-top: 3px; color: #11184f; font-size: 10px; line-height: 14px; }
+.orbit-agenda-week-day-content small { margin-top: 2px; color: #8a8ea1; font-size: 9px; line-height: 13px; }
+.st-key-agenda_group_footer { position: relative; min-height: 120px; margin-top: 8px;
+  padding: 0 !important; border: 0 !important; border-radius: 14px; overflow: hidden;
+  cursor: pointer; }
+.orbit-agenda-group-footer { min-height: 120px; padding: 18px 20px;
+  border-radius: 14px; background: #252734; color: #fff; display: flex; flex-direction: column; gap: 5px; }
+.st-key-agenda_group_footer:hover .orbit-agenda-group-footer {
+  box-shadow: inset 0 0 0 2px #a78bfa; }
+.orbit-agenda-group-footer strong { font-size: 12px; }
+.orbit-agenda-group-footer span { font-size: 12px; }
+.orbit-agenda-group-footer small { color: #e0e0ed; font-size: 11px; }
+.orbit-agenda-dialog-dark { position: absolute; width: 1px; height: 1px; overflow: hidden; }
+.orbit-agenda-dialog-date { margin-bottom: 14px; display: flex; align-items: center;
+  justify-content: space-between; gap: 12px; }
+.orbit-agenda-dialog-date strong { color: #11184f; font-size: 18px; }
+.orbit-agenda-dialog-date span { color: #71758a; font-size: 12px; }
+.orbit-agenda-dialog-event { position: relative; margin-bottom: 10px; padding: 14px 16px 14px 24px;
+  border: 1px solid #e6e8f0; border-radius: 12px; background: #fff;
+  display: grid; grid-template-columns: 58px 1fr; gap: 12px; }
+.orbit-agenda-dialog-event::before { content: ""; position: absolute; top: 14px; bottom: 14px;
+  left: 10px; width: 4px; border-radius: 4px; background: #7c3aed; }
+.orbit-agenda-dialog-event.event-pink::before { background: #ec4899; }
+.orbit-agenda-dialog-event.event-orange::before { background: #f59e0b; }
+.orbit-agenda-dialog-event.event-green::before { background: #10b981; }
+.orbit-agenda-dialog-event time { color: #7c3aed; font-size: 13px; font-weight: 700; }
+.orbit-agenda-dialog-event strong,.orbit-agenda-dialog-event span,.orbit-agenda-dialog-event p { display: block; }
+.orbit-agenda-dialog-event strong { color: #11184f; font-size: 14px; }
+.orbit-agenda-dialog-event span { margin-top: 3px; color: #7c3aed; font-size: 11px; }
+.orbit-agenda-dialog-event p { margin: 5px 0 0; color: #71758a; font-size: 12px; }
+.st-key-agenda_day_drawer {
+  position: fixed !important; top: 0; right: 0; z-index: 1000000;
+  width: min(420px, 94vw); height: 100vh; overflow-y: auto;
+  padding: 28px 24px 32px !important; border: 0 !important;
+  border-left: 1px solid #e1e4ed !important; border-radius: 0 !important;
+  background: #fff; box-shadow: -16px 0 40px rgba(17,24,79,.14);
+  animation: orbit-agenda-drawer-in .24s ease-out both; }
+@keyframes orbit-agenda-drawer-in {
+  from { opacity: .4; transform: translateX(100%); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.st-key-agenda_day_drawer h2 { margin: 0; color: #11184f; font-size: 22px; }
+.st-key-close_agenda_day_drawer button {
+  min-width: 48px; min-height: 48px; padding: 0 !important;
+  border: 0 !important; background: transparent !important; box-shadow: none !important;
+  color: #11184f !important; font-size: 31px; line-height: 1; }
+.st-key-close_agenda_group_drawer button {
+  min-width: 48px; min-height: 48px; padding: 0 !important;
+  border: 0 !important; background: transparent !important; box-shadow: none !important;
+  color: #11184f !important; font-size: 31px; line-height: 1; }
+.st-key-close_agenda_day_drawer button p,
+.st-key-close_agenda_group_drawer button p { font-size: 31px !important; line-height: 1 !important; }
+.st-key-close_agenda_day_drawer button:hover { background: #f3f0ff !important; color: #7c3aed !important; }
+.st-key-close_agenda_group_drawer button:hover { background: #f3f0ff !important; color: #7c3aed !important; }
+[data-testid="stDialog"] [data-testid="stFormSubmitButton"] button {
+  border-color: #7c3aed !important; background: #7c3aed !important; color: #fff !important; }
+
+/* Dark mode uses the approved navy surface system, never white cards. */
+.stApp:has(.orbit-agenda-dark),.stApp:has(.orbit-agenda-dark) [data-testid="stAppViewContainer"],
+.stApp:has(.orbit-agenda-dark) [data-testid="stMain"] { background: #10111f !important; color: #f4f2ff; }
+.stApp:has(.orbit-agenda-dark) [data-testid="stHeader"] { background: #10111f !important; }
+.stApp:has(.orbit-agenda-dark) [data-testid="stSidebar"] { background: #1a1d30 !important; }
+.stApp:has(.orbit-agenda-dark) [data-testid="stSidebar"] * { color: #f4f2ff; }
+.stApp:has(.orbit-agenda-dark) .orbit-agenda-topbar { background: #1a1d30; border-bottom: 1px solid #2c3048; }
+.stApp:has(.orbit-agenda-dark) .orbit-agenda-topbar h1,
+.stApp:has(.orbit-agenda-dark) .orbit-agenda-intro h1,
+.stApp:has(.orbit-agenda-dark) .orbit-agenda-month-title { color: #f7f5ff; }
+.stApp:has(.orbit-agenda-dark) .orbit-agenda-topbar p,
+.stApp:has(.orbit-agenda-dark) .orbit-agenda-intro p { color: #9fa3b8; }
+.stApp:has(.orbit-agenda-dark) .orbit-agenda-global-search,
+.stApp:has(.orbit-agenda-dark) .orbit-agenda-bell { border-color: #30354e; background: #171a2c; color: #9fa3b8; }
+.stApp:has(.orbit-agenda-dark) [data-testid="stRadio"] div[role="radiogroup"],
+.stApp:has(.orbit-agenda-dark) .st-key-agenda_calendar_grid,
+.stApp:has(.orbit-agenda-dark) .orbit-agenda-upcoming,
+.stApp:has(.orbit-agenda-dark) .orbit-agenda-mini,
+.stApp:has(.orbit-agenda-dark) [class*="st-key-agenda_week_day_"] {
+  border-color: #2d3149 !important; background: #1a1d30; }
+.stApp:has(.orbit-agenda-dark) [data-testid="stRadio"] label {
+  background: transparent !important; color: #d8dbea !important; }
+.stApp:has(.orbit-agenda-dark) [data-testid="stRadio"] label * { color: #d8dbea !important; }
+.stApp:has(.orbit-agenda-dark) [data-testid="stRadio"] label:has(input:checked) {
+  background: #34215f !important; color: #f4f2ff !important; }
+.stApp:has(.orbit-agenda-dark) [data-testid="stRadio"] label:has(input:checked) * {
+  color: #f4f2ff !important; }
+.stApp:has(.orbit-agenda-dark) .orbit-agenda-weekdays,
+.stApp:has(.orbit-agenda-dark) [class*="st-key-agenda_day_cell_"] {
+  border-color: #2d3149 !important; background: #1a1d30; }
+.stApp:has(.orbit-agenda-dark) [class*="st-key-agenda_day_cell_"]:hover { background: #27203e; }
+.stApp:has(.orbit-agenda-dark) .orbit-agenda-day-content strong,
+.stApp:has(.orbit-agenda-dark) .orbit-agenda-upcoming h2,
+.stApp:has(.orbit-agenda-dark) .orbit-agenda-upcoming time,
+.stApp:has(.orbit-agenda-dark) .orbit-agenda-upcoming strong,
+.stApp:has(.orbit-agenda-dark) .orbit-agenda-mini,
+.stApp:has(.orbit-agenda-dark) .orbit-agenda-mini span,
+.stApp:has(.orbit-agenda-dark) .orbit-agenda-mini > strong,
+.stApp:has(.orbit-agenda-dark) .orbit-agenda-mini h3,
+.stApp:has(.orbit-agenda-dark) .orbit-agenda-week-day-content h3,
+.stApp:has(.orbit-agenda-dark) .orbit-agenda-week-day-content strong { color: #f4f2ff; }
+.stApp:has(.orbit-agenda-dark) .orbit-agenda-week-day-content.current { background: #27203e; }
+.stApp:has(.orbit-agenda-dark) .orbit-agenda-week-day-content.current h3 { color: #c4b5fd; }
+.stApp:has(.orbit-agenda-dark) .orbit-agenda-mini p,
+.stApp:has(.orbit-agenda-dark) .orbit-agenda-week-day-content time,
+.stApp:has(.orbit-agenda-dark) .orbit-agenda-week-day-content small,
+.stApp:has(.orbit-agenda-dark) .orbit-agenda-upcoming small { color: #a7aabd; }
+.stApp:has(.orbit-agenda-dark) .orbit-agenda-weekdays,
+.stApp:has(.orbit-agenda-dark) .orbit-agenda-weekdays div,
+.stApp:has(.orbit-agenda-dark) .orbit-agenda-upcoming article { border-color: #2d3149; }
+.stApp:has(.orbit-agenda-dark) .st-key-agenda_previous_month button,
+.stApp:has(.orbit-agenda-dark) .st-key-agenda_next_month button { color: #f4f2ff !important; }
+.stApp:has(.orbit-agenda-dark) .st-key-agenda_day_drawer {
+  border-left-color: #30354e !important; background: #181b2d;
+  box-shadow: -16px 0 42px rgba(0,0,0,.38); }
+.stApp:has(.orbit-agenda-dark) .st-key-agenda_day_drawer h2,
+.stApp:has(.orbit-agenda-dark) .st-key-close_agenda_day_drawer button,
+.stApp:has(.orbit-agenda-dark) .st-key-close_agenda_group_drawer button {
+  color: #f4f2ff !important; }
+.stApp:has(.orbit-agenda-dark) .st-key-close_agenda_day_drawer button:hover {
+  background: #27203e !important; color: #c4b5fd !important; }
+.stApp:has(.orbit-agenda-dark) .st-key-close_agenda_group_drawer button:hover {
+  background: #27203e !important; color: #c4b5fd !important; }
+.stApp:has(.orbit-agenda-dark) .st-key-agenda_day_drawer .orbit-agenda-dialog-date strong,
+.stApp:has(.orbit-agenda-dark) .st-key-agenda_day_drawer .orbit-agenda-dialog-event strong {
+  color: #f4f2ff !important; }
+.stApp:has(.orbit-agenda-dark) .st-key-agenda_day_drawer .orbit-agenda-dialog-date span,
+.stApp:has(.orbit-agenda-dark) .st-key-agenda_day_drawer .orbit-agenda-dialog-event p {
+  color: #a7aabd !important; }
+.stApp:has(.orbit-agenda-dark) .st-key-agenda_day_drawer .orbit-agenda-dialog-event {
+  border-color: #30354e; background: #1f2237; }
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark),
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) > div,
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) [data-testid="stDialogBody"],
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) form {
+  border-color: #30354e !important; background: #181b2d !important; color: #f4f2ff !important; }
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) label,
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) span,
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) p,
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) h1 { color: #f4f2ff !important; }
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) button[aria-label="Close"],
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) button[aria-label="Fechar"] {
+  color: #f4f2ff !important; background: transparent !important; }
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) button[aria-label="Close"] svg,
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) button[aria-label="Fechar"] svg {
+  color: #f4f2ff !important; fill: #f4f2ff !important; stroke: #f4f2ff !important; }
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) input,
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) textarea,
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) div[data-baseweb="input"],
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) div[data-baseweb="base-input"],
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) div[data-baseweb="textarea"],
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) div[data-baseweb="select"] > div {
+  border-color: #626985 !important; background: #121525 !important;
+  color: #f4f2ff !important; -webkit-text-fill-color: #f4f2ff !important; color-scheme: dark; }
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) [data-testid="stDateInput"] *,
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) [data-testid="stTimeInput"] * {
+  background-color: #121525 !important; }
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) [data-testid="stDateInput"] div[data-baseweb="input"],
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) [data-testid="stTimeInput"] div[data-baseweb="input"],
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) div[data-baseweb="select"] > div {
+  border: 1px solid #f4f2ff !important; border-radius: 8px !important;
+  background: #121525 !important; box-shadow: none !important; }
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) [data-testid="stDateInput"] input,
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) [data-testid="stTimeInput"] input,
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) [data-testid="stDateInput"] button,
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) [data-testid="stTimeInput"] button {
+  background: transparent !important; background-color: transparent !important;
+  color: #f4f2ff !important; -webkit-text-fill-color: #f4f2ff !important; }
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) [data-testid="stDateInput"] > div,
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) [data-testid="stTimeInput"] > div,
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) [data-testid="stDateInput"] > div > div,
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) [data-testid="stTimeInput"] > div > div,
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) [data-testid="stDateInput"] > div > div > div,
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) [data-testid="stTimeInput"] > div > div > div,
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) div[data-baseweb="select"] > div > div {
+  background: #121525 !important; background-color: #121525 !important; }
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark)
+  [data-testid="stDateInput"] div:has(> input),
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark)
+  [data-testid="stTimeInput"] div:has(> input) {
+  background: transparent !important; background-color: transparent !important; }
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark)
+  [data-testid="stDateInput"] input::-webkit-calendar-picker-indicator,
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark)
+  [data-testid="stTimeInput"] input::-webkit-calendar-picker-indicator {
+  filter: invert(1) brightness(1.5); opacity: .82; }
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) div[data-baseweb="select"] svg,
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) [data-testid="stDateInput"] svg,
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) [data-testid="stTimeInput"] svg {
+  color: #c4b5fd !important; fill: #c4b5fd !important; }
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) .orbit-agenda-dialog-date strong,
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) .orbit-agenda-dialog-event strong {
+  color: #f4f2ff !important; }
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) .orbit-agenda-dialog-date span,
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) .orbit-agenda-dialog-event p {
+  color: #a7aabd !important; }
+[data-testid="stDialog"]:has(.orbit-agenda-dialog-dark) .orbit-agenda-dialog-event {
+  border-color: #30354e; background: #1f2237; }
+@media (max-width: 900px) {
+  .orbit-agenda-header-icons { display: none; }
+  .orbit-agenda-mini { min-height: auto; }
+  .st-key-agenda_calendar_grid { overflow-x: auto; }
+}

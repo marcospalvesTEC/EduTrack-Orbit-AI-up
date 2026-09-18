@@ -40,6 +40,7 @@ def test_protected_pages_stop_without_login():
         "pages/1_Dashboard.py",
         "pages/2_Disciplinas.py",
         "pages/3_Tarefas.py",
+        "pages/4_Agenda.py",
         "pages/4_Perfil.py",
     ]:
         app = AppTest.from_file(PROJECT_ROOT / path, default_timeout=15).run()
@@ -53,6 +54,7 @@ def test_protected_pages_render_with_authenticated_session():
         "pages/1_Dashboard.py",
         "pages/2_Disciplinas.py",
         "pages/3_Tarefas.py",
+        "pages/4_Agenda.py",
         "pages/4_Perfil.py",
     ]:
         app = AppTest.from_file(PROJECT_ROOT / path, default_timeout=15)
