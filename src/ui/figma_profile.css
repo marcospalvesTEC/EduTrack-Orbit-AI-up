@@ -1,0 +1,187 @@
+/* Figma Profile / Desktop / Light + Dark — Streamlit adaptation. */
+.stApp:has(.orbit-profile-page) { background: #f8fafc; }
+.stApp:has(.orbit-profile-page) [data-testid="stMainBlockContainer"] {
+  width: 100%; max-width: none; padding: 0 32px 3rem; }
+.orbit-profile-page { margin: 0 -32px; color: #11184f;
+  font-family: Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+.orbit-profile-topbar { min-height: 96px; padding: 20px 32px; background: #fff;
+  display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.orbit-profile-greeting h1 { margin: 0 0 4px; color: #0f1757; font-size: 22px; line-height: 27px; }
+.orbit-profile-greeting p { margin: 0; color: #6b7280; font-size: 12px; }
+.orbit-profile-header-icons { margin-left: auto; display: flex; align-items: center; gap: 16px; }
+.orbit-profile-search { width: 300px; height: 44px; padding: 0 16px;
+  border: 1px solid #e5e7eb; border-radius: 22px; background: #f8fafc;
+  display: flex; align-items: center; gap: 10px; color: #6b7280; font-size: 12px; }
+.orbit-profile-search img { width: 18px; height: 18px; }
+.orbit-profile-bell { width: 44px; height: 44px; border: 1px solid #e5e7eb;
+  border-radius: 50%; background: #fff; display: grid; place-items: center; }
+.orbit-profile-bell img { width: 20px; height: 20px; }
+
+.st-key-profile_layout > div[data-testid="stVerticalBlock"] {
+  display: grid; grid-template-columns: minmax(0, 2.02fr) minmax(290px, 1fr);
+  grid-template-areas: "intro intro" "personal summary" "preferences security";
+  gap: 16px; align-items: start; padding-top: 24px; }
+.st-key-profile_intro { grid-area: intro; }
+.st-key-profile_summary_card { grid-area: summary; min-height: 300px; }
+.st-key-profile_personal_card { grid-area: personal; min-height: 330px; }
+.st-key-profile_preferences_card { grid-area: preferences; min-height: 260px; }
+.st-key-profile_security_card { grid-area: security; min-height: 220px; }
+.st-key-profile_intro h1 { margin: 0; color: #11184f; font-size: 28px; line-height: 38px; }
+.st-key-profile_intro p { margin: 2px 0 0; color: #71758a; font-size: 13px; }
+.st-key-profile_summary_card,.st-key-profile_personal_card,
+.st-key-profile_preferences_card,.st-key-profile_security_card {
+  overflow: hidden; padding: 20px !important; border: 1px solid transparent !important;
+  border-radius: 16px; background: #fff; box-shadow: none; }
+.st-key-profile_summary_card { padding: 24px !important; }
+.orbit-profile-card-copy { color: #4f5368; font-size: 13px; }
+.orbit-profile-kicker { margin: 0 0 18px; color: #0f1a52; font-size: 13px; font-weight: 500; }
+.orbit-profile-account { margin: 0 0 16px; color: #71758a; font-size: 12px; }
+.orbit-profile-avatar { width: 72px; height: 72px; margin-bottom: 12px; border-radius: 50%;
+  display: block; object-fit: cover; background: #7c3aed; }
+.orbit-profile-card-copy dl { margin: 0; }
+.orbit-profile-card-copy dl div { display: grid; align-items: baseline; }
+.orbit-profile-card-copy dt,.orbit-profile-card-copy dd { margin: 0; }
+.orbit-profile-data { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 28px; }
+.orbit-profile-data div { gap: 5px; }
+.orbit-profile-data dt { color: #71758a; font-size: 12px; }
+.orbit-profile-data dd { color: #11184f; font-size: 13px; overflow-wrap: anywhere; }
+.orbit-profile-preferences div,.orbit-profile-security div { grid-template-columns: 200px 1fr;
+  min-height: 24px; gap: 12px; }
+.orbit-profile-preferences dt,.orbit-profile-security dt { color: #71758a; }
+.orbit-profile-preferences dd,.orbit-profile-security dd { color: #11184f; }
+.orbit-profile-summary dl div { grid-template-columns: 48px 1fr; min-height: 22px; }
+.orbit-profile-summary dt { color: #11184f; font-weight: 600; }
+.orbit-profile-summary dd { color: #4f5368; }
+
+.st-key-profile_summary_card button[kind="primary"],
+.st-key-profile_preferences_card button,
+.st-key-profile_security_card button { min-height: 38px; margin: 10px 0 14px;
+  border: 1px solid #8b5cf6 !important; border-radius: 8px !important;
+  background: #7c3aed !important; color: #fff !important; box-shadow: none !important;
+  justify-content: center; padding: 0 16px !important; font-size: 13px; font-weight: 600; }
+.st-key-profile_summary_card button[kind="primary"] p,
+.st-key-profile_preferences_card button p,
+.st-key-profile_security_card button p { color: #fff !important;
+  -webkit-text-fill-color: #fff !important; }
+.st-key-profile_summary_card button[kind="primary"]:hover,
+.st-key-profile_preferences_card button:hover,
+.st-key-profile_security_card button:hover {
+  border-color: #a78bfa !important; background: #6d28d9 !important; color: #fff !important; }
+.st-key-profile_security_actions { margin-top: 12px; }
+.st-key-profile_security_actions [data-testid="stHorizontalBlock"] {
+  width: 100%; align-items: center; gap: 12px; }
+.st-key-profile_password_action [data-testid="stButton"] {
+  width: 100% !important; display: flex; justify-content: flex-start; }
+.st-key-profile_sessions_action [data-testid="stButton"] {
+  width: 100% !important; display: flex; justify-content: flex-end; }
+.st-key-profile_security_actions button { min-width: 132px; margin: 0 !important;
+  white-space: nowrap; }
+.st-key-profile_email_test_hook { display: none !important; }
+
+/* Profile overlays stay inside .stApp, avoiding the native dialog theme portal. */
+.st-key-profile_dialog_overlay { position: fixed !important; inset: 0; z-index: 999999;
+  overflow-y: auto; padding: 28px !important; background: rgba(8,10,24,.58);
+  backdrop-filter: blur(3px); }
+.st-key-profile_dialog_overlay > div[data-testid="stVerticalBlock"] {
+  width: min(100%, 1040px); min-height: 100%; margin: auto;
+  display: flex; justify-content: center; }
+.st-key-profile_dialog_panel { position: relative; width: 100%; margin: auto;
+  padding: 28px !important; border: 1px solid #d8dce7; border-radius: 16px;
+  background: #fff; color: #172033; box-shadow: 0 24px 80px rgba(15,23,42,.28); }
+.st-key-profile_dialog_panel:has(.orbit-profile-modal-small) { max-width: 520px; }
+.st-key-profile_dialog_header [data-testid="stHorizontalBlock"] {
+  align-items: center; gap: 12px; }
+.orbit-profile-modal-heading h2 { margin: 0 0 22px; color: #172033;
+  font-size: 24px; line-height: 32px; }
+.st-key-profile_dialog_close { width: 100%; display: flex; justify-content: flex-end; }
+.st-key-profile_dialog_close [data-testid="stButton"] { width: 100% !important;
+  display: flex; justify-content: flex-end; }
+.st-key-profile_dialog_close button { width: 48px; min-height: 48px; padding: 0 !important;
+  border: 0 !important; background: transparent !important; color: #172033 !important;
+  box-shadow: none !important; font-size: 36px !important; line-height: 1 !important;
+  justify-content: center !important; }
+.st-key-profile_dialog_close button p { font-size: 36px !important; line-height: 1 !important; }
+.st-key-profile_dialog_close button p { color: #172033 !important;
+  -webkit-text-fill-color: #172033 !important; }
+.st-key-profile_dialog_panel [data-testid="stForm"] { border-color: #d8dce7 !important;
+  background: transparent !important; }
+.st-key-profile_dialog_panel button[kind="primary"] { border-color: #8b5cf6 !important;
+  background: #7c3aed !important; color: #fff !important; }
+.st-key-profile_dialog_panel button[kind="primary"] p { color: #fff !important;
+  -webkit-text-fill-color: #fff !important; }
+
+.stApp:has(.orbit-profile-dark) .st-key-profile_dialog_overlay {
+  background: rgba(3,5,16,.72); }
+.stApp:has(.orbit-profile-dark) .st-key-profile_dialog_panel {
+  border-color: #30354e !important; background: #171a2e !important;
+  background-color: #171a2e !important; color: #f5f3ff !important; }
+.stApp:has(.orbit-profile-dark) .st-key-profile_dialog_panel [data-testid="stForm"],
+.stApp:has(.orbit-profile-dark) .st-key-profile_dialog_panel form {
+  border-color: #30354e !important; background: transparent !important; }
+.stApp:has(.orbit-profile-dark) .st-key-profile_dialog_panel h1,
+.stApp:has(.orbit-profile-dark) .st-key-profile_dialog_panel h2,
+.stApp:has(.orbit-profile-dark) .st-key-profile_dialog_panel h3,
+.stApp:has(.orbit-profile-dark) .st-key-profile_dialog_panel label,
+.stApp:has(.orbit-profile-dark) .st-key-profile_dialog_panel label *,
+.stApp:has(.orbit-profile-dark) .st-key-profile_dialog_panel [data-testid="stWidgetLabel"],
+.stApp:has(.orbit-profile-dark) .st-key-profile_dialog_panel [data-testid="stWidgetLabel"] *,
+.stApp:has(.orbit-profile-dark) .st-key-profile_dialog_panel p,
+.stApp:has(.orbit-profile-dark) .st-key-profile_dialog_panel span,
+.stApp:has(.orbit-profile-dark) .st-key-profile_dialog_panel small {
+  color: #f5f3ff !important; -webkit-text-fill-color: #f5f3ff !important;
+  opacity: 1 !important; }
+.stApp:has(.orbit-profile-dark) .st-key-profile_dialog_close button,
+.stApp:has(.orbit-profile-dark) .st-key-profile_dialog_close button p {
+  background: transparent !important; color: #fff !important;
+  -webkit-text-fill-color: #fff !important; opacity: 1 !important; }
+.stApp:has(.orbit-profile-dark) .st-key-profile_dialog_panel input,
+.stApp:has(.orbit-profile-dark) .st-key-profile_dialog_panel textarea,
+.stApp:has(.orbit-profile-dark) .st-key-profile_dialog_panel [data-baseweb="base-input"],
+.stApp:has(.orbit-profile-dark) .st-key-profile_dialog_panel [data-baseweb="input"],
+.stApp:has(.orbit-profile-dark) .st-key-profile_dialog_panel [data-baseweb="input"] > div,
+.stApp:has(.orbit-profile-dark) .st-key-profile_dialog_panel [data-baseweb="textarea"],
+.stApp:has(.orbit-profile-dark) .st-key-profile_dialog_panel [data-baseweb="select"] > div,
+.stApp:has(.orbit-profile-dark) .st-key-profile_dialog_panel [data-testid="stNumberInput"] > div,
+.stApp:has(.orbit-profile-dark) .st-key-profile_dialog_panel [data-testid="stNumberInput"] > div > div {
+  background: #121525 !important; background-color: #121525 !important;
+  color: #f5f3ff !important; border-color: #f5f3ff !important;
+  -webkit-text-fill-color: #f5f3ff !important; box-shadow: none !important; }
+.stApp:has(.orbit-profile-dark) .st-key-profile_dialog_panel input:disabled {
+  color: #d8dbea !important; -webkit-text-fill-color: #d8dbea !important; opacity: 1 !important; }
+.stApp:has(.orbit-profile-dark) .st-key-profile_dialog_panel [data-baseweb="input"],
+.stApp:has(.orbit-profile-dark) .st-key-profile_dialog_panel [data-baseweb="textarea"],
+.stApp:has(.orbit-profile-dark) .st-key-profile_dialog_panel [data-baseweb="select"] > div,
+.stApp:has(.orbit-profile-dark) .st-key-profile_dialog_panel [data-testid="stNumberInput"] > div {
+  border: 1px solid #f5f3ff !important; border-radius: 8px !important; }
+.stApp:has(.orbit-profile-dark) .st-key-profile_dialog_panel [data-testid="stFileUploaderDropzone"] {
+  border: 1px dashed #f5f3ff !important; background: #121525 !important; }
+.stApp:has(.orbit-profile-dark) .st-key-profile_dialog_panel [data-testid="stFileUploaderDropzone"] button,
+.stApp:has(.orbit-profile-dark) .st-key-profile_dialog_panel [data-testid="stNumberInput"] button,
+.stApp:has(.orbit-profile-dark) .st-key-profile_dialog_panel button[kind="secondary"] {
+  border-color: #f5f3ff !important; background: #121525 !important;
+  color: #f5f3ff !important; }
+
+.stApp:has(.orbit-profile-dark) { background: #0e1020; color: #f5f3ff; }
+.orbit-profile-dark .orbit-profile-topbar { background: #171a2e; }
+.orbit-profile-dark .orbit-profile-greeting h1 { color: #f5f3ff; }
+.orbit-profile-dark .orbit-profile-greeting p { color: #a9a8bc; }
+.orbit-profile-dark .orbit-profile-search,.orbit-profile-dark .orbit-profile-bell {
+  border-color: #2a2f4d; background: #171a2e; color: #a9a8bc; }
+.stApp:has(.orbit-profile-dark) .st-key-profile_intro h1 { color: #f5f3ff; }
+.stApp:has(.orbit-profile-dark) .st-key-profile_intro p { color: #a9a8bc; }
+.stApp:has(.orbit-profile-dark) .st-key-profile_summary_card,
+.stApp:has(.orbit-profile-dark) .st-key-profile_personal_card,
+.stApp:has(.orbit-profile-dark) .st-key-profile_preferences_card,
+.stApp:has(.orbit-profile-dark) .st-key-profile_security_card {
+  border-color: #2e3250 !important; background: #1b1d34; }
+.stApp:has(.orbit-profile-dark) .orbit-profile-card-copy,
+.stApp:has(.orbit-profile-dark) .orbit-profile-data dt,
+.stApp:has(.orbit-profile-dark) .orbit-profile-preferences dt,
+.stApp:has(.orbit-profile-dark) .orbit-profile-security dt,
+.stApp:has(.orbit-profile-dark) .orbit-profile-summary dd,
+.stApp:has(.orbit-profile-dark) .orbit-profile-account { color: #a9a8bc; }
+.stApp:has(.orbit-profile-dark) .orbit-profile-kicker,
+.stApp:has(.orbit-profile-dark) .orbit-profile-data dd,
+.stApp:has(.orbit-profile-dark) .orbit-profile-preferences dd,
+.stApp:has(.orbit-profile-dark) .orbit-profile-security dd,
+.stApp:has(.orbit-profile-dark) .orbit-profile-summary dt { color: #f5f3ff; }

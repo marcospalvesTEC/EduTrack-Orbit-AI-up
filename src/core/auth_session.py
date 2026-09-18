@@ -89,6 +89,7 @@ def render_session_sidebar(user: dict[str, str]) -> None:
         page_link("pages/1_Dashboard.py", label="Dashboard", icon="📊")
         page_link("pages/2_Disciplinas.py", label="Disciplinas", icon="📚")
         page_link("pages/3_Tarefas.py", label="Tarefas", icon="✅")
+        page_link("pages/4_Agenda.py", label="Agenda", icon="📅")
         page_link("pages/4_Perfil.py", label="Meu perfil", icon="👤")
         st.divider()
         account_label = (
