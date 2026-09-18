@@ -26,6 +26,9 @@
 - [x] 4.3 Atualizar `pages/2_Disciplinas.py` com componentes consistentes para nome, professor, progresso e informações disponíveis e verificar a listagem em diferentes quantidades de disciplinas
 - [x] 4.4 Atualizar `pages/3_Tarefas.py` com título, disciplina, prazo, prioridade e status claramente identificados e verificar a exibição de tarefas pendentes, concluídas e com prazo vencido
 - [x] 4.5 Manter os dados simulados desacoplados das páginas e verificar que os serviços atuais continuam abastecendo a interface sem conexão com o Xano
+- [x] 4.6 Criar `pages/4_Agenda.py` com calendário mensal, semana detalhada, cadastro de eventos, próximos eventos e navegação autenticada
+- [x] 4.7 Implementar detalhes da Agenda em drawer lateral não bloqueante, com cards completos clicáveis, suporte aos temas claro e escuro e detalhamento de trabalhos em grupo
+- [x] 4.8 Limitar o calendário mensal a dois eventos por célula com contador de excedentes, mantendo todos os eventos na semana detalhada
 
 ## 5. Gráficos e acessibilidade
 
@@ -41,3 +44,4 @@
 - [ ] 6.3 Realizar revisão visual comparando as páginas implementadas com as referências aprovadas do kit Orbit e registrar diferenças relevantes
 - [x] 6.4 Executar `openspec.cmd validate implement-orbit-ui --strict` e verificar que todos os artefatos da mudança permanecem válidos
 - [ ] 6.5 Revisar os arquivos alterados com `git diff --check` e `git status` e verificar que não existem erros de espaços, arquivos temporários ou mudanças fora do escopo
+- [x] 6.6 Registrar as entregas, decisões, verificações e pendências em `docs/historico-de-desenvolvimento.md`
