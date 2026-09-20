@@ -80,6 +80,16 @@ Este documento reúne as principais entregas, decisões técnicas, validações 
 - Na semana detalhada, manutenção de todos os eventos visíveis no card.
 - Tratamento equivalente nos temas claro e escuro.
 
+### Perfil desktop
+
+- Criação da página de Perfil com dados pessoais, preferências acadêmicas, resumo e segurança.
+- Edição de nome, curso, instituição, semestre e foto de perfil em painel próprio.
+- Formulários do tema escuro com superfície escura, texto claro e somente bordas claras.
+- Botões roxos com texto branco nos temas claro e escuro.
+- Botão de fechamento ampliado, à direita, preto no tema claro e branco no tema escuro.
+- Ações de segurança mantidas na mesma linha, com “Alterar senha” à esquerda e “Encerrar sessões” à direita.
+- Testes dedicados ao estado do perfil, métricas, foto e proteções visuais.
+
 ## 4. Decisões técnicas relevantes
 
 ### Separação entre interface e domínio
@@ -109,7 +119,7 @@ Para as entregas de interface foram utilizados:
 - revisão visual local nos temas claro e escuro;
 - comparação iterativa com as referências do Figma.
 
-Na conclusão da implementação principal da Agenda, a suíte registrou **51 testes aprovados**.
+Após a implementação do Perfil e o alinhamento das ações de segurança, a suíte registrou **57 testes aprovados**.
 
 ## 6. Arquivos principais da Agenda
 
@@ -127,9 +137,10 @@ Na conclusão da implementação principal da Agenda, a suíte registrou **51 te
 - Persistir eventos pessoais no Xano; atualmente eles permanecem na sessão do protótipo.
 - Implementar edição e exclusão de eventos pessoais.
 - Revisar acessibilidade por teclado e leitura por tecnologias assistivas.
-- Concluir a página de Perfil conforme as referências desktop, mobile, clara e escura.
+- Implementar futuramente a versão mobile do Perfil; a etapa atual cobre somente desktop claro e escuro.
+- Persistir dados, preferências e foto do Perfil no Xano; atualmente permanecem na sessão do protótipo.
 - Continuar a padronização dos componentes compartilhados para reduzir CSS específico por página.
 
 ## 8. Próxima etapa
 
-A próxima branch prevista é a implementação e o refinamento da página de **Perfil**, mantendo o mesmo processo: referência visual, implementação incremental, revisão nos dois temas, lint, formatação, testes, commit, push e pull request.
+A próxima etapa prevista é planejar a integração com o **Xano**, mantendo a interface desktop já validada e substituindo gradualmente os dados de sessão por persistência real via API.
