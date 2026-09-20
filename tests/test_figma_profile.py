@@ -83,6 +83,9 @@ def test_profile_escapes_values_and_keeps_desktop_dark_fields_dark():
     assert '[data-testid="stWidgetLabel"] *' in css
     assert ".st-key-profile_dialog_close button" in css
     assert "background: #7c3aed !important" in css
+    assert "flex-wrap: nowrap !important" in css
+    assert "justify-content: space-between" in css
+    assert "flex: 0 0 calc(50% - 6px) !important" in css
     assert 'grid-template-areas: "intro intro" "personal summary"' in css
     assert "@media (max-width: 768px)" not in css
     assert '"Alterar foto do perfil"' not in page
