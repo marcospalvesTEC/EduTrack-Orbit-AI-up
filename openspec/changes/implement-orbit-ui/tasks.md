@@ -29,6 +29,8 @@
 - [x] 4.6 Criar `pages/4_Agenda.py` com calendário mensal, semana detalhada, cadastro de eventos, próximos eventos e navegação autenticada
 - [x] 4.7 Implementar detalhes da Agenda em drawer lateral não bloqueante, com cards completos clicáveis, suporte aos temas claro e escuro e detalhamento de trabalhos em grupo
 - [x] 4.8 Limitar o calendário mensal a dois eventos por célula com contador de excedentes, mantendo todos os eventos na semana detalhada
+- [x] 4.9 Implementar a página de Perfil desktop nos temas claro e escuro, com edição de dados, foto, preferências e senha
+- [x] 4.10 Alinhar as ações de segurança do Perfil na mesma linha, em extremos opostos do card
 
 ## 5. Gráficos e acessibilidade
 
