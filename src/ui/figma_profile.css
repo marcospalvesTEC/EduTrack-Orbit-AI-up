@@ -19,7 +19,8 @@
 
 .st-key-profile_layout > div[data-testid="stVerticalBlock"] {
   display: grid; grid-template-columns: minmax(0, 2.02fr) minmax(290px, 1fr);
-  grid-template-areas: "intro intro" "personal summary" "preferences security";
+  grid-template-areas: "intro intro" "personal summary"
+    "preferences preferences" "security security";
   gap: 16px; align-items: start; padding-top: 24px; }
 .st-key-profile_intro { grid-area: intro; }
 .st-key-profile_summary_card { grid-area: summary; min-height: 300px; }

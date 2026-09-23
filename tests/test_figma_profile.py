@@ -72,6 +72,7 @@ def test_profile_metrics_use_actual_tasks_and_safe_study_time():
 
 def test_profile_escapes_values_and_keeps_desktop_dark_fields_dark():
     css = (Path(__file__).parents[1] / "src/ui/figma_profile.css").read_text(encoding="utf-8")
+    compact_css = " ".join(css.split())
     page = (Path(__file__).parents[1] / "pages/4_Perfil.py").read_text(encoding="utf-8")
 
     assert safe('<script>alert("x")</script>') == (
@@ -86,7 +87,10 @@ def test_profile_escapes_values_and_keeps_desktop_dark_fields_dark():
     assert "flex-wrap: nowrap !important" in css
     assert "justify-content: space-between" in css
     assert "flex: 0 0 calc(50% - 6px) !important" in css
-    assert 'grid-template-areas: "intro intro" "personal summary"' in css
+    assert (
+        'grid-template-areas: "intro intro" "personal summary" '
+        '"preferences preferences" "security security"' in compact_css
+    )
     assert "@media (max-width: 768px)" not in css
     assert '"Alterar foto do perfil"' not in page
     assert '"Editar informações do perfil"' not in page

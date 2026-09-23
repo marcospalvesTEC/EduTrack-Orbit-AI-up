@@ -38,7 +38,7 @@ O sistema SHALL autenticar uma conta demonstrativa ou uma conta criada na sessã
 
 ### Requirement: Proteção das páginas
 
-O sistema MUST impedir que visitantes sem sessão autenticada utilizem Dashboard, Disciplinas e Tarefas.
+O sistema MUST impedir que visitantes sem sessão autenticada utilizem o Início acadêmico, Disciplinas e Tarefas.
 
 #### Scenario: Acesso sem autenticação
 - **WHEN** um visitante abrir diretamente uma página acadêmica

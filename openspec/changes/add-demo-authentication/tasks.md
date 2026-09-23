@@ -8,7 +8,7 @@
 
 - [x] 2.1 Implementar inicialização, leitura e encerramento da sessão em `src/core/auth_session.py` e verificar transições de estado com testes
 - [x] 2.2 Implementar guard reutilizável para páginas protegidas e verificar que interrompe a renderização sem usuário autenticado
-- [x] 2.3 Aplicar o guard ao Dashboard, Disciplinas e Tarefas e verificar cada rota pelo teste de aplicação do Streamlit
+- [x] 2.3 Aplicar o guard ao Início acadêmico, Disciplinas e Tarefas e verificar cada rota pelo teste de aplicação do Streamlit
 
 ## 3. Interface demonstrativa
 
@@ -16,6 +16,9 @@
 - [x] 3.2 Atualizar `app.py` para alternar entre portal de autenticação e página inicial autenticada e verificar os dois estados
 - [x] 3.3 Adicionar conta de demonstração, aviso de dados temporários e logout e verificar que as informações aparecem sem expor hashes ou estado interno
 - [x] 3.4 Verificar que formulários e ações ocupam a largura disponível sem rolagem horizontal em telas reduzidas
+- [x] 3.5 Implementar o Cadastro desktop claro e escuro conforme os frames aprovados do Figma, preservando o serviço demonstrativo e a integração disponível com o Xano
+- [x] 3.6 Implementar a Recuperação de senha desktop clara e escura conforme os frames aprovados do Figma, com resposta neutra e acesso dedicado pelo portal
+- [x] 3.7 Implementar a Redefinição de senha desktop clara e escura, conectada à recuperação e à troca local da credencial demonstrativa
 
 ## 4. Qualidade e entrega
 

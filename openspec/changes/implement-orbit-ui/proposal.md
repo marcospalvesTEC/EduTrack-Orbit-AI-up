@@ -9,7 +9,7 @@ O protótipo atual em Streamlit possui a estrutura funcional inicial, mas ainda 
 - Criar temas claro e escuro, respeitando a preferência do dispositivo quando possível.
 - Padronizar cards, botões, formulários, indicadores, gráficos, mensagens e estados vazios.
 - Implementar navegação responsiva com barra lateral em telas maiores e navegação adaptada em telas menores.
-- Atualizar as telas existentes de início, Dashboard, Disciplinas e Tarefas.
+- Atualizar as telas existentes de Início, Disciplinas e Tarefas.
 - Preparar a navegação e a identidade visual para Agenda, Relatórios, Perfil, Configurações e Assistente.
 - Incorporar o robô cúbico e pixelado como elemento da marca.
 - Preparar componentes visuais para futuras skins de mascotes, incluindo axolote, raposa e lagosta-boxeadora.

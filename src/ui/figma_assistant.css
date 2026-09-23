@@ -1,0 +1,107 @@
+/* Figma Assistant / Desktop / Light + Dark — Streamlit adaptation. */
+.stApp:has(.orbit-assistant) { background: #f8fafc; }
+.stApp:has(.orbit-assistant) [data-testid="stMainBlockContainer"] {
+  width: 100%; max-width: none; padding: 0 32px 32px !important; }
+.orbit-assistant { --assistant-bg: #f8fafc; --assistant-surface: #fff;
+  --assistant-soft: #f5f3ff; --assistant-ink: #0f1757; --assistant-muted: #6b7280;
+  --assistant-border: #e5e7eb; --assistant-purple: #7c3aed;
+  color: var(--assistant-ink); font-family: Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+.orbit-assistant-topbar { min-height: 96px; margin: 0 -32px; padding: 20px 32px;
+  background: var(--assistant-surface); display: flex; align-items: center;
+  justify-content: space-between; gap: 20px; }
+.orbit-assistant-topbar h1 { margin: 0 0 4px; color: var(--assistant-ink);
+  font-size: 22px; line-height: 27px; }
+.orbit-assistant-topbar p { margin: 0; color: var(--assistant-muted); font-size: 12px; }
+.orbit-assistant-header-icons { display: flex; align-items: center; gap: 16px; }
+.orbit-assistant-search { width: 300px; height: 44px; padding: 0 16px;
+  border: 1px solid var(--assistant-border); border-radius: 22px;
+  background: var(--assistant-bg); display: flex; align-items: center; gap: 10px;
+  color: var(--assistant-muted); font-size: 12px; }
+.orbit-assistant-search img { width: 18px; height: 18px; }
+.orbit-assistant-bell { width: 44px; height: 44px; border: 1px solid var(--assistant-border);
+  border-radius: 50%; display: grid; place-items: center; }
+.orbit-assistant-bell img { width: 20px; height: 20px; }
+.orbit-assistant-heading { padding: 26px 0 18px; }
+.orbit-assistant-heading h2 { margin: 0 0 4px; color: var(--assistant-ink);
+  font-size: 28px; line-height: 38px; font-style: normal; }
+.orbit-assistant-heading h2 em { color: var(--assistant-purple); font-style: normal; }
+.orbit-assistant-heading p { margin: 0; color: var(--assistant-muted); font-size: 13px; }
+.stApp:has(.orbit-assistant) [data-testid="stHorizontalBlock"] { gap: 16px; }
+.st-key-assistant_chat { min-height: 690px; padding: 22px;
+  border: 1px solid var(--assistant-border,#e5e7eb); border-radius: 16px;
+  background: var(--assistant-surface,#fff); }
+.orbit-assistant-status { width: fit-content; margin-bottom: 18px; padding: 7px 12px;
+  border-radius: 999px; background: #ede9fe; color: #6d28d9; font-size: 12px; font-weight: 700; }
+.orbit-assistant-welcome { padding-bottom: 18px; display: flex; flex-direction: column; gap: 7px;
+  color: var(--assistant-ink); font-size: 14px; line-height: 21px; }
+.orbit-assistant-welcome span { color: var(--assistant-muted); font-size: 12px; }
+.orbit-assistant-messages { min-height: 270px; padding: 8px 0 20px;
+  display: flex; flex-direction: column; gap: 12px; }
+.orbit-assistant-message { width: fit-content; max-width: 78%; padding: 12px 16px;
+  border: 1px solid var(--assistant-border); border-radius: 14px;
+  background: var(--assistant-soft); color: var(--assistant-ink); font-size: 13px; line-height: 19px; }
+.orbit-assistant-message.user { align-self: flex-end; border-color: #7c3aed;
+  background: #7c3aed; color: #fff; }
+.orbit-assistant-message.assistant { align-self: flex-start; }
+.orbit-assistant-preview { margin: 0 0 18px; padding: 14px 16px;
+  border: 1px solid #a78bfa; border-radius: 12px; background: var(--assistant-soft);
+  display: flex; flex-direction: column; gap: 5px; color: var(--assistant-ink); }
+.orbit-assistant-preview strong { color: #7c3aed; font-size: 13px; }
+.orbit-assistant-preview span { font-size: 13px; }
+.orbit-assistant-preview small { color: var(--assistant-muted); }
+.orbit-assistant-suggestions-title { margin: 4px 0 7px; color: var(--assistant-ink);
+  font-size: 12px; line-height: 16px; }
+.st-key-assistant_chat button[kind="tertiary"] { width: 100%; min-height: 38px;
+  border: 1px solid #c4b5fd !important; border-radius: 10px !important;
+  background: transparent !important; color: #7c3aed !important; }
+.st-key-assistant_chat button[kind="tertiary"] p { color: #7c3aed !important;
+  -webkit-text-fill-color: #7c3aed !important; font-size: 11px; font-weight: 600; }
+.st-key-assistant_chat [data-testid="stForm"] { margin-top: 8px; padding: 0; border: 0; }
+.st-key-assistant_chat [data-testid="stForm"] [data-testid="stHorizontalBlock"] { align-items: center; gap: 8px; }
+.st-key-assistant_chat [data-baseweb="input"] { min-height: 44px;
+  border: 1px solid var(--assistant-border,#e5e7eb) !important; border-radius: 10px !important;
+  background: var(--assistant-surface,#fff) !important; }
+.st-key-assistant_chat [data-baseweb="input"] input { color: var(--assistant-ink,#0f1757) !important; }
+.st-key-assistant_chat button[kind="primary"] { min-height: 44px;
+  border: 1px solid #8b5cf6 !important; border-radius: 10px !important;
+  background: #7c3aed !important; color: #fff !important; }
+.st-key-assistant_chat button[kind="primary"] p { color: #fff !important;
+  -webkit-text-fill-color: #fff !important; font-weight: 600; }
+.orbit-assistant-context { min-height: 690px; padding: 22px;
+  border: 1px solid var(--assistant-border); border-radius: 16px;
+  background: var(--assistant-surface); color: var(--assistant-ink); }
+.orbit-assistant-context h3 { margin: 2px 0 12px; color: var(--assistant-purple);
+  font-size: 11px; letter-spacing: .05em; }
+.orbit-assistant-context ul { margin: 0 0 28px; padding: 0; list-style: none;
+  display: flex; flex-direction: column; gap: 12px; }
+.orbit-assistant-context li { padding-bottom: 10px; border-bottom: 1px solid var(--assistant-border);
+  color: var(--assistant-ink); font-size: 12px; }
+.orbit-assistant-context p { margin: 0; padding: 14px; border-radius: 10px;
+  background: var(--assistant-soft); color: var(--assistant-muted); font-size: 11px; line-height: 17px; }
+
+/* Dark desktop frame. Borders and labels stay light; fields stay dark. */
+.stApp:has(.orbit-assistant-dark) { background: #0e1020; }
+.stApp:has(.orbit-assistant-dark) [data-testid="stSidebar"] {
+  background: #171a2e; border-color: #2d3148; }
+.orbit-assistant-dark { --assistant-bg: #0e1020; --assistant-surface: #171a2e;
+  --assistant-soft: #20243b; --assistant-ink: #f5f3ff; --assistant-muted: #b9b8c9;
+  --assistant-border: #3c4261; }
+.stApp:has(.orbit-assistant-dark) .st-key-assistant_chat,
+.stApp:has(.orbit-assistant-dark) .orbit-assistant-context {
+  background: #171a2e; border-color: #3c4261; color: #f5f3ff; }
+.stApp:has(.orbit-assistant-dark) .orbit-assistant-status {
+  background: #2b2050; color: #c4b5fd; }
+.stApp:has(.orbit-assistant-dark) .orbit-assistant-message.assistant,
+.stApp:has(.orbit-assistant-dark) .orbit-assistant-preview,
+.stApp:has(.orbit-assistant-dark) .orbit-assistant-context p {
+  background: #20243b; border-color: #4c5272; color: #f5f3ff; }
+.stApp:has(.orbit-assistant-dark) .st-key-assistant_chat [data-baseweb="input"] {
+  border-color: #f5f3ff !important; background: #171a2e !important; }
+.stApp:has(.orbit-assistant-dark) .st-key-assistant_chat [data-baseweb="input"] input {
+  color: #fff !important; -webkit-text-fill-color: #fff !important; }
+.stApp:has(.orbit-assistant-dark) .st-key-assistant_chat [data-baseweb="input"] input::placeholder {
+  color: #b9b8c9 !important; -webkit-text-fill-color: #b9b8c9 !important; }
+.stApp:has(.orbit-assistant-dark) .st-key-assistant_chat button[kind="tertiary"] {
+  border-color: #8b5cf6 !important; color: #c4b5fd !important; }
+.stApp:has(.orbit-assistant-dark) .st-key-assistant_chat button[kind="tertiary"] p {
+  color: #c4b5fd !important; -webkit-text-fill-color: #c4b5fd !important; }

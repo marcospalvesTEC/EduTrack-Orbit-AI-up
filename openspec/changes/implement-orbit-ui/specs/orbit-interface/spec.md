@@ -19,7 +19,7 @@ O sistema SHALL aplicar uma identidade visual consistente em páginas, cards, bo
 
 #### Scenario: Navegação entre páginas
 
-- **WHEN** o estudante navegar entre Dashboard, Disciplinas e Tarefas
+- **WHEN** o estudante navegar entre Início, Disciplinas e Tarefas
 - **THEN** o sistema manterá padrões consistentes de cores, tipografia, espaçamento, bordas e componentes
 
 ### Requirement: Cores semânticas
@@ -59,16 +59,16 @@ O sistema SHALL adaptar sua navegação ao espaço disponível na tela, mantendo
 - **WHEN** o aplicativo for exibido em uma tela reduzida
 - **THEN** o sistema apresentará uma navegação compacta adequada ao dispositivo
 
-### Requirement: Dashboard acadêmico
+### Requirement: Visão geral acadêmica no Início
 
-O sistema SHALL apresentar no Dashboard um resumo visual das disciplinas, tarefas, progresso acadêmico e próximos prazos disponíveis nos dados atuais.
+O sistema SHALL apresentar na página Início um resumo visual das disciplinas, tarefas, progresso acadêmico e próximos prazos disponíveis nos dados atuais.
 
-#### Scenario: Dashboard com dados
+#### Scenario: Início com dados
 
 - **WHEN** existirem dados acadêmicos disponíveis
 - **THEN** o estudante visualizará indicadores e gráficos organizados por importância e com identificação textual
 
-#### Scenario: Dashboard sem dados
+#### Scenario: Início sem dados
 
 - **WHEN** não existirem dados acadêmicos disponíveis
 - **THEN** o sistema exibirá uma orientação e uma ação para cadastrar o primeiro item

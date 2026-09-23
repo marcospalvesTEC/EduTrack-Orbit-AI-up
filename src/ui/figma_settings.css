@@ -1,0 +1,112 @@
+/* Figma Settings / Desktop / Light + Dark — Streamlit adaptation. */
+.stApp:has(.orbit-settings) { background: #f8fafc; }
+.stApp:has(.orbit-settings) [data-testid="stMainBlockContainer"] {
+  width: 100%; max-width: none; padding: 0 32px 32px !important; }
+.orbit-settings { --settings-bg: #f8fafc; --settings-surface: #fff;
+  --settings-ink: #0e133f; --settings-muted: #616b85; --settings-border: #e3e5f0;
+  --settings-purple: #7c3aed; color: var(--settings-ink);
+  font-family: Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+.orbit-settings-topbar { min-height: 96px; margin: 0 -32px; padding: 20px 32px;
+  background: var(--settings-surface); display: flex; align-items: center;
+  justify-content: space-between; gap: 20px; }
+.orbit-settings-topbar h1 { margin: 0 0 4px; color: var(--settings-ink);
+  font-size: 22px; line-height: 27px; }
+.orbit-settings-topbar p { margin: 0; color: var(--settings-muted); font-size: 12px; }
+.orbit-settings-header-icons { display: flex; align-items: center; gap: 16px; }
+.orbit-settings-search { width: 300px; height: 44px; padding: 0 16px;
+  border: 1px solid var(--settings-border); border-radius: 22px; background: var(--settings-bg);
+  display: flex; align-items: center; gap: 10px; color: var(--settings-muted); font-size: 12px; }
+.orbit-settings-search img { width: 18px; height: 18px; }
+.orbit-settings-bell { width: 44px; height: 44px; border: 1px solid var(--settings-border);
+  border-radius: 50%; display: grid; place-items: center; }
+.orbit-settings-bell img { width: 20px; height: 20px; }
+.orbit-settings-heading { padding: 26px 0 14px; }
+.orbit-settings-heading h2 { margin: 0 0 4px; color: var(--settings-ink);
+  font-size: 28px; line-height: 38px; }
+.orbit-settings-heading p { margin: 0; color: var(--settings-muted); font-size: 13px; }
+.stApp:has(.orbit-settings) [data-testid="stMainBlockContainer"] > div > div[data-testid="stVerticalBlock"] {
+  gap: 14px; }
+.stApp:has(.orbit-settings) [data-testid="stHorizontalBlock"] { gap: 16px; }
+.st-key-settings_appearance,.st-key-settings_notifications,.st-key-settings_ai,
+.st-key-settings_language,.st-key-settings_accessibility,.st-key-settings_account {
+  padding: 18px 20px; border: 1px solid var(--settings-border,#e3e5f0);
+  border-radius: 16px; background: var(--settings-surface,#fff); color: var(--settings-ink,#0e133f); }
+.st-key-settings_appearance,.st-key-settings_language { min-height: 190px; }
+.st-key-settings_notifications,.st-key-settings_accessibility { min-height: 210px; }
+.st-key-settings_ai,.st-key-settings_account { min-height: 220px; }
+.orbit-settings-card-title { margin: 0 0 10px; color: var(--settings-ink,#0e133f);
+  font-size: 12px; line-height: 20px; font-weight: 500; }
+.stApp:has(.orbit-settings) label,.stApp:has(.orbit-settings) [data-testid="stWidgetLabel"] p {
+  color: var(--settings-muted,#3d4566) !important; font-size: 12px !important; }
+.stApp:has(.orbit-settings) [data-baseweb="select"] > div,
+.stApp:has(.orbit-settings) [data-baseweb="input"] {
+  min-height: 34px; border: 1px solid var(--settings-border,#e3e5f0) !important;
+  border-radius: 8px !important; background: var(--settings-surface,#fff) !important;
+  color: var(--settings-ink,#0e133f) !important; box-shadow: none !important; }
+.stApp:has(.orbit-settings) [data-baseweb="select"] *,
+.stApp:has(.orbit-settings) [data-baseweb="input"] input {
+  color: var(--settings-ink,#0e133f) !important; -webkit-text-fill-color: var(--settings-ink,#0e133f) !important; }
+.stApp:has(.orbit-settings) [data-testid="stToggle"] { min-height: 28px; }
+.stApp:has(.orbit-settings) [data-testid="stToggle"] label { justify-content: space-between; width: 100%; }
+.stApp:has(.orbit-settings) [data-testid="stToggle"] [data-baseweb="checkbox"] { order: 2; }
+.stApp:has(.orbit-settings) [data-testid="stToggle"] [aria-checked="true"] > div:first-child {
+  background: #7c3aed !important; }
+.stApp:has(.orbit-settings) button { border-radius: 9px !important; }
+.st-key-settings_appearance button,.st-key-settings_account button {
+  min-height: 34px; border: 1px solid #c4b5fd !important; background: transparent !important;
+  color: #7c3aed !important; }
+.st-key-settings_appearance button p,.st-key-settings_account button p {
+  color: #7c3aed !important; -webkit-text-fill-color: #7c3aed !important; font-size: 11px; }
+.st-key-settings_account [data-testid="stDownloadButton"] button { width: 100%; }
+.st-key-settings_account .st-key-settings_delete_account button {
+  border-color: #ef4444 !important; color: #dc2626 !important; }
+.st-key-settings_account .st-key-settings_delete_account button p {
+  color: #dc2626 !important; -webkit-text-fill-color: #dc2626 !important; }
+.orbit-settings-locked { min-height: 28px; display: flex; align-items: center;
+  justify-content: space-between; gap: 12px; color: var(--settings-muted); font-size: 12px; }
+.orbit-settings-locked strong { color: #858aa3; font-weight: 400; }
+.orbit-settings-locked strong.active { color: var(--settings-ink); }
+.st-key-settings_ai [data-testid="stCaptionContainer"] p { color: var(--settings-muted) !important;
+  font-size: 11px !important; }
+.st-key-save_settings button { min-height: 42px; padding: 0 22px !important;
+  border: 1px solid #8b5cf6 !important; border-radius: 10px !important;
+  background: #7c3aed !important; color: #fff !important; }
+.st-key-save_settings button p { color: #fff !important; -webkit-text-fill-color: #fff !important;
+  font-size: 12px; font-weight: 600; }
+.st-key-settings_account_notice { padding: 14px 16px; border: 1px solid var(--settings-border,#e3e5f0);
+  border-radius: 12px; background: var(--settings-surface,#fff); }
+
+/* Dark desktop frame: dark fills, light borders and readable labels. */
+.stApp:has(.orbit-settings-dark) { background: #0e1020; }
+.stApp:has(.orbit-settings-dark) [data-testid="stSidebar"] {
+  background: #171a2e; border-color: #2e3250; }
+.orbit-settings-dark { --settings-bg: #0e1020; --settings-surface: #1b1d34;
+  --settings-ink: #f5f6fc; --settings-muted: #bdbacc; --settings-border: #3b405f; }
+.stApp:has(.orbit-settings-dark) .st-key-settings_appearance,
+.stApp:has(.orbit-settings-dark) .st-key-settings_notifications,
+.stApp:has(.orbit-settings-dark) .st-key-settings_ai,
+.stApp:has(.orbit-settings-dark) .st-key-settings_language,
+.stApp:has(.orbit-settings-dark) .st-key-settings_accessibility,
+.stApp:has(.orbit-settings-dark) .st-key-settings_account,
+.stApp:has(.orbit-settings-dark) .st-key-settings_account_notice {
+  background: #1b1d34; border-color: #3b405f; color: #f5f6fc; }
+.stApp:has(.orbit-settings-dark) .orbit-settings-card-title,
+.stApp:has(.orbit-settings-dark) .orbit-settings-locked strong.active {
+  color: #f5f6fc !important; }
+.stApp:has(.orbit-settings-dark) label,
+.stApp:has(.orbit-settings-dark) [data-testid="stWidgetLabel"] p,
+.stApp:has(.orbit-settings-dark) .orbit-settings-locked,
+.stApp:has(.orbit-settings-dark) .st-key-settings_ai [data-testid="stCaptionContainer"] p {
+  color: #bdbacc !important; -webkit-text-fill-color: #bdbacc !important; }
+.stApp:has(.orbit-settings-dark) [data-baseweb="select"] > div,
+.stApp:has(.orbit-settings-dark) [data-baseweb="input"] {
+  border-color: #f5f3ff !important; background: #171a2e !important; color: #fff !important; }
+.stApp:has(.orbit-settings-dark) [data-baseweb="select"] *,
+.stApp:has(.orbit-settings-dark) [data-baseweb="input"] input {
+  color: #fff !important; -webkit-text-fill-color: #fff !important; }
+.stApp:has(.orbit-settings-dark) .st-key-settings_appearance button,
+.stApp:has(.orbit-settings-dark) .st-key-settings_account button {
+  border-color: #8b5cf6 !important; color: #c4b5fd !important; }
+.stApp:has(.orbit-settings-dark) .st-key-settings_appearance button p,
+.stApp:has(.orbit-settings-dark) .st-key-settings_account button p {
+  color: #c4b5fd !important; -webkit-text-fill-color: #c4b5fd !important; }

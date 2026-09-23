@@ -1,0 +1,146 @@
+/* EduTrack Orbit AI — Login / Desktop / Light + Dark. */
+.stApp:has(.orbit-login-page) { background: #f8fafc; }
+.stApp:has(.orbit-login-page) header[data-testid="stHeader"] { display: none; }
+.stApp:has(.orbit-login-page) [data-testid="stMainBlockContainer"] {
+  width: 100%; max-width: none; padding: 0 !important; }
+.stApp:has(.orbit-login-page) .st-key-login_layout > div[data-testid="stVerticalBlock"] {
+  gap: 0 !important; }
+.stApp:has(.orbit-login-page) .st-key-login_layout [data-testid="stHorizontalBlock"] {
+  min-height: 100vh; gap: 0 !important; align-items: stretch; }
+.stApp:has(.orbit-login-page) .st-key-login_layout [data-testid="column"] {
+  min-width: 0 !important; }
+.st-key-login_form_pane {
+  min-height: 100vh; padding: 52px 72px 36px !important; background: #fff; }
+.st-key-login_visual_pane {
+  min-height: 100vh; padding: 72px 76px !important; background: #ede9fe; }
+.orbit-login-page { color: #0f1757;
+  font-family: Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+.orbit-login-brand { width: fit-content; display: flex; align-items: flex-start; gap: 12px;
+  text-decoration: none !important; }
+.orbit-login-mark { width: 40px; height: 40px; border: 2px solid #7c3aed;
+  border-radius: 11px; display: grid; place-items: center; }
+.orbit-login-mark i { width: 9px; height: 9px; border-radius: 50%; background: #7c3aed; }
+.orbit-login-brand strong { color: #0f1757; font-size: 16px; line-height: 17px; }
+.orbit-login-brand em { color: #7c3aed; font-style: normal; }
+.orbit-login-intro { margin: 92px 0 28px; }
+.orbit-login-intro span,.orbit-login-eyebrow { color: #7c3aed;
+  font-size: 11px; font-weight: 700; letter-spacing: .02em; }
+.orbit-login-intro h1 { margin: 9px 0 8px; color: #0f1757;
+  font-size: 34px; line-height: 1.1; }
+.orbit-login-intro p { margin: 0; max-width: 440px; color: #6b7280; font-size: 14px; }
+.orbit-login-notice { margin: 0 0 18px; padding: 12px 14px; border: 1px solid #ddd6fe;
+  border-radius: 11px; background: #f5f3ff; color: #4c1d95; font-size: 12px; }
+.orbit-login-notice strong { color: #0f1757; }
+.st-key-login_form_pane [data-testid="stForm"] { padding: 0; border: 0; }
+.st-key-login_form_pane [data-testid="stTextInput"] { margin-bottom: 10px; }
+.st-key-login_form_pane label,.st-key-login_form_pane label p {
+  color: #0f1757 !important; font-size: 12px !important; font-weight: 600 !important; }
+.st-key-login_form_pane input,
+.st-key-login_form_pane [data-baseweb="base-input"],
+.st-key-login_form_pane [data-baseweb="input"],
+.st-key-login_form_pane [data-baseweb="input"] > div {
+  min-height: 48px; border-radius: 11px !important; background: #fff !important;
+  color: #0f1757 !important; border: 1px solid #d1d5db !important;
+  -webkit-text-fill-color: #0f1757 !important; box-shadow: none !important; }
+.st-key-login_form_pane input::placeholder { color: #9ca3af !important;
+  -webkit-text-fill-color: #9ca3af !important; opacity: 1; }
+.st-key-login_form_pane button[kind="primaryFormSubmit"] {
+  min-height: 50px; margin-top: 4px; border: 1px solid #8b5cf6 !important;
+  border-radius: 12px !important; background: #7c3aed !important;
+  color: #fff !important; box-shadow: none !important; }
+.st-key-login_form_pane button[kind="primaryFormSubmit"] p {
+  color: #fff !important; -webkit-text-fill-color: #fff !important;
+  font-size: 14px; font-weight: 700; }
+.stApp:has(.orbit-login-page) .st-key-login_actions [data-testid="stHorizontalBlock"] {
+  min-height: auto !important; gap: 12px !important; margin-top: 12px; }
+.st-key-login_actions a { min-height: 38px; border: 0 !important;
+  background: transparent !important; color: #0f1757 !important; justify-content: center; }
+.st-key-login_actions a p { color: #0f1757 !important; font-size: 12px; font-weight: 600; }
+.st-key-login_footer { margin-top: 96px; }
+.stApp:has(.orbit-login-page) .st-key-login_footer [data-testid="stHorizontalBlock"] {
+  min-height: 28px !important; gap: 16px !important; align-items: center; }
+.st-key-login_footer a { min-height: 28px; padding: 0 !important;
+  background: transparent !important; border: 0 !important; color: #6b7280 !important;
+  justify-content: flex-start; }
+.st-key-login_footer a p { color: #6b7280 !important;
+  -webkit-text-fill-color: #6b7280 !important; font-size: 11px; }
+.orbit-login-footer-brand { display: block; color: #6b7280 !important;
+  text-align: right; text-decoration: none !important; font-size: 11px; }
+.orbit-login-visual { color: #0f1757;
+  font-family: Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+.orbit-login-visual h2 { margin: 36px 0 14px; font-size: 42px; line-height: 1.1; }
+.orbit-login-visual > p { margin: 0 0 22px; max-width: 620px; color: #6b7280; font-size: 16px; }
+.orbit-login-orbit-card { position: relative; height: 440px; overflow: hidden;
+  border: 1px solid #ddd6fe; border-radius: 24px; background: #fff; }
+.orbit-login-ring { position: absolute; left: 50%; top: 44%; border: 2px solid #c4b5fd;
+  border-radius: 50%; transform: translate(-50%,-50%) rotate(-12deg); }
+.orbit-login-ring.ring-one { width: 330px; height: 210px; }
+.orbit-login-ring.ring-two { width: 250px; height: 320px; transform: translate(-50%,-50%) rotate(52deg); }
+.orbit-login-core { position: absolute; left: 50%; top: 44%; width: 154px; height: 154px;
+  border-radius: 42px; transform: translate(-50%,-50%) rotate(7deg);
+  background: linear-gradient(145deg,#7c3aed,#8b5cf6); display: grid; place-content: center;
+  color: #fff; text-align: center; box-shadow: 0 24px 48px rgba(124,58,237,.24); }
+.orbit-login-core strong { font-size: 25px; line-height: 1; }
+.orbit-login-core span { margin-top: 5px; font-size: 15px; }
+.orbit-login-preview { position: absolute; left: 24px; right: 24px; bottom: 24px;
+  min-height: 60px; padding: 16px 20px; border-radius: 14px; background: #ede9fe;
+  display: grid; grid-template-columns: repeat(3,1fr); align-items: center;
+  color: #0f1757; font-size: 12px; font-weight: 600; }
+.orbit-login-preview i { width: 8px; height: 8px; margin-right: 7px;
+  border-radius: 50%; display: inline-block; }
+.orbit-login-preview .purple { background: #7c3aed; }
+.orbit-login-preview .green { background: #10b981; }
+.orbit-login-preview .orange { background: #f59e0b; }
+.orbit-login-insight { margin-top: 18px; min-height: 58px; padding: 17px 18px;
+  border: 1px solid #ddd6fe; border-radius: 14px; background: #fff;
+  color: #0f1757; font-size: 13px; font-weight: 600; }
+
+/* Dark mode: dark fills, light borders and text. */
+.stApp:has(.orbit-login-dark) { background: #080b18; }
+.stApp:has(.orbit-login-dark) .st-key-login_form_pane {
+  background: #111827; color: #fff; }
+.stApp:has(.orbit-login-dark) .st-key-login_visual_pane { background: #080d35; }
+.orbit-login-dark .orbit-login-brand strong,.orbit-login-dark .orbit-login-intro h1 { color: #fff; }
+.orbit-login-dark .orbit-login-intro p { color: #d1d5db; }
+.stApp:has(.orbit-login-dark) .orbit-login-notice {
+  border-color: #a78bfa; background: #080d35; color: #ddd6fe; }
+.stApp:has(.orbit-login-dark) .orbit-login-notice strong { color: #fff; }
+.stApp:has(.orbit-login-dark) .st-key-login_form_pane label,
+.stApp:has(.orbit-login-dark) .st-key-login_form_pane label p {
+  color: #fff !important; -webkit-text-fill-color: #fff !important; }
+.stApp:has(.orbit-login-dark) .st-key-login_form_pane input,
+.stApp:has(.orbit-login-dark) .st-key-login_form_pane [data-baseweb="base-input"],
+.stApp:has(.orbit-login-dark) .st-key-login_form_pane [data-baseweb="input"],
+.stApp:has(.orbit-login-dark) .st-key-login_form_pane [data-baseweb="input"] > div {
+  background: #111827 !important; background-color: #111827 !important;
+  color: #fff !important; border-color: #f5f3ff !important;
+  -webkit-text-fill-color: #fff !important; }
+.stApp:has(.orbit-login-dark) .st-key-login_actions a,
+.stApp:has(.orbit-login-dark) .st-key-login_actions a p {
+  color: #fff !important; -webkit-text-fill-color: #fff !important; }
+.stApp:has(.orbit-login-dark) .st-key-login_footer a,
+.stApp:has(.orbit-login-dark) .st-key-login_footer a p,
+.stApp:has(.orbit-login-dark) .orbit-login-footer-brand {
+  color: #d1d5db !important; -webkit-text-fill-color: #d1d5db !important; }
+.stApp:has(.orbit-login-dark) .orbit-login-visual { color: #fff; }
+.stApp:has(.orbit-login-dark) .orbit-login-visual > p { color: #d1d5db; }
+.stApp:has(.orbit-login-dark) .orbit-login-orbit-card,
+.stApp:has(.orbit-login-dark) .orbit-login-insight {
+  border-color: #f5f3ff; background: #111827; color: #fff; }
+.stApp:has(.orbit-login-dark) .orbit-login-preview { background: #080d35; color: #fff; }
+.stApp:has(.orbit-login-dark) [data-testid="stDialog"] > div {
+  border: 1px solid #f5f3ff !important; background: #111827 !important; color: #fff !important; }
+.stApp:has(.orbit-login-dark) [data-testid="stDialog"] h2,
+.stApp:has(.orbit-login-dark) [data-testid="stDialog"] p,
+.stApp:has(.orbit-login-dark) [data-testid="stDialog"] button {
+  color: #fff !important; -webkit-text-fill-color: #fff !important; }
+
+@media (max-width: 900px) {
+  .stApp:has(.orbit-login-page) .st-key-login_layout [data-testid="stHorizontalBlock"] {
+    min-height: auto; display: block; }
+  .st-key-login_form_pane,.st-key-login_visual_pane {
+    min-height: auto; padding: 36px 28px !important; }
+  .orbit-login-intro { margin-top: 56px; }
+  .st-key-login_footer { margin-top: 52px; }
+  .orbit-login-visual h2 { font-size: 34px; }
+}

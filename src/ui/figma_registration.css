@@ -1,0 +1,149 @@
+/* Figma Registration / Desktop / Light + Dark — Streamlit adaptation. */
+.stApp:has(.orbit-registration-page) { background: #f8fafc; }
+.stApp:has(.orbit-registration-page) header[data-testid="stHeader"] { display: none; }
+.stApp:has(.orbit-registration-page) [data-testid="stMainBlockContainer"] {
+  width: 100%; max-width: none; padding: 0 !important; }
+.stApp:has(.orbit-registration-page) .st-key-registration_layout > div[data-testid="stVerticalBlock"] {
+  gap: 0 !important; }
+.stApp:has(.orbit-registration-page) .st-key-registration_layout [data-testid="stHorizontalBlock"] {
+  min-height: 960px; gap: 0 !important; align-items: stretch; }
+.stApp:has(.orbit-registration-page) .st-key-registration_layout [data-testid="column"] {
+  min-width: 0 !important; }
+.st-key-registration_form_pane {
+  min-height: 960px; padding: 48px 64px 40px !important; background: #fff; }
+.st-key-registration_visual_pane {
+  min-height: 960px; padding: 72px 76px !important; background: #ede9fe; }
+.orbit-registration-page { color: #0f1757;
+  font-family: Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+.orbit-registration-brand { width: fit-content; height: 48px; display: flex;
+  align-items: flex-start; gap: 12px; text-decoration: none !important; cursor: pointer; }
+.orbit-registration-mark { width: 40px; height: 40px; border: 2px solid #7c3aed;
+  border-radius: 11px; display: grid; place-items: center; }
+.orbit-registration-mark i { width: 9px; height: 9px; border-radius: 50%; background: #7c3aed; }
+.orbit-registration-brand strong { color: #0f1757; font-size: 16px; line-height: 17px; }
+.orbit-registration-brand em { color: #7c3aed; font-style: normal; }
+.orbit-registration-intro { margin: 38px 0 14px; }
+.orbit-registration-intro span,.orbit-registration-eyebrow { color: #7c3aed;
+  font-size: 11px; font-weight: 600; }
+.orbit-registration-intro h1 { margin: 6px 0; color: #0f1757; font-size: 30px; line-height: 34px; }
+.orbit-registration-intro p { margin: 0; color: #6b7280; font-size: 13px; }
+.st-key-registration_form_pane [data-testid="stForm"] { padding: 0; border: 0; }
+.stApp:has(.orbit-registration-page) .st-key-registration_form_pane
+  [data-testid="stForm"] [data-testid="stHorizontalBlock"] {
+  min-height: auto !important; gap: 18px !important; justify-content: space-between; }
+.stApp:has(.orbit-registration-page) .st-key-registration_form_pane
+  [data-testid="stForm"] [data-testid="stHorizontalBlock"] > [data-testid="column"] {
+  width: calc(50% - 9px) !important; min-width: 0 !important;
+  flex: 0 0 calc(50% - 9px) !important; }
+.st-key-registration_form_pane [data-testid="stTextInput"],
+.st-key-registration_form_pane [data-testid="stSelectbox"] { margin-bottom: 8px; }
+.st-key-registration_form_pane label,.st-key-registration_form_pane label p {
+  color: #0f1757 !important; font-size: 12px !important; font-weight: 500 !important; }
+.st-key-registration_form_pane input,
+.st-key-registration_form_pane [data-baseweb="base-input"],
+.st-key-registration_form_pane [data-baseweb="input"],
+.st-key-registration_form_pane [data-baseweb="input"] > div,
+.st-key-registration_form_pane [data-baseweb="select"] > div {
+  min-height: 46px; border-radius: 11px !important; background: #fff !important;
+  color: #0f1757 !important; border: 1px solid #e5e7eb !important;
+  -webkit-text-fill-color: #0f1757 !important; box-shadow: none !important; }
+.st-key-registration_form_pane input::placeholder { color: #6b7280 !important;
+  -webkit-text-fill-color: #6b7280 !important; opacity: 1; }
+.st-key-registration_form_pane [data-testid="stCheckbox"] p { color: #6b7280 !important; }
+.orbit-registration-strength { min-height: 30px; margin: 5px 0 8px; padding: 6px 10px;
+  border-radius: 9px; background: #ede9fe; display: flex; gap: 12px;
+  color: #6b7280; font-size: 11px; }
+.orbit-registration-strength strong { width: 120px; color: #16a34a; }
+.orbit-registration-strength.medium strong { color: #f59e0b; }
+.orbit-registration-strength.weak strong { color: #ef4444; }
+.orbit-registration-strength.empty strong { color: #6b7280; }
+.st-key-registration_form_pane button[kind="primary"] { min-height: 52px;
+  border: 1px solid #8b5cf6 !important; border-radius: 12px !important;
+  background: #7c3aed !important; color: #fff !important; box-shadow: none !important; }
+.st-key-registration_form_pane button[kind="primary"] p { color: #fff !important;
+  -webkit-text-fill-color: #fff !important; font-size: 14px; font-weight: 600; }
+.st-key-registration_login_link { margin-top: 2px; }
+.st-key-registration_login_link a { min-height: 34px; border: 0 !important;
+  background: transparent !important; color: #0f1757 !important; justify-content: center; }
+.st-key-registration_login_link a p { color: #0f1757 !important; font-size: 13px; }
+.orbit-registration-privacy { margin-top: 4px; padding: 11px 14px; border: 1px solid #e5e7eb;
+  border-radius: 10px; color: #6b7280; text-align: center; font-size: 11px; }
+.st-key-registration_footer { margin-top: 64px; }
+.st-key-registration_footer [data-testid="stHorizontalBlock"] {
+  min-height: 28px !important; gap: 16px !important; align-items: center; }
+.st-key-registration_footer a { min-height: 28px; padding: 0 !important;
+  background: transparent !important; border: 0 !important; color: #6b7280 !important;
+  justify-content: flex-start; font-size: 11px; }
+.st-key-registration_footer a p { color: #6b7280 !important;
+  -webkit-text-fill-color: #6b7280 !important; font-size: 11px; }
+.orbit-registration-footer-brand { display: block; padding-top: 5px; color: #6b7280 !important;
+  text-align: right; text-decoration: none !important; font-size: 11px; }
+.orbit-registration-footer-brand:hover,.orbit-registration-brand:hover { opacity: .78; }
+.orbit-registration-visual { color: #0f1757; font-family: Inter,-apple-system,
+  BlinkMacSystemFont,"Segoe UI",sans-serif; }
+.orbit-registration-visual h2 { margin: 24px 0 14px; font-size: 42px; line-height: 1.12; }
+.orbit-registration-visual > p { margin: 0 0 18px; color: #6b7280; font-size: 16px; }
+.orbit-registration-orbit-card { position: relative; height: 370px; overflow: hidden;
+  border: 1px solid #e5e7eb; border-radius: 24px; background: #fff; }
+.orbit-registration-shape { position: absolute; width: 270px; height: 270px;
+  left: calc(50% - 135px); top: 48px; border-radius: 58px; background: #7c3aed; }
+.orbit-registration-shape.one { transform: rotate(8deg); }
+.orbit-registration-shape.two { width: 238px; height: 238px; left: calc(50% - 105px);
+  top: 36px; border-radius: 52px; transform: rotate(-7deg); background: #8b5cf6; }
+.orbit-registration-step { position: absolute; left: 50%; top: 141px;
+  transform: translateX(-50%); color: #0f1757; text-align: center; font-size: 26px; line-height: 1; }
+.orbit-registration-steps { position: absolute; left: 23px; right: 23px; bottom: 24px;
+  min-height: 58px; padding: 13px 18px; border-radius: 14px; background: #ede9fe;
+  display: grid; grid-template-columns: 1fr 1.05fr 1fr; align-items: center;
+  color: #0f1757; font-size: 12px; font-weight: 500; }
+.orbit-registration-insight { margin-top: 18px; min-height: 58px; padding: 16px 18px;
+  border: 1px solid #e5e7eb; border-radius: 14px; background: #fff;
+  color: #0f1757; font-size: 13px; font-weight: 500; }
+
+/* Dark mode keeps fields dark: light borders only, never white fills. */
+.stApp:has(.orbit-registration-dark) { background: #080b18; }
+.stApp:has(.orbit-registration-dark) .st-key-registration_form_pane {
+  background: #111827; color: #fff; }
+.stApp:has(.orbit-registration-dark) .st-key-registration_visual_pane { background: #080d35; }
+.orbit-registration-dark .orbit-registration-brand strong,
+.orbit-registration-dark .orbit-registration-intro h1 { color: #fff; }
+.orbit-registration-dark .orbit-registration-intro p { color: #d1d5db; }
+.stApp:has(.orbit-registration-dark) .st-key-registration_form_pane label,
+.stApp:has(.orbit-registration-dark) .st-key-registration_form_pane label p {
+  color: #fff !important; -webkit-text-fill-color: #fff !important; }
+.stApp:has(.orbit-registration-dark) .st-key-registration_form_pane input,
+.stApp:has(.orbit-registration-dark) .st-key-registration_form_pane [data-baseweb="base-input"],
+.stApp:has(.orbit-registration-dark) .st-key-registration_form_pane [data-baseweb="input"],
+.stApp:has(.orbit-registration-dark) .st-key-registration_form_pane [data-baseweb="input"] > div,
+.stApp:has(.orbit-registration-dark) .st-key-registration_form_pane [data-baseweb="select"] > div {
+  background: #111827 !important; background-color: #111827 !important;
+  color: #fff !important; border-color: #f5f3ff !important;
+  -webkit-text-fill-color: #fff !important; }
+.stApp:has(.orbit-registration-dark) .st-key-registration_form_pane input::placeholder {
+  color: #d1d5db !important; -webkit-text-fill-color: #d1d5db !important; }
+.stApp:has(.orbit-registration-dark) .st-key-registration_form_pane [data-testid="stCheckbox"] p {
+  color: #d1d5db !important; -webkit-text-fill-color: #d1d5db !important; }
+.stApp:has(.orbit-registration-dark) .orbit-registration-strength { background: #080d35; color: #d1d5db; }
+.stApp:has(.orbit-registration-dark) .st-key-registration_login_link a,
+.stApp:has(.orbit-registration-dark) .st-key-registration_login_link a p {
+  color: #fff !important; -webkit-text-fill-color: #fff !important; }
+.stApp:has(.orbit-registration-dark) .orbit-registration-privacy {
+  border-color: #374151; color: #d1d5db; }
+.stApp:has(.orbit-registration-dark) .st-key-registration_footer a,
+.stApp:has(.orbit-registration-dark) .st-key-registration_footer a p,
+.stApp:has(.orbit-registration-dark) .orbit-registration-footer-brand {
+  color: #d1d5db !important; -webkit-text-fill-color: #d1d5db !important; }
+.stApp:has(.orbit-registration-dark) [data-testid="stDialog"] > div {
+  border: 1px solid #f5f3ff !important; background: #111827 !important; color: #fff !important; }
+.stApp:has(.orbit-registration-dark) [data-testid="stDialog"] h2,
+.stApp:has(.orbit-registration-dark) [data-testid="stDialog"] p,
+.stApp:has(.orbit-registration-dark) [data-testid="stDialog"] button {
+  color: #fff !important; -webkit-text-fill-color: #fff !important; }
+.stApp:has(.orbit-registration-dark) .orbit-registration-visual { color: #fff; }
+.stApp:has(.orbit-registration-dark) .orbit-registration-visual > p { color: #d1d5db; }
+.stApp:has(.orbit-registration-dark) .orbit-registration-orbit-card {
+  border-color: #374151; background: #111827; }
+.stApp:has(.orbit-registration-dark) .orbit-registration-step { color: #fff; }
+.stApp:has(.orbit-registration-dark) .orbit-registration-steps { background: #080d35; color: #fff; }
+.stApp:has(.orbit-registration-dark) .orbit-registration-insight {
+  border-color: #374151; background: #111827; color: #fff; }
