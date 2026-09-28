@@ -13,18 +13,34 @@ COLOR_ATTENTION_ORANGE = "#F59E0B"
 COLOR_OVERDUE_RED = "#EF4444"
 
 
-def inject_custom_css() -> None:
-    """Inject custom CSS for EduTrack visual identity into Streamlit."""
-    state_key = "edutrack_dark_mode"
-    widget_key = "_edutrack_dark_mode_widget"
-    st.session_state.setdefault(state_key, False)
-    st.session_state.setdefault(widget_key, st.session_state[state_key])
+def _initialize_theme_state() -> None:
+    """Keep the public theme value and its widget synchronized."""
+    st.session_state.setdefault("edutrack_dark_mode", False)
+    st.session_state.setdefault(
+        "_edutrack_dark_mode_widget", st.session_state["edutrack_dark_mode"]
+    )
+
+
+def render_theme_toggle() -> None:
+    """Render the shared theme control at the sidebar position chosen by the shell."""
+    _initialize_theme_state()
 
     def persist_theme() -> None:
-        st.session_state[state_key] = bool(st.session_state[widget_key])
+        st.session_state["edutrack_dark_mode"] = bool(
+            st.session_state["_edutrack_dark_mode_widget"]
+        )
 
-    st.sidebar.toggle("Modo escuro", key=widget_key, on_change=persist_theme)
-    dark_mode = bool(st.session_state[state_key])
+    st.toggle(
+        "Modo escuro",
+        key="_edutrack_dark_mode_widget",
+        on_change=persist_theme,
+    )
+
+
+def inject_custom_css() -> None:
+    """Inject custom CSS for EduTrack visual identity into Streamlit."""
+    _initialize_theme_state()
+    dark_mode = bool(st.session_state["edutrack_dark_mode"])
 
     custom_css = """
     <style>

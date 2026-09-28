@@ -9,12 +9,16 @@ import base64
 from datetime import date, timedelta
 from html import escape
 from pathlib import Path
+from typing import TYPE_CHECKING
 
 import streamlit as st
 
 from src.core.metrics import calculate_subject_progress
 from src.models.subject import Subject
 from src.models.task import Task, TaskStatus
+
+if TYPE_CHECKING:
+    from src.ui.figma_agenda import AgendaEvent
 
 ASSETS = Path(__file__).parent / "assets"
 
@@ -30,10 +34,15 @@ def safe(value: object) -> str:
     return escape(str(value), quote=True)
 
 
-def card(title: str, rows: str, badge: str = "") -> str:
+def card(title: str, rows: str, badge: str = "", badge_href: str = "") -> str:
+    badge_html = (
+        f'<a href="{safe(badge_href)}" target="_self">{safe(badge)}</a>'
+        if badge_href
+        else f"<span>{safe(badge)}</span>"
+    )
     return (
         '<section class="orbit-card"><div class="orbit-card-title">'
-        f"<h2>{safe(title)}</h2><span>{safe(badge)}</span></div>{rows}</section>"
+        f"<h2>{safe(title)}</h2>{badge_html}</div>{rows}</section>"
     )
 
 
@@ -42,6 +51,7 @@ def render_dashboard(
     subjects: list[Subject],
     tasks: list[Task],
     metrics: dict[str, float | int],
+    agenda_events: list[AgendaEvent] | None = None,
 ) -> None:
     """Use Figma's desktop structure with data derived from the existing service."""
     theme_class = " orbit-dashboard-dark" if st.session_state.get("edutrack_dark_mode") else ""
@@ -87,16 +97,24 @@ def render_dashboard(
         )
         or '<p class="orbit-empty">Nenhuma tarefa pendente.</p>'
     )
-    today_rows = (
-        "".join(
-            '<div class="orbit-row"><span class="orbit-time">Hoje</span>'
-            f'<div class="orbit-row-copy"><span>{safe(task.title)}</span>'
-            f"<small>{safe(task.subject_name)}</small></div></div>"
-            for task in upcoming
-            if task.due_date == today
-        )
-        or '<p class="orbit-empty">Sem entregas para hoje.</p>'
+    task_today_rows = "".join(
+        '<div class="orbit-row"><span class="orbit-time">Hoje</span>'
+        f'<div class="orbit-row-copy"><span>{safe(task.title)}</span>'
+        f"<small>{safe(task.subject_name)}</small></div></div>"
+        for task in upcoming
+        if task.due_date == today
     )
+    event_today_rows = "".join(
+        '<div class="orbit-row"><span class="orbit-time">'
+        f"{event.starts_at:%H:%M}</span>"
+        f'<div class="orbit-row-copy"><span>{safe(event.title)}</span>'
+        f"<small>{safe(event.details or event.category)}</small></div></div>"
+        for event in sorted(agenda_events or [], key=lambda item: item.starts_at)
+        if event.starts_at.date() == today
+    )
+    today_rows = task_today_rows + event_today_rows
+    if not today_rows:
+        today_rows = '<p class="orbit-empty">Sem entregas ou eventos para hoje.</p>'
 
     monday = today - timedelta(days=today.weekday())
     counts = [sum(task.due_date == monday + timedelta(days=i) for task in tasks) for i in range(7)]
@@ -109,15 +127,15 @@ def render_dashboard(
     )
     graph = (
         f'<div class="orbit-chart" role="img" aria-label="{sum(counts)} entregas nesta semana">'
-        f'{bars}</div><div class="orbit-week-total">Total de entregas '
-        f"<strong>{sum(counts)}</strong></div>"
+        f'{bars}</div><div class="orbit-week-total">Meta semanal '
+        f"<strong>{completion}%</strong></div>"
     )
     cards = "".join(
         (
-            card("Minhas disciplinas", subject_rows, "Neste semestre"),
-            card("Tarefas prioritárias", task_rows, "Próximas"),
+            card("Minhas disciplinas", subject_rows, "Ver todas", "./Disciplinas"),
+            card("Tarefas prioritárias", task_rows, "Ver todas", "./Tarefas"),
             card("Agenda de hoje", today_rows, today.strftime("%d/%m")),
-            card("Entregas da semana", graph, "Esta semana"),
+            card("Progresso semanal", graph, "Esta semana"),
         )
     )
     tips = [
@@ -154,7 +172,7 @@ def render_dashboard(
       <div class="orbit-pet"><div class="orbit-pet-placeholder"><strong>Seu Orbit aparecerá aqui</strong>
         <small>Modelo do pet em preparação</small></div>
         <div class="orbit-bubble"><strong>{completion}%</strong><small>das tarefas</small></div></div>
-      <div class="orbit-metrics"><div><span>Progresso geral</span><strong>{completion}% das tarefas</strong></div>
+      <div class="orbit-metrics"><div><span>Progresso semanal</span><strong>{completion}% das tarefas</strong></div>
         <div><span>Próxima entrega</span><strong>{next_delivery}</strong></div>
         <div><span>Foco recomendado</span><strong>{focus}</strong></div></div>
     </section>

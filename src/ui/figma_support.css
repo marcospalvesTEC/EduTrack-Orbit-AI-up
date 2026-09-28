@@ -1,0 +1,120 @@
+/* EduTrack Orbit AI — Support / Desktop / Light + Dark. */
+.stApp:has(.orbit-support-page) { background: #f8fafc; }
+.stApp:has(.orbit-support-page) header[data-testid="stHeader"] { display: none; }
+.stApp:has(.orbit-support-page) [data-testid="stMainBlockContainer"] {
+  width: 100%; max-width: none; padding: 0 !important; }
+.stApp:has(.orbit-support-page) .st-key-support_layout > div[data-testid="stVerticalBlock"] {
+  gap: 0 !important; }
+.stApp:has(.orbit-support-page) .st-key-support_layout [data-testid="stHorizontalBlock"] {
+  min-height: 100vh; gap: 0 !important; align-items: stretch; }
+.stApp:has(.orbit-support-page) .st-key-support_layout [data-testid="column"] {
+  min-width: 0 !important; }
+.st-key-support_form_pane {
+  min-height: 100vh; padding: 48px 64px 36px !important; background: #fff; }
+.st-key-support_help_pane {
+  min-height: 100vh; padding: 72px 76px !important; background: #ede9fe; }
+.orbit-support-page { color: #0f1757;
+  font-family: Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+.orbit-support-brand { width: fit-content; display: flex; align-items: flex-start; gap: 12px;
+  text-decoration: none !important; }
+.orbit-support-mark { width: 40px; height: 40px; border: 2px solid #7c3aed;
+  border-radius: 11px; display: grid; place-items: center; }
+.orbit-support-mark i { width: 9px; height: 9px; border-radius: 50%; background: #7c3aed; }
+.orbit-support-brand strong { color: #0f1757; font-size: 16px; line-height: 17px; }
+.orbit-support-brand em { color: #7c3aed; font-style: normal; }
+.orbit-support-intro { margin: 58px 0 24px; }
+.orbit-support-intro span,.orbit-support-aside > span { color: #7c3aed;
+  font-size: 11px; font-weight: 700; letter-spacing: .02em; }
+.orbit-support-intro h1 { margin: 8px 0; color: #0f1757; font-size: 32px; line-height: 1.1; }
+.orbit-support-intro p { max-width: 470px; margin: 0; color: #6b7280;
+  font-size: 13px; line-height: 1.45; }
+.st-key-support_form_pane [data-testid="stForm"] { padding: 0; border: 0; }
+.st-key-support_form_pane [data-testid="stTextInput"],
+.st-key-support_form_pane [data-testid="stSelectbox"] { margin-bottom: 5px; }
+.st-key-support_form_pane label,.st-key-support_form_pane label p {
+  color: #0f1757 !important; font-size: 12px !important; font-weight: 600 !important; }
+.st-key-support_form_pane input,
+.st-key-support_form_pane textarea,
+.st-key-support_form_pane [data-baseweb="base-input"],
+.st-key-support_form_pane [data-baseweb="input"],
+.st-key-support_form_pane [data-baseweb="input"] > div,
+.st-key-support_form_pane [data-baseweb="select"] > div {
+  border-radius: 11px !important; background: #fff !important; color: #0f1757 !important;
+  border: 1px solid #d1d5db !important; -webkit-text-fill-color: #0f1757 !important;
+  box-shadow: none !important; }
+.st-key-support_form_pane input,
+.st-key-support_form_pane [data-baseweb="select"] > div { min-height: 45px; }
+.st-key-support_form_pane input::placeholder,.st-key-support_form_pane textarea::placeholder {
+  color: #9ca3af !important; -webkit-text-fill-color: #9ca3af !important; opacity: 1; }
+.st-key-support_form_pane button[kind="primaryFormSubmit"] {
+  min-height: 50px; margin-top: 5px; border: 1px solid #8b5cf6 !important;
+  border-radius: 12px !important; background: #7c3aed !important; color: #fff !important; }
+.st-key-support_form_pane button[kind="primaryFormSubmit"] p {
+  color: #fff !important; -webkit-text-fill-color: #fff !important; font-weight: 700; }
+.orbit-support-aside { color: #0f1757;
+  font-family: Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+.orbit-support-aside h2 { margin: 28px 0 12px; font-size: 40px; line-height: 1.12; }
+.orbit-support-aside p { max-width: 560px; margin: 0 0 28px; color: #6b7280; font-size: 15px; }
+.st-key-support_faq details { margin-bottom: 12px; border: 1px solid #ddd6fe !important;
+  border-radius: 14px !important; background: #fff !important; color: #0f1757 !important; }
+.st-key-support_faq details summary p,.st-key-support_faq details [data-testid="stMarkdownContainer"] p {
+  color: #0f1757 !important; }
+.orbit-support-shortcuts-title { margin: 34px 0 10px !important; color: #7c3aed;
+  font-size: 11px; font-weight: 700; }
+.st-key-support_shortcuts a { margin-bottom: 10px; min-height: 48px;
+  border: 1px solid #ddd6fe !important; border-radius: 12px !important;
+  background: #fff !important; color: #0f1757 !important; justify-content: flex-start; }
+.st-key-support_shortcuts a p { color: #0f1757 !important; font-size: 13px; font-weight: 600; }
+.st-key-support_footer { margin-top: 36px; }
+.stApp:has(.orbit-support-page) .st-key-support_footer [data-testid="stHorizontalBlock"] {
+  min-height: 30px !important; gap: 16px !important; align-items: center; }
+.st-key-support_footer a { border: 0 !important; background: transparent !important;
+  color: #0f1757 !important; justify-content: flex-start; }
+.st-key-support_footer a p { color: #0f1757 !important; font-size: 12px; font-weight: 600; }
+.orbit-support-footer-brand { display: block; color: #6b7280;
+  text-align: right; font-size: 11px; }
+
+/* Dark mode: dark fills, light borders and text. */
+.stApp:has(.orbit-support-dark) { background: #080b18; }
+.stApp:has(.orbit-support-dark) .st-key-support_form_pane {
+  background: #111827; color: #fff; }
+.stApp:has(.orbit-support-dark) .st-key-support_help_pane { background: #080d35; }
+.orbit-support-dark .orbit-support-brand strong,
+.orbit-support-dark .orbit-support-intro h1 { color: #fff; }
+.orbit-support-dark .orbit-support-intro p { color: #d1d5db; }
+.stApp:has(.orbit-support-dark) .st-key-support_form_pane label,
+.stApp:has(.orbit-support-dark) .st-key-support_form_pane label p {
+  color: #fff !important; -webkit-text-fill-color: #fff !important; }
+.stApp:has(.orbit-support-dark) .st-key-support_form_pane input,
+.stApp:has(.orbit-support-dark) .st-key-support_form_pane textarea,
+.stApp:has(.orbit-support-dark) .st-key-support_form_pane [data-baseweb="base-input"],
+.stApp:has(.orbit-support-dark) .st-key-support_form_pane [data-baseweb="input"],
+.stApp:has(.orbit-support-dark) .st-key-support_form_pane [data-baseweb="input"] > div,
+.stApp:has(.orbit-support-dark) .st-key-support_form_pane [data-baseweb="select"] > div {
+  background: #111827 !important; background-color: #111827 !important;
+  color: #fff !important; border-color: #f5f3ff !important;
+  -webkit-text-fill-color: #fff !important; }
+.stApp:has(.orbit-support-dark) .st-key-support_form_pane input::placeholder,
+.stApp:has(.orbit-support-dark) .st-key-support_form_pane textarea::placeholder {
+  color: #d1d5db !important; -webkit-text-fill-color: #d1d5db !important; }
+.stApp:has(.orbit-support-dark) .orbit-support-aside { color: #fff; }
+.stApp:has(.orbit-support-dark) .orbit-support-aside p { color: #d1d5db; }
+.stApp:has(.orbit-support-dark) .st-key-support_faq details,
+.stApp:has(.orbit-support-dark) .st-key-support_shortcuts a {
+  border-color: #f5f3ff !important; background: #111827 !important; color: #fff !important; }
+.stApp:has(.orbit-support-dark) .st-key-support_faq details summary p,
+.stApp:has(.orbit-support-dark) .st-key-support_faq details [data-testid="stMarkdownContainer"] p,
+.stApp:has(.orbit-support-dark) .st-key-support_shortcuts a p,
+.stApp:has(.orbit-support-dark) .st-key-support_footer a,
+.stApp:has(.orbit-support-dark) .st-key-support_footer a p {
+  color: #fff !important; -webkit-text-fill-color: #fff !important; }
+.stApp:has(.orbit-support-dark) .orbit-support-footer-brand { color: #d1d5db; }
+
+@media (max-width: 900px) {
+  .stApp:has(.orbit-support-page) .st-key-support_layout [data-testid="stHorizontalBlock"] {
+    min-height: auto; display: block; }
+  .st-key-support_form_pane,.st-key-support_help_pane {
+    min-height: auto; padding: 36px 28px !important; }
+  .orbit-support-intro { margin-top: 48px; }
+  .orbit-support-aside h2 { font-size: 32px; }
+}

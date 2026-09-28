@@ -59,7 +59,10 @@
 .orbit-card-title { display: flex; align-items: baseline; justify-content: space-between;
   gap: 5px; margin-bottom: 17px; }
 .orbit-card-title h2 { margin: 0; color: var(--ink); font-size: 14px; line-height: 19px; }
-.orbit-card-title span { color: var(--muted); font-size: 9px; text-align: right; white-space: nowrap; }
+.orbit-card-title span, .orbit-card-title a { color: var(--muted); font-size: 9px;
+  text-align: right; white-space: nowrap; text-decoration: none; }
+.orbit-card-title a { color: var(--purple); }
+.orbit-card-title a:hover, .orbit-card-title a:focus-visible { text-decoration: underline; }
 .orbit-row { display: flex; align-items: flex-start; gap: 6px; margin-bottom: 16px; font-size: 11px; }
 .orbit-row-copy { display: flex; flex: 1; flex-direction: column; gap: 4px; min-width: 0;
   overflow-wrap: anywhere; color: #374151; }
@@ -100,38 +103,17 @@
 .orbit-tip-panel strong { display: block; margin-bottom: 9px; }
 .orbit-tip-panel ul { margin: 0; padding-left: 18px; }
 .orbit-tip-panel li { margin: 7px 0; line-height: 1.45; }
-/* Keep the existing theme toggle functional while the Dark Figma frame is a later milestone. */
-.stApp:has(.orbit-dashboard-dark) { background: #0b1720; }
-.orbit-dashboard-dark { --ink: #f3f7fa; --muted: #b8c7d1; color: var(--ink); }
+/* Figma Dashboard / Desktop / Dark, frame 122:24. */
+.stApp:has(.orbit-dashboard-dark) { background: #0e1020; }
+.orbit-dashboard-dark { --ink: #f5f3ff; --muted: #a9a8bc; color: var(--ink); }
 .orbit-dashboard-dark .orbit-topbar, .orbit-dashboard-dark .orbit-hero,
 .orbit-dashboard-dark .orbit-card, .orbit-dashboard-dark .orbit-tip,
-.orbit-dashboard-dark .orbit-metrics > div { background: #1b2030; border-color: #323b51; }
+.orbit-dashboard-dark .orbit-metrics > div { background: #171a2e; border-color: #e5e7eb; }
 .orbit-dashboard-dark .orbit-search, .orbit-dashboard-dark .orbit-bell {
-  background: #1b2030; border-color: #323b51; }
-.orbit-dashboard-dark .orbit-row-copy { color: #e5e7eb; }
+  background: #171a2e; border-color: #e5e7eb; }
+.orbit-dashboard-dark .orbit-row-copy { color: #f5f3ff; }
 .orbit-dashboard-dark .orbit-pet, .orbit-dashboard-dark .orbit-pet-placeholder {
-  background: #272039; border-color: #594680; }
-.orbit-dashboard-dark .orbit-bubble { background: #1b2030; }
-.orbit-dashboard-dark .orbit-tip-panel { background: #1b2030; border-color: #594680; }
-@media (max-width: 1200px) {
-  .orbit-hero { grid-template-columns: minmax(220px,1fr) minmax(240px,1.1fr); }
-  .orbit-metrics { grid-column: 1/-1; grid-template-columns: repeat(3,minmax(0,1fr)); width: 100%; }
-  .orbit-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
-}
-@media (max-width: 700px) {
-  .orbit-topbar { min-height: 80px; padding: 16px; }
-  .orbit-topbar h1 { font-size: 18px; }
-  .orbit-search { display: none; }
-  .orbit-content { padding: 16px; }
-  .orbit-hero { display: flex; flex-direction: column; padding: 18px; gap: 12px; }
-  .orbit-hero h2 { font-size: 25px; }
-  .orbit-pet { width: 100%; }
-  .orbit-metrics { display: flex; flex-direction: column; }
-  .orbit-grid { grid-template-columns: minmax(0,1fr); }
-  .orbit-card { min-height: 0; }
-  .orbit-tip { align-items: flex-start; flex-wrap: wrap; }
-  .orbit-tip-copy { flex: 1; align-items: flex-start; flex-direction: column; gap: 4px; }
-  .orbit-tips { width: 100%; margin-left: 42px; }
-  .orbit-tips summary { width: 100%; }
-  .orbit-tip-panel { right: 16px; bottom: 70px; width: calc(100% - 32px); }
-}
+  background: #f4f0ff; border-color: #d8ccff; }
+.orbit-dashboard-dark .orbit-bubble { background: #171a2e; }
+.orbit-dashboard-dark .orbit-tip-panel { background: #171a2e; border-color: #e5e7eb; }
+.orbit-dashboard-dark .orbit-chart { border-color: #e5e7eb; }

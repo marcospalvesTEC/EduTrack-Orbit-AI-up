@@ -1,6 +1,6 @@
 ﻿## Context
 
-O projeto já possui um protótipo multipágina em Streamlit, com `app.py`, páginas de Dashboard, Disciplinas e Tarefas, dados simulados, modelos acadêmicos, cálculos e módulos de interface em `src/ui/`. Consulte `proposal.md` para a motivação e `specs/orbit-interface/spec.md` para os comportamentos exigidos.
+O projeto possui um protótipo multipágina em Streamlit, com `app.py` como página Início e páginas de Disciplinas e Tarefas, dados simulados, modelos acadêmicos, cálculos e módulos de interface em `src/ui/`. Consulte `proposal.md` para a motivação e `specs/orbit-interface/spec.md` para os comportamentos exigidos.
 
 A atualização atravessa várias páginas e componentes. Por isso, a identidade visual, a responsividade, a acessibilidade e os estados da interface precisam ser centralizados para evitar estilos divergentes.
 
@@ -103,10 +103,9 @@ A implementação seguirá esta ordem:
 1. tema e tokens visuais;
 2. componentes compartilhados;
 3. página inicial e identidade;
-4. Dashboard;
-5. Disciplinas;
-6. Tarefas;
-7. ajustes responsivos e de acessibilidade.
+4. Disciplinas;
+5. Tarefas;
+6. ajustes responsivos e de acessibilidade.
 
 As páginas futuras poderão aparecer como destinos planejados somente quando houver uma experiência clara para o usuário, sem simular funcionalidades concluídas.
 
@@ -159,7 +158,7 @@ A implementação priorizará Streamlit e as bibliotecas já declaradas no proje
 2. Atualizar os tokens e temas compartilhados.
 3. Refatorar componentes reutilizáveis sem alterar as regras acadêmicas.
 4. Aplicar a nova identidade à página inicial.
-5. Migrar Dashboard, Disciplinas e Tarefas individualmente.
+5. Migrar Início, Disciplinas e Tarefas individualmente.
 6. Adicionar e otimizar os recursos visuais da marca.
 7. Revisar responsividade, contraste, navegação por teclado e descrições de gráficos.
 8. Executar os testes existentes e realizar validação visual das páginas principais.

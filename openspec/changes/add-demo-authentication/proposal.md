@@ -7,7 +7,7 @@ O protótipo permite acessar diretamente os dados acadêmicos sem identificar o 
 - Adicionar autenticação demonstrativa local, identificada claramente como não produtiva.
 - Criar fluxos de cadastro, login, logout, solicitação de recuperação e redefinição simulada de senha.
 - Manter a sessão autenticada durante o uso do Streamlit.
-- Impedir acesso ao Dashboard, Disciplinas e Tarefas enquanto não houver sessão autenticada.
+- Impedir acesso ao Início acadêmico, Disciplinas e Tarefas enquanto não houver sessão autenticada.
 - Disponibilizar uma conta de demonstração e mensagens de validação em português.
 - Separar regras de autenticação da interface para permitir substituição futura pelo Xano.
 - Adicionar testes unitários e de execução das rotas protegidas.

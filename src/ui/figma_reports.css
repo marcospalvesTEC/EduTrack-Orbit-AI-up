@@ -1,0 +1,130 @@
+/* Figma Reports / Desktop / Light + Dark — Streamlit adaptation. */
+.stApp:has(.orbit-reports) { background: #f8fafc; }
+.stApp:has(.orbit-reports) [data-testid="stMainBlockContainer"] {
+  width: 100%; max-width: none; padding: 0 32px 32px !important; }
+.orbit-reports { --reports-bg: #f8fafc; --reports-surface: #fff; --reports-ink: #0f1757;
+  --reports-muted: #6b7280; --reports-border: #e5e7eb; --reports-purple: #7c3aed;
+  color: var(--reports-ink); font-family: Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+.orbit-reports-topbar { min-height: 96px; margin: 0 -32px; padding: 20px 32px;
+  background: var(--reports-surface); display: flex; align-items: center;
+  justify-content: space-between; gap: 20px; }
+.orbit-reports-topbar h1 { margin: 0 0 4px; color: var(--reports-ink);
+  font-size: 22px; line-height: 27px; }
+.orbit-reports-topbar p { margin: 0; color: var(--reports-muted); font-size: 12px; }
+.orbit-reports-header-icons { display: flex; align-items: center; gap: 16px; }
+.orbit-reports-search { width: 300px; height: 44px; padding: 0 16px;
+  border: 1px solid var(--reports-border); border-radius: 22px; background: var(--reports-bg);
+  display: flex; align-items: center; gap: 10px; color: var(--reports-muted); font-size: 12px; }
+.orbit-reports-search img { width: 18px; height: 18px; }
+.orbit-reports-bell { width: 44px; height: 44px; border: 1px solid var(--reports-border);
+  border-radius: 50%; display: grid; place-items: center; }
+.orbit-reports-bell img { width: 20px; height: 20px; }
+.orbit-reports-heading { padding-top: 26px; }
+.orbit-reports-heading h2 { margin: 0 0 4px; color: var(--reports-ink);
+  font-size: 28px; line-height: 38px; }
+.orbit-reports-heading p { margin: 0; color: var(--reports-muted); font-size: 13px; }
+.st-key-reports_controls { margin-top: -2px; }
+.st-key-reports_controls [data-testid="stHorizontalBlock"] { align-items: end; gap: 12px; }
+.st-key-reports_controls [data-baseweb="select"] > div { min-height: 44px;
+  border: 1px solid var(--reports-border,#e5e7eb) !important; border-radius: 10px !important;
+  background: #fff !important; color: #0f1757 !important; box-shadow: none !important; }
+.st-key-reports_controls button[kind="primary"],
+.st-key-reports_controls [data-testid="stDownloadButton"] button {
+  min-height: 44px; border: 1px solid #8b5cf6 !important; border-radius: 10px !important;
+  background: #7c3aed !important; background-color: #7c3aed !important; color: #fff !important; }
+.st-key-reports_controls button p { color: #fff !important;
+  -webkit-text-fill-color: #fff !important; font-weight: 600; }
+.orbit-report-metrics { margin: 14px 0; display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr)); gap: 12px; }
+.orbit-report-metric { min-height: 76px; padding: 14px 18px; border: 1px solid #e5e7eb;
+  border-radius: 14px; background: #fff; display: flex; flex-direction: column; gap: 3px; }
+.orbit-report-metric span { color: #6b7280; font-size: 13px; }
+.orbit-report-metric strong { color: #0f1757; font-size: 24px; line-height: 29px; }
+.orbit-report-metric.purple strong { color: #7c3aed; }
+.orbit-report-metric.green strong { color: #16a34a; }
+.orbit-report-metric.orange strong { color: #f59e0b; }
+.orbit-report-metric.pink strong { color: #ec4899; }
+.stApp:has(.orbit-reports) [data-testid="stMainBlockContainer"] > div > div[data-testid="stVerticalBlock"] {
+  gap: 12px; }
+.stApp:has(.orbit-reports) [data-testid="stHorizontalBlock"] { gap: 12px; }
+.orbit-report-card { min-height: 300px; padding: 16px; border: 1px solid #e5e7eb;
+  border-radius: 16px; background: #fff; color: #0f1757; }
+.orbit-report-card h3 { margin: 0 0 20px; font-size: 17px; line-height: 20px; }
+.orbit-performance-row { min-height: 47px; display: grid;
+  grid-template-columns: 155px minmax(100px,1fr) 35px; align-items: center; gap: 12px; }
+.orbit-performance-row > span { color: #6b7280; font-size: 11px;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.orbit-performance-row > strong { color: #0f1757; font-size: 11px; text-align: right; }
+.orbit-performance-track { height: 16px; overflow: hidden; border-radius: 10px; background: #ede9fe; }
+.orbit-performance-track i { display: block; min-width: 3px; height: 100%; border-radius: 10px; }
+.orbit-performance-track i.purple { background: #7c3aed; }
+.orbit-performance-track i.lavender { background: #a78bfa; }
+.orbit-performance-track i.green { background: #22c55e; }
+.orbit-performance-track i.orange { background: #f59e0b; }
+.orbit-donut-wrap { min-height: 220px; display: flex; align-items: center;
+  justify-content: center; gap: 42px; }
+.orbit-donut { width: 142px; height: 142px; flex: none; border-radius: 50%;
+  background: conic-gradient(#22c55e 0 calc(var(--completed)*1%),
+    #f59e0b calc(var(--completed)*1%) calc((var(--completed) + var(--progress))*1%),
+    #7c3aed calc((var(--completed) + var(--progress))*1%) 100%);
+  position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.orbit-donut::before { content: ""; position: absolute; inset: 24px; border-radius: 50%; background: #fff; }
+.orbit-donut strong,.orbit-donut span { position: relative; z-index: 1; }
+.orbit-donut strong { color: #0f1757; font-size: 22px; }
+.orbit-donut span { color: #6b7280; font-size: 11px; }
+.orbit-distribution ul { min-width: 165px; margin: 0; padding: 0; list-style: none;
+  display: flex; flex-direction: column; gap: 27px; color: #6b7280; font-size: 11px; }
+.orbit-distribution li { display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+.orbit-distribution li i { width: 10px; height: 10px; border-radius: 50%; }
+.orbit-distribution li i.green { background: #22c55e; }
+.orbit-distribution li i.orange { background: #f59e0b; }
+.orbit-distribution li i.purple { background: #7c3aed; }
+.st-key-reports_insight { min-height: 230px; padding: 18px 16px; border: 1px solid #e5e7eb;
+  border-radius: 16px; background: #fff; }
+.st-key-reports_insight h3 { margin: 0 0 8px; color: #7c3aed; font-size: 16px; }
+.st-key-reports_insight p { color: #6b7280; font-size: 12px; line-height: 18px; }
+.st-key-reports_insight button[kind="primary"] { min-height: 44px; margin-top: 8px;
+  border: 1px solid #8b5cf6 !important; border-radius: 10px !important;
+  background: #7c3aed !important; color: #fff !important; }
+.st-key-reports_insight button[kind="primary"] p { color: #fff !important;
+  -webkit-text-fill-color: #fff !important; }
+.orbit-history { min-height: 230px; }
+.orbit-history-row { min-height: 32px; display: grid;
+  grid-template-columns: 52px 150px minmax(150px,1fr) 80px; align-items: center; gap: 10px;
+  color: #6b7280; font-size: 11px; }
+.orbit-history-row span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.orbit-history-row strong { color: #16a34a; font-size: 11px; text-align: right; }
+.orbit-report-empty { color: #6b7280; font-size: 12px; }
+
+/* Dark desktop frame. */
+.stApp:has(.orbit-reports-dark) { background: #0e1020; }
+.stApp:has(.orbit-reports-dark) [data-testid="stSidebar"] {
+  background: #171a2e; border-color: #2d3148; }
+.orbit-reports-dark { --reports-bg: #171a2e; --reports-surface: #171a2e;
+  --reports-ink: #f5f3ff; --reports-muted: #b9b8c9; --reports-border: #2d3148; }
+.stApp:has(.orbit-reports-dark) .st-key-reports_controls [data-baseweb="select"] > div {
+  background: #171a2e !important; color: #f5f3ff !important;
+  border-color: #374151 !important; }
+.stApp:has(.orbit-reports-dark) .orbit-report-metric,
+.stApp:has(.orbit-reports-dark) .orbit-report-card,
+.stApp:has(.orbit-reports-dark) .st-key-reports_insight {
+  background: #171a2e; border-color: #2d3148; color: #f5f3ff; }
+.stApp:has(.orbit-reports-dark) .orbit-report-metric span,
+.stApp:has(.orbit-reports-dark) .orbit-performance-row > span,
+.stApp:has(.orbit-reports-dark) .orbit-distribution ul,
+.stApp:has(.orbit-reports-dark) .orbit-donut span,
+.stApp:has(.orbit-reports-dark) .orbit-history-row,
+.stApp:has(.orbit-reports-dark) .st-key-reports_insight p,
+.stApp:has(.orbit-reports-dark) .orbit-report-empty { color: #b9b8c9; }
+.stApp:has(.orbit-reports-dark) .orbit-report-metric strong,
+.stApp:has(.orbit-reports-dark) .orbit-performance-row > strong,
+.stApp:has(.orbit-reports-dark) .orbit-donut strong { color: #f5f3ff; }
+.stApp:has(.orbit-reports-dark) .orbit-performance-track { background: #2d3148; }
+.stApp:has(.orbit-reports-dark) .orbit-donut::before { background: #171a2e; }
+.stApp:has(.orbit-reports-dark) [data-testid="stDialog"] > div {
+  border: 1px solid #f5f3ff !important; background: #171a2e !important; color: #fff !important; }
+.stApp:has(.orbit-reports-dark) [data-testid="stDialog"] h2,
+.stApp:has(.orbit-reports-dark) [data-testid="stDialog"] h3,
+.stApp:has(.orbit-reports-dark) [data-testid="stDialog"] p,
+.stApp:has(.orbit-reports-dark) [data-testid="stDialog"] button {
+  color: #fff !important; -webkit-text-fill-color: #fff !important; }

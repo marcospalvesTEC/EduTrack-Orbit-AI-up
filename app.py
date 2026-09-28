@@ -5,7 +5,6 @@ from src.core.auth_session import current_user, initialize_auth_state, render_se
 from src.core.metrics import calculate_dashboard_metrics
 from src.services.data_service import data_service_for_user, load_academic_data
 from src.ui.auth import render_auth_portal
-from src.ui.components import render_header
 from src.ui.figma_dashboard import render_dashboard
 from src.ui.theme import inject_custom_css
 
@@ -23,25 +22,16 @@ initialize_auth_state(st.session_state)
 
 user = current_user(st.session_state)
 if user is None:
-    render_header(
-        title="EduTrack Orbit AI",
-        description="Organize, acompanhe e evolua",
-        icon="🎓",
-    )
     render_auth_portal()
     st.stop()
 
 # Initialize Simulated Data Service (persisted in st.session_state)
 service = data_service_for_user(user)
-render_session_sidebar(user)
 subjects, tasks = load_academic_data(service)
 
-# Sidebar Navigation Header & User Info
-with st.sidebar:
-    st.title("EduTrack Orbit AI")
-    st.caption("Organize, acompanhe e evolua")
-    st.divider()
 
+def render_demo_tools() -> None:
+    """Keep prototype data actions available without expanding the Orbit shell."""
     if not getattr(service, "is_remote", False):
         if st.button("Carregar dados demonstrativos", width="stretch"):
             service.reset_to_defaults()
@@ -61,6 +51,9 @@ with st.sidebar:
                 if cancel.button("Cancelar", width="stretch"):
                     st.session_state["confirm_clear_data"] = False
                     st.rerun()
+
+
+render_session_sidebar(user, demo_tools=render_demo_tools)
 
 # The Figma overview provides its own visible heading and accessible main label.
 render_dashboard(user, subjects, tasks, calculate_dashboard_metrics(tasks, subjects))

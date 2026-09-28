@@ -1,10 +1,11 @@
 """Dashboard HTML keeps Figma hierarchy without inventing academic data."""
 
-from datetime import date, timedelta
+from datetime import date, datetime, time, timedelta
 
 from src.models.subject import Subject
 from src.models.task import Task
 from src.ui import figma_dashboard
+from src.ui.figma_agenda import AgendaEvent
 
 
 def test_dashboard_escapes_user_and_subject_data(monkeypatch):
@@ -20,7 +21,7 @@ def test_dashboard_escapes_user_and_subject_data(monkeypatch):
     assert "Marcos&lt;script&gt;" in html
     assert "&lt;Banco &amp; Dados&gt;" in html
     assert "<Banco & Dados>" not in html
-    assert "Sem entregas para hoje." in html
+    assert "Sem entregas ou eventos para hoje." in html
     assert "Ver dicas" in html
     assert "Cadastre uma tarefa para receber uma recomendação de prioridade." in html
 
@@ -41,3 +42,25 @@ def test_dashboard_shows_actual_deadline_and_dark_theme(monkeypatch):
     assert due.strftime("%d/%m") in html
     assert "Marcos Silva" not in html
     assert "Comece por Revisar SQL" in html
+
+
+def test_dashboard_includes_agenda_events_and_real_navigation_links(monkeypatch):
+    rendered = []
+    monkeypatch.setattr(figma_dashboard.st, "markdown", lambda html, **_: rendered.append(html))
+    monkeypatch.setattr(figma_dashboard.st, "session_state", {"edutrack_dark_mode": False})
+    event = AgendaEvent(
+        title="Aula de Engenharia de Software",
+        starts_at=datetime.combine(date.today(), time(19, 0)),
+        category="Aula",
+        details="Sala 204 · Bloco B",
+    )
+
+    figma_dashboard.render_dashboard({"name": "Marcos"}, [], [], {"completion_rate": 0}, [event])
+
+    html = rendered[-1]
+    assert "19:00" in html
+    assert "Aula de Engenharia de Software" in html
+    assert "Sala 204 · Bloco B" in html
+    assert 'href="./Disciplinas"' in html
+    assert 'href="./Tarefas"' in html
+    assert "Progresso semanal" in html

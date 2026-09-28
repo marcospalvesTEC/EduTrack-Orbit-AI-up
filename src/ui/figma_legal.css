@@ -1,0 +1,69 @@
+/* EduTrack Orbit AI — public legal pages / Desktop / Light + Dark. */
+.stApp:has(.orbit-legal-page) { background: #f8fafc; }
+.stApp:has(.orbit-legal-page) header[data-testid="stHeader"] { display: none; }
+.stApp:has(.orbit-legal-page) [data-testid="stMainBlockContainer"] {
+  width: min(1080px, calc(100% - 48px)); max-width: 1080px; padding: 48px 0 64px !important; }
+.orbit-legal-page { color: #0f1757;
+  font-family: Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+.orbit-legal-header { padding: 42px 48px; border: 1px solid #ddd6fe;
+  border-radius: 24px; background: linear-gradient(135deg,#fff 0%,#f5f3ff 100%); }
+.orbit-legal-brand { width: fit-content; margin-bottom: 54px; display: flex;
+  align-items: center; gap: 11px; color: #0f1757 !important; text-decoration: none !important; }
+.orbit-legal-mark { width: 36px; height: 36px; border: 2px solid #7c3aed;
+  border-radius: 10px; display: grid; place-items: center; }
+.orbit-legal-mark i { width: 8px; height: 8px; border-radius: 50%; background: #7c3aed; }
+.orbit-legal-brand strong { font-size: 16px; }
+.orbit-legal-brand em { color: #7c3aed; font-style: normal; }
+.orbit-legal-eyebrow { color: #7c3aed; font-size: 11px; font-weight: 700;
+  letter-spacing: .04em; }
+.orbit-legal-header h1 { margin: 9px 0 10px; color: #0f1757;
+  font-size: clamp(34px,4vw,50px); line-height: 1.05; }
+.orbit-legal-header p { max-width: 720px; margin: 0 0 18px; color: #4b5563;
+  font-size: 16px; line-height: 1.65; }
+.orbit-legal-header small { color: #6b7280; font-size: 12px; }
+.orbit-legal-document { margin-top: 24px; padding: 20px 48px 34px;
+  border: 1px solid #e5e7eb; border-radius: 24px; background: #fff; }
+.orbit-legal-note { margin: 4px 0 10px; padding: 13px 15px; border-radius: 11px;
+  background: #ede9fe; color: #4c1d95; font-size: 12px; font-weight: 600; }
+.orbit-legal-document section { padding: 25px 0; border-bottom: 1px solid #e5e7eb; }
+.orbit-legal-document section:last-child { border-bottom: 0; }
+.orbit-legal-document h2 { margin: 0 0 9px; color: #0f1757; font-size: 17px; }
+.orbit-legal-document p { margin: 0; color: #4b5563; font-size: 14px; line-height: 1.75; }
+.stApp:has(.orbit-legal-page) .st-key-legal_actions { margin-top: 18px; }
+.stApp:has(.orbit-legal-page) .st-key-legal_actions [data-testid="stHorizontalBlock"] {
+  gap: 16px !important; }
+.st-key-legal_actions a { min-height: 46px; border: 1px solid #7c3aed !important;
+  border-radius: 11px !important; background: #7c3aed !important;
+  color: #fff !important; justify-content: center; }
+.st-key-legal_actions a p { color: #fff !important;
+  -webkit-text-fill-color: #fff !important; font-size: 13px; font-weight: 700; }
+.st-key-legal_actions [data-testid="column"]:last-child a {
+  background: transparent !important; color: #7c3aed !important; }
+.st-key-legal_actions [data-testid="column"]:last-child a p {
+  color: #7c3aed !important; -webkit-text-fill-color: #7c3aed !important; }
+
+/* Dark mode keeps surfaces dark, text light and borders visible. */
+.stApp:has(.orbit-legal-dark) { background: #080b18; }
+.stApp:has(.orbit-legal-dark) .orbit-legal-header {
+  border-color: #f5f3ff; background: linear-gradient(135deg,#111827 0%,#080d35 100%); }
+.stApp:has(.orbit-legal-dark) .orbit-legal-brand,
+.stApp:has(.orbit-legal-dark) .orbit-legal-header h1,
+.stApp:has(.orbit-legal-dark) .orbit-legal-document h2 { color: #fff !important; }
+.stApp:has(.orbit-legal-dark) .orbit-legal-header p,
+.stApp:has(.orbit-legal-dark) .orbit-legal-header small,
+.stApp:has(.orbit-legal-dark) .orbit-legal-document p { color: #d1d5db; }
+.stApp:has(.orbit-legal-dark) .orbit-legal-document {
+  border-color: #f5f3ff; background: #111827; }
+.stApp:has(.orbit-legal-dark) .orbit-legal-note { background: #080d35; color: #ddd6fe; }
+.stApp:has(.orbit-legal-dark) .orbit-legal-document section { border-color: #374151; }
+.stApp:has(.orbit-legal-dark) .st-key-legal_actions [data-testid="column"]:last-child a,
+.stApp:has(.orbit-legal-dark) .st-key-legal_actions [data-testid="column"]:last-child a p {
+  color: #fff !important; border-color: #f5f3ff !important;
+  -webkit-text-fill-color: #fff !important; }
+
+@media (max-width: 720px) {
+  .stApp:has(.orbit-legal-page) [data-testid="stMainBlockContainer"] {
+    width: min(100% - 28px,1080px); padding-top: 22px !important; }
+  .orbit-legal-header,.orbit-legal-document { padding-left: 24px; padding-right: 24px; }
+  .orbit-legal-brand { margin-bottom: 38px; }
+}
