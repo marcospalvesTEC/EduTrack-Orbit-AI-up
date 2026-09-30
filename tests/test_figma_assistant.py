@@ -75,7 +75,9 @@ def test_assistant_page_renders_and_confirms_focus_event():
     assert not app.exception
     assert any("Assistente <em>Orbit</em>" in item.value for item in app.markdown)
     assert any(button.label == "Criar sessão de foco" for button in app.button)
-    assert len(app.text_input) == 1
+    assert len(app.text_input) == 2
+    assert any(item.key == "assistant_global_search" for item in app.text_input)
+    assert any(item.label == "Pergunte ao Orbit" for item in app.text_input)
 
     next(button for button in app.button if button.label == "Criar sessão de foco").click().run()
     assert not app.exception

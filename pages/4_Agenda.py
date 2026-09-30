@@ -23,6 +23,7 @@ from src.ui.figma_agenda import (
     save_custom_event,
     task_events,
 )
+from src.ui.orbit_global_actions import render_global_actions
 from src.ui.theme import inject_custom_css
 
 st.set_page_config(page_title="Agenda - EduTrack Orbit AI", page_icon="📅", layout="wide")
@@ -30,7 +31,7 @@ inject_custom_css()
 user = require_authenticated()
 render_session_sidebar(user)
 service = data_service_for_user(user)
-_, tasks = load_academic_data(service)
+subjects, tasks = load_academic_data(service)
 dialog = st.dialog if hasattr(st, "dialog") else st.experimental_dialog
 
 
@@ -128,6 +129,7 @@ def render_group_drawer(group_events: list[AgendaEvent]) -> None:
 
 
 render_agenda_header(user)
+render_global_actions(subjects, tasks, key_prefix="agenda")
 intro, action = st.columns([5, 1])
 with intro:
     st.markdown(

@@ -110,3 +110,28 @@
 .stApp:has(.orbit-settings-dark) .st-key-settings_appearance button p,
 .stApp:has(.orbit-settings-dark) .st-key-settings_account button p {
   color: #c4b5fd !important; -webkit-text-fill-color: #c4b5fd !important; }
+
+/* settings controls polish 2026-09-28 */
+.stApp:has(.orbit-settings) [data-baseweb="select"] svg {
+  color: #7c3aed !important;
+  fill: #7c3aed !important;
+  margin: auto !important;
+}
+.stApp:has(.orbit-settings) [data-baseweb="select"] [role="button"] {
+  display: flex !important;
+  align-items: center !important;
+}
+.stApp:has(.orbit-settings) [data-testid="stToggle"] [role="switch"][aria-checked="true"],
+.stApp:has(.orbit-settings) [data-testid="stToggle"] [aria-checked="true"] > div:first-child {
+  background: #7c3aed !important;
+  border-color: #7c3aed !important;
+}
+.st-key-save_settings button {
+  background: #7c3aed !important;
+  border-color: #7c3aed !important;
+  color: #fff !important;
+}
+.st-key-save_settings button:hover {
+  background: #6d28d9 !important;
+  border-color: #6d28d9 !important;
+}

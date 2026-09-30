@@ -16,6 +16,7 @@ import streamlit as st
 from src.core.metrics import calculate_subject_progress
 from src.models.subject import Subject
 from src.models.task import Task, TaskStatus
+from src.ui.orbit_global_actions import render_global_actions
 
 if TYPE_CHECKING:
     from src.ui.figma_agenda import AgendaEvent
@@ -34,18 +35,6 @@ def safe(value: object) -> str:
     return escape(str(value), quote=True)
 
 
-def card(title: str, rows: str, badge: str = "", badge_href: str = "") -> str:
-    badge_html = (
-        f'<a href="{safe(badge_href)}" target="_self">{safe(badge)}</a>'
-        if badge_href
-        else f"<span>{safe(badge)}</span>"
-    )
-    return (
-        '<section class="orbit-card"><div class="orbit-card-title">'
-        f"<h2>{safe(title)}</h2>{badge_html}</div>{rows}</section>"
-    )
-
-
 def render_dashboard(
     user: dict[str, str],
     subjects: list[Subject],
@@ -59,6 +48,7 @@ def render_dashboard(
     if theme_class:
         css += '[data-testid="stSidebar"] { background: #1b2030; border-color: #323b51; }'
     st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
+    render_global_actions(subjects, tasks, key_prefix="dashboard")
     first_name = safe(user.get("name", "Estudante").split()[0])
     completion = round(float(metrics["completion_rate"]))
     today = date.today()
@@ -130,14 +120,6 @@ def render_dashboard(
         f'{bars}</div><div class="orbit-week-total">Meta semanal '
         f"<strong>{completion}%</strong></div>"
     )
-    cards = "".join(
-        (
-            card("Minhas disciplinas", subject_rows, "Ver todas", "./Disciplinas"),
-            card("Tarefas prioritárias", task_rows, "Ver todas", "./Tarefas"),
-            card("Agenda de hoje", today_rows, today.strftime("%d/%m")),
-            card("Progresso semanal", graph, "Esta semana"),
-        )
-    )
     tips = [
         (
             f"Comece por {safe(focus_task.title)} e reserve um bloco curto de concentração."
@@ -157,9 +139,68 @@ def render_dashboard(
     ]
     tip_items = "".join(f"<li>{tip}</li>" for tip in tips)
     # Figma's sample numbers are intentionally replaced with user-specific values.
+    # The two "Ver todas" actions are native Streamlit page links so navigation
+    # preserves the authenticated session instead of reloading the app via raw href.
+    native_card_css = """
+    .st-key-dashboard_card_grid [data-testid="stHorizontalBlock"] { gap: 12px; }
+    .st-key-dashboard_card_subjects,
+    .st-key-dashboard_card_tasks,
+    .st-key-dashboard_card_agenda,
+    .st-key-dashboard_card_progress {
+      min-height: 340px;
+      padding: 18px 12px !important;
+      border: 1px solid #e5e7eb !important;
+      border-radius: 16px !important;
+      background: #fff !important;
+      box-shadow: 0 3px 10px rgba(15,23,87,.03);
+    }
+    .st-key-dashboard_card_subjects [data-testid="stPageLink"] a,
+    .st-key-dashboard_card_tasks [data-testid="stPageLink"] a {
+      padding: 0 !important;
+      min-height: auto !important;
+      color: #7c3aed !important;
+      background: transparent !important;
+      font-size: 10px !important;
+      text-decoration: none !important;
+      justify-content: flex-end !important;
+    }
+    .st-key-dashboard_card_subjects [data-testid="stPageLink"] a:hover,
+    .st-key-dashboard_card_tasks [data-testid="stPageLink"] a:hover {
+      text-decoration: underline !important;
+    }
+    .orbit-native-card-title {
+      margin: 0;
+      color: #0f1757;
+      font-size: 14px;
+      line-height: 19px;
+      font-weight: 700;
+    }
+    .orbit-native-card-badge {
+      margin: 0;
+      color: #6b7280;
+      font-size: 9px;
+      line-height: 19px;
+      text-align: right;
+      white-space: nowrap;
+    }
+    .orbit-native-card-body { margin-top: 17px; }
+
+    .stApp:has(.orbit-dashboard-dark) .st-key-dashboard_card_subjects,
+    .stApp:has(.orbit-dashboard-dark) .st-key-dashboard_card_tasks,
+    .stApp:has(.orbit-dashboard-dark) .st-key-dashboard_card_agenda,
+    .stApp:has(.orbit-dashboard-dark) .st-key-dashboard_card_progress {
+      background: #171a2e !important;
+      border-color: #3c4261 !important;
+    }
+    .stApp:has(.orbit-dashboard-dark) .orbit-native-card-title {
+      color: #f5f3ff !important;
+    }
+    """
+    st.markdown(f"<style>{native_card_css}</style>", unsafe_allow_html=True)
+
     st.markdown(
         f"""
-<main class="orbit-dashboard{theme_class}" aria-label="Início do estudante">
+<div class="orbit-dashboard{theme_class}" aria-label="Início do estudante">
   <header class="orbit-topbar"><div><h1>Boa noite, {first_name}</h1>
     <p>Organize, acompanhe e evolua</p></div>
     <div class="orbit-header-icons"><span class="orbit-search">{icon("search")} Buscar...</span>
@@ -176,7 +217,85 @@ def render_dashboard(
         <div><span>Próxima entrega</span><strong>{next_delivery}</strong></div>
         <div><span>Foco recomendado</span><strong>{focus}</strong></div></div>
     </section>
-    <div class="orbit-grid">{cards}</div>
+  </div>
+</div>
+""",
+        unsafe_allow_html=True,
+    )
+
+    with st.container(key="dashboard_card_grid"):
+        subject_col, task_col, agenda_col, progress_col = st.columns(4, gap="small")
+
+        with subject_col:
+            with st.container(key="dashboard_card_subjects"):
+                title_col, link_col = st.columns([3, 1], vertical_alignment="center")
+                with title_col:
+                    st.markdown(
+                        '<h2 class="orbit-native-card-title">Minhas disciplinas</h2>',
+                        unsafe_allow_html=True,
+                    )
+                with link_col:
+                    st.page_link("pages/2_Disciplinas.py", label="Ver todas")
+                st.markdown(
+                    f'<div class="orbit-native-card-body">{subject_rows}</div>',
+                    unsafe_allow_html=True,
+                )
+
+        with task_col:
+            with st.container(key="dashboard_card_tasks"):
+                title_col, link_col = st.columns([3, 1], vertical_alignment="center")
+                with title_col:
+                    st.markdown(
+                        '<h2 class="orbit-native-card-title">Tarefas prioritárias</h2>',
+                        unsafe_allow_html=True,
+                    )
+                with link_col:
+                    st.page_link("pages/3_Tarefas.py", label="Ver todas")
+                st.markdown(
+                    f'<div class="orbit-native-card-body">{task_rows}</div>',
+                    unsafe_allow_html=True,
+                )
+
+        with agenda_col:
+            with st.container(key="dashboard_card_agenda"):
+                title_col, badge_col = st.columns([3, 1], vertical_alignment="center")
+                with title_col:
+                    st.markdown(
+                        '<h2 class="orbit-native-card-title">Agenda de hoje</h2>',
+                        unsafe_allow_html=True,
+                    )
+                with badge_col:
+                    st.markdown(
+                        f'<p class="orbit-native-card-badge">{today:%d/%m}</p>',
+                        unsafe_allow_html=True,
+                    )
+                st.markdown(
+                    f'<div class="orbit-native-card-body">{today_rows}</div>',
+                    unsafe_allow_html=True,
+                )
+
+        with progress_col:
+            with st.container(key="dashboard_card_progress"):
+                title_col, badge_col = st.columns([3, 1], vertical_alignment="center")
+                with title_col:
+                    st.markdown(
+                        '<h2 class="orbit-native-card-title">Progresso semanal</h2>',
+                        unsafe_allow_html=True,
+                    )
+                with badge_col:
+                    st.markdown(
+                        '<p class="orbit-native-card-badge">Esta semana</p>',
+                        unsafe_allow_html=True,
+                    )
+                st.markdown(
+                    f'<div class="orbit-native-card-body">{graph}</div>',
+                    unsafe_allow_html=True,
+                )
+
+    st.markdown(
+        f"""
+<div class="orbit-dashboard{theme_class}">
+  <div class="orbit-content">
     <div class="orbit-tip">{icon("tip", "Dica do dia")}
       <div class="orbit-tip-copy"><strong>Dica do dia</strong>
         <span>Pequenos avanços diários geram grandes conquistas.</span></div>
@@ -184,7 +303,7 @@ def render_dashboard(
         <div class="orbit-tip-panel"><strong>Recomendações para você</strong><ul>{tip_items}</ul></div>
       </details></div>
   </div>
-</main>
+</div>
 """,
         unsafe_allow_html=True,
     )

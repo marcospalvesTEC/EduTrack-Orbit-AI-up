@@ -62,9 +62,114 @@ def inject_custom_css() -> None:
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
 
-    /* Hide only the public repository link and preserve sidebar controls */
-    [data-testid="stToolbar"] a[href*="github.com"] {
+    /* Hide Streamlit chrome while preserving sidebar controls */
+    [data-testid="stToolbar"],
+    [data-testid="stMainMenu"],
+    #MainMenu {
         display: none !important;
+        visibility: hidden !important;
+    }
+
+    /* Primary Orbit action: purple + white */
+    .stButton > button[kind="primary"],
+    .stDownloadButton > button[kind="primary"],
+    [data-testid="stFormSubmitButton"] > button[kind="primary"] {
+        background: #7C3AED !important;
+        border-color: #7C3AED !important;
+        color: #FFFFFF !important;
+    }
+    .stButton > button[kind="primary"] p,
+    .stDownloadButton > button[kind="primary"] p,
+    [data-testid="stFormSubmitButton"] > button[kind="primary"] p {
+        color: #FFFFFF !important;
+        -webkit-text-fill-color: #FFFFFF !important;
+    }
+
+    /* Old decorative header controls are replaced by native Streamlit controls. */
+    .orbit-header-icons,
+    .orbit-agenda-header-icons,
+    .orbit-assistant-header-icons,
+    .orbit-profile-header-icons,
+    .orbit-settings-header-icons {
+        visibility: hidden !important;
+    }
+
+    .st-key-dashboard_global_actions,
+    .st-key-agenda_global_actions,
+    .st-key-assistant_global_actions,
+    .st-key-profile_global_actions,
+    .st-key-settings_global_actions {
+        position: absolute !important;
+        top: 22px;
+        right: 32px;
+        width: min(390px, 42vw);
+        z-index: 50;
+    }
+
+    .st-key-dashboard_global_actions [data-baseweb="input"],
+    .st-key-agenda_global_actions [data-baseweb="input"],
+    .st-key-assistant_global_actions [data-baseweb="input"],
+    .st-key-profile_global_actions [data-baseweb="input"],
+    .st-key-settings_global_actions [data-baseweb="input"] {
+        min-height: 44px !important;
+        border: 1px solid #E5E7EB !important;
+        border-radius: 999px !important;
+        background: #F8FAFC !important;
+        box-shadow: none !important;
+    }
+
+    .st-key-dashboard_global_actions button,
+    .st-key-agenda_global_actions button,
+    .st-key-assistant_global_actions button,
+    .st-key-profile_global_actions button,
+    .st-key-settings_global_actions button {
+        min-height: 44px !important;
+        border-color: #DDD6FE !important;
+        border-radius: 999px !important;
+        color: #7C3AED !important;
+    }
+
+    .st-key-dashboard_global_search_results,
+    .st-key-agenda_global_search_results,
+    .st-key-assistant_global_search_results,
+    .st-key-profile_global_search_results,
+    .st-key-settings_global_search_results {
+        position: absolute !important;
+        top: 72px;
+        right: 84px;
+        width: 320px;
+        max-height: 360px;
+        overflow-y: auto;
+        z-index: 60;
+        padding: 14px !important;
+        border: 1px solid #DDD6FE;
+        border-radius: 14px;
+        background: #FFFFFF;
+        box-shadow: 0 16px 40px rgba(15,23,87,.14);
+    }
+
+    @media (max-width: 900px) {
+        .st-key-dashboard_global_actions,
+        .st-key-agenda_global_actions,
+        .st-key-assistant_global_actions,
+        .st-key-profile_global_actions,
+        .st-key-settings_global_actions {
+            position: relative !important;
+            top: auto;
+            right: auto;
+            width: 100%;
+            padding: 8px 0;
+        }
+        .st-key-dashboard_global_search_results,
+        .st-key-agenda_global_search_results,
+        .st-key-assistant_global_search_results,
+        .st-key-profile_global_search_results,
+        .st-key-settings_global_search_results {
+            position: relative !important;
+            top: auto;
+            right: auto;
+            width: 100%;
+        }
     }
 
     /* Custom Metric Cards */

@@ -3,7 +3,6 @@
 from datetime import date, timedelta
 
 import streamlit as st
-
 from src.core.auth_session import render_session_sidebar, require_authenticated
 from src.models.task import Task, TaskPriority, TaskStatus
 from src.services.data_service import data_service_for_user, load_academic_data
@@ -38,9 +37,7 @@ def render_new_task_form() -> None:
         with identity:
             title = st.text_input("Título da tarefa", placeholder="Ex.: Exercícios 1 a 10")
             subject_name = st.selectbox("Disciplina", options=list(subject_options))
-            description = st.text_area(
-                "Descrição", placeholder="Instruções ou observações..."
-            )
+            description = st.text_area("Descrição", placeholder="Instruções ou observações...")
         with planning:
             due_date = st.date_input("Data de entrega", value=date.today() + timedelta(days=3))
             priority = st.selectbox(
@@ -83,17 +80,15 @@ def render_task_details(task: Task) -> None:
         st.caption(task.description or "Sem descrição adicional.")
         st.markdown(
             '<div class="orbit-task-dialog-meta">'
-            f'<div><span>Disciplina</span><strong>{safe(task.subject_name)}</strong></div>'
-            f'<div><span>Entrega</span><strong>{task.due_date:%d/%m/%Y}</strong></div>'
-            f'<div><span>Prioridade</span><strong>{task.priority.value}</strong></div>'
+            f"<div><span>Disciplina</span><strong>{safe(task.subject_name)}</strong></div>"
+            f"<div><span>Entrega</span><strong>{task.due_date:%d/%m/%Y}</strong></div>"
+            f"<div><span>Prioridade</span><strong>{task.priority.value}</strong></div>"
             "</div>",
             unsafe_allow_html=True,
         )
         st.write(f"**Status:** {task.status.value}")
         toggle_label = (
-            "Reabrir tarefa"
-            if task.status == TaskStatus.CONCLUIDA
-            else "Concluir tarefa"
+            "Reabrir tarefa" if task.status == TaskStatus.CONCLUIDA else "Concluir tarefa"
         )
         if st.button(toggle_label, type="primary", width="stretch", key=f"toggle_task_{task.id}"):
             service.toggle_task_status(task.id)
@@ -102,9 +97,7 @@ def render_task_details(task: Task) -> None:
     with edit_tab:
         subject_names = [subject.name for subject in subjects]
         current_subject = (
-            subject_names.index(task.subject_name)
-            if task.subject_name in subject_names
-            else 0
+            subject_names.index(task.subject_name) if task.subject_name in subject_names else 0
         )
         status_values = [item.value for item in TaskStatus]
         priority_values = [item.value for item in TaskPriority]
@@ -119,9 +112,7 @@ def render_task_details(task: Task) -> None:
                 "Prioridade", priority_values, index=priority_values.index(task.priority.value)
             )
             edit_description = st.text_area("Descrição", value=task.description)
-            save_task = st.form_submit_button(
-                "Salvar alterações", type="primary", width="stretch"
-            )
+            save_task = st.form_submit_button("Salvar alterações", type="primary", width="stretch")
         if save_task:
             if not edit_title.strip():
                 st.error("O título da tarefa é obrigatório.")
@@ -148,9 +139,7 @@ def render_task_details(task: Task) -> None:
 
     with delete_tab:
         st.warning("Esta ação não pode ser desfeita.")
-        confirmed = st.checkbox(
-            "Confirmo a exclusão desta tarefa", key=f"confirm_task_{task.id}"
-        )
+        confirmed = st.checkbox("Confirmo a exclusão desta tarefa", key=f"confirm_task_{task.id}")
         if st.button(
             "Excluir tarefa",
             key=f"delete_task_{task.id}",

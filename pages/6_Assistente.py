@@ -16,7 +16,9 @@ from src.ui.figma_assistant import (
     render_context,
     render_messages,
     render_pending_action,
+    render_safety_note,
 )
+from src.ui.orbit_global_actions import render_global_actions
 from src.ui.theme import inject_custom_css
 
 st.set_page_config(page_title="Assistente - EduTrack Orbit AI", page_icon="🤖", layout="wide")
@@ -46,10 +48,12 @@ def submit_prompt(prompt: str) -> None:
         ]
     )
     st.session_state[messages_key] = current
-    st.session_state[action_key] = action
+    if action is not None:
+        st.session_state[action_key] = action
 
 
 install_assistant_css(user)
+render_global_actions(subjects, tasks, key_prefix="assistant")
 
 chat_column, context_column = st.columns([2.28, 1])
 with chat_column:
@@ -114,3 +118,16 @@ with chat_column:
 
 with context_column:
     render_context(subjects)
+    with st.container(key="assistant_quick_actions"):
+        st.markdown("<h3>AÇÕES RÁPIDAS</h3>", unsafe_allow_html=True)
+        if st.button("Criar tarefa", key="assistant_quick_task", width="stretch"):
+            st.switch_page("pages/3_Tarefas.py")
+        if st.button("Planejar sessão de foco", key="assistant_quick_focus", width="stretch"):
+            submit_prompt("Criar sessão de foco")
+            st.rerun()
+        if st.button("Adicionar evento à agenda", key="assistant_quick_event", width="stretch"):
+            st.switch_page("pages/4_Agenda.py")
+        if st.button("Resumir desempenho", key="assistant_quick_performance", width="stretch"):
+            submit_prompt("Resumir desempenho")
+            st.rerun()
+    render_safety_note()

@@ -24,6 +24,7 @@ from src.ui.figma_profile import (
     render_summary_card,
     save_profile_section,
 )
+from src.ui.orbit_global_actions import render_global_actions
 from src.ui.theme import inject_custom_css
 
 st.set_page_config(page_title="Meu Perfil - EduTrack Orbit AI", page_icon="👤", layout="wide")
@@ -214,6 +215,7 @@ def render_active_profile_dialog() -> None:
 
 
 render_profile_header(user)
+render_global_actions(subjects, tasks, key_prefix="profile")
 details = load_profile_section(st.session_state, user, "details", DEFAULT_PROFILE_DETAILS)
 preferences = load_profile_section(
     st.session_state, user, "preferences", DEFAULT_PROFILE_PREFERENCES

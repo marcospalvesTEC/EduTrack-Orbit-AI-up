@@ -330,3 +330,25 @@
   .orbit-agenda-mini { min-height: auto; }
   .st-key-agenda_calendar_grid { overflow-x: auto; }
 }
+
+/* orbit agenda polish 2026-09-28 */
+.orbit-agenda-month-title {
+  color: #7c3aed !important;
+  font-size: 22px !important;
+  line-height: 30px !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em;
+}
+.st-key-agenda_group_footer {
+  border: 2px solid #7c3aed !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  background: #252737 !important;
+}
+.orbit-agenda-group-footer {
+  border: 0 !important;
+  border-left: 0 !important;
+  background: #252737 !important;
+  color: #fff !important;
+  border-radius: 14px !important;
+}

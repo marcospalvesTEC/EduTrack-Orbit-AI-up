@@ -26,10 +26,7 @@ def make_task(
 def test_board_status_groups_pending_and_overdue_as_todo():
     assert board_status(make_task("Pendente")) == "A fazer"
     assert board_status(make_task("Atrasada", status=TaskStatus.ATRASADA)) == "A fazer"
-    assert (
-        board_status(make_task("Andamento", status=TaskStatus.EM_ANDAMENTO))
-        == "Em andamento"
-    )
+    assert board_status(make_task("Andamento", status=TaskStatus.EM_ANDAMENTO)) == "Em andamento"
     assert board_status(make_task("Feita", status=TaskStatus.CONCLUIDA)) == "Concluídas"
 
 

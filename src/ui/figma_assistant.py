@@ -37,7 +37,7 @@ def pending_action_key(user: dict[str, str]) -> str:
 def assistant_reply(
     prompt: str, subjects: list[Subject], tasks: list[Task]
 ) -> tuple[str, dict[str, str] | None]:
-    """Generate a safe, deterministic answer using the current academic data."""
+    """Generate a safe deterministic answer using current academic data."""
     normalized = prompt.strip().lower()
     pending = sorted(
         (task for task in tasks if task.status != TaskStatus.CONCLUIDA),
@@ -45,20 +45,59 @@ def assistant_reply(
     )
     overdue = [task for task in pending if task.status == TaskStatus.ATRASADA or task.is_overdue]
 
+    greetings = ("oi", "olá", "ola", "hey", "e aí", "eai", "bom dia", "boa tarde", "boa noite")
+    if normalized in greetings or any(normalized.startswith(term + " ") for term in greetings):
+        return (
+            "Oi! 👋 Posso ajudar com tarefas, atrasos, progresso, planejamento da semana "
+            "e sessões de foco. Experimente perguntar: “o que tenho hoje?”.",
+            None,
+        )
+
+    if any(term in normalized for term in ("obrigado", "obrigada", "valeu", "vlw", "thanks")):
+        return (
+            "Por nada! Posso continuar daqui e te ajudar a escolher o próximo passo nos estudos.",
+            None,
+        )
+
+    if any(
+        term in normalized
+        for term in ("o que você faz", "o que voce faz", "me ajuda", "ajuda", "help")
+    ):
+        return (
+            "Posso priorizar tarefas, mostrar atrasos, resumir seu progresso, planejar a semana "
+            "e preparar uma sessão de foco. Ações que alteram sua agenda pedem confirmação.",
+            None,
+        )
+
+    if "hoje" in normalized or "o que tenho" in normalized:
+        from datetime import date
+
+        today_items = [task for task in pending if task.due_date == date.today()]
+        if not today_items:
+            return (
+                "Hoje você não tem tarefas com vencimento marcado. "
+                "Posso verificar atrasadas ou montar uma prioridade para a semana.",
+                None,
+            )
+        items = "; ".join(f"{task.title} ({task.subject_name})" for task in today_items[:5])
+        return f"Para hoje encontrei {len(today_items)} tarefa(s): {items}.", None
+
     if "foco" in normalized:
         subject = (
             pending[0].subject_name if pending else subjects[0].name if subjects else "Estudos"
         )
         return (
             f"Preparei uma sessão de foco de 45 minutos para {subject}. "
-            "Confira a prévia e confirme antes de adicioná-la à Agenda.",
+            "Confirme ou cancele na prévia da ação.",
             {"type": "focus", "subject": subject, "duration": "45"},
         )
+
     if "atras" in normalized:
         if not overdue:
             return "Você não possui tarefas atrasadas neste momento.", None
         items = "; ".join(f"{task.title} ({task.subject_name})" for task in overdue[:4])
         return f"Encontrei {len(overdue)} tarefa(s) atrasada(s): {items}.", None
+
     if "semana" in normalized or "planej" in normalized:
         if not pending:
             return "Sua semana está livre. Cadastre uma tarefa para montar o próximo plano.", None
@@ -67,7 +106,8 @@ def assistant_reply(
             for index, task in enumerate(pending[:3], start=1)
         )
         return f"Minha recomendação para a semana: {items}", None
-    if "prior" in normalized or "hoje" in normalized:
+
+    if "prior" in normalized:
         if not pending:
             return (
                 "Nenhuma tarefa pendente. Aproveite para revisar ou planejar a próxima semana.",
@@ -77,6 +117,7 @@ def assistant_reply(
             f"{index}. {task.title}." for index, task in enumerate(pending[:3], start=1)
         )
         return f"Priorize nesta ordem: {items}", None
+
     if "desempenho" in normalized or "progresso" in normalized:
         metrics = calculate_dashboard_metrics(tasks, subjects)
         return (
@@ -85,21 +126,22 @@ def assistant_reply(
             f"{metrics['overdue_tasks']} atrasada(s).",
             None,
         )
+
     if "criar tarefa" in normalized or "adicionar tarefa" in normalized:
         return (
-            "Posso preparar a tarefa, mas preciso do título, da disciplina e do prazo. "
-            "Nada será criado sem sua confirmação.",
+            "Use o botão “Criar tarefa” em Ações rápidas para abrir o cadastro completo.",
             None,
         )
+
     if "evento" in normalized or "agenda" in normalized:
         return (
-            "Posso preparar um evento. Informe o título, a data e o horário; mostrarei uma "
-            "prévia antes de adicionar à Agenda.",
+            "Use “Adicionar evento à agenda” em Ações rápidas para abrir o cadastro completo.",
             None,
         )
+
     return (
-        "Posso ajudar a priorizar tarefas, planejar sua semana, resumir seu desempenho ou "
-        "preparar uma sessão de foco.",
+        "Entendi sua mensagem, mas este protótipo ainda não usa uma IA generativa externa. "
+        "Posso responder sobre tarefas, atrasos, progresso, planejamento semanal e sessões de foco.",
         None,
     )
 
@@ -157,7 +199,7 @@ def render_messages(messages: list[dict[str, str]]) -> None:
 
 
 def render_context(subjects: list[Subject]) -> None:
-    """Render current context, quick actions and the safety promise."""
+    """Render the current academic context."""
     subject_rows = "".join(f"<li>{safe(subject.name)}</li>" for subject in subjects[:3])
     if not subject_rows:
         subject_rows = "<li>Nenhuma disciplina cadastrada</li>"
@@ -165,11 +207,6 @@ def render_context(subjects: list[Subject]) -> None:
         f"""
 <aside class="orbit-assistant-context">
   <h3>CONTEXTO ATUAL</h3><ul>{subject_rows}</ul>
-  <h3>AÇÕES RÁPIDAS</h3>
-  <ul><li>Criar tarefa</li><li>Planejar sessão de foco</li>
-    <li>Adicionar evento à agenda</li><li>Resumir desempenho</li></ul>
-  <h3>ANTES DE EXECUTAR</h3>
-  <p>O Orbit sempre mostrará uma prévia e pedirá sua confirmação antes de criar, editar ou excluir informações.</p>
 </aside>
 """,
         unsafe_allow_html=True,
@@ -185,6 +222,19 @@ def render_pending_action(action: dict[str, str]) -> None:
   <span>Sessão de foco · {safe(action.get("subject", "Estudos"))} ·
     {safe(action.get("duration", "45"))} minutos</span>
   <small>Nenhuma informação foi alterada ainda.</small>
+</div>
+""",
+        unsafe_allow_html=True,
+    )
+
+
+def render_safety_note() -> None:
+    """Render the assistant safety promise below native quick actions."""
+    st.markdown(
+        """
+<div class="orbit-assistant-safety">
+  <h3>ANTES DE EXECUTAR</h3>
+  <p>O Orbit sempre mostrará uma prévia e pedirá sua confirmação antes de criar, editar ou excluir informações.</p>
 </div>
 """,
         unsafe_allow_html=True,

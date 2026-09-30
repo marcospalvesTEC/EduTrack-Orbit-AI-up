@@ -17,6 +17,7 @@ from src.ui.figma_settings import (
     save_settings,
     settings_key,
 )
+from src.ui.orbit_global_actions import render_global_actions
 from src.ui.theme import inject_custom_css
 
 st.set_page_config(page_title="Configurações - EduTrack Orbit AI", page_icon="⚙️", layout="wide")
@@ -51,6 +52,9 @@ def apply_theme(dark: bool) -> None:
 
 
 install_settings_css(user)
+render_global_actions(subjects, tasks, key_prefix="settings")
+if st.session_state.pop("_settings_saved_notice", False):
+    st.success("Configurações salvas com sucesso.")
 
 left, right = st.columns(2)
 with left:
@@ -174,6 +178,25 @@ with right:
         if st.button("Excluir conta", key="settings_delete_account", width="stretch"):
             st.session_state["settings_account_panel"] = "delete"
 
+        panel = st.session_state.get("settings_account_panel")
+        if panel == "privacy":
+            st.info("Privacidade: revise abaixo como o Orbit usa seus dados acadêmicos.")
+            st.page_link("pages/0_Privacidade.py", label="Abrir Política de Privacidade")
+            if st.button("Fechar privacidade", key="close_settings_privacy"):
+                st.session_state["settings_account_panel"] = None
+                st.rerun()
+        elif panel == "sessions":
+            st.info("1 dispositivo ativo nesta sessão. Nenhuma outra sessão foi identificada.")
+            if st.button("Fechar dispositivos", key="close_settings_sessions"):
+                st.session_state["settings_account_panel"] = None
+                st.rerun()
+        elif panel == "delete":
+            st.warning("A exclusão de conta não será executada no protótipo.")
+            st.caption("Sua conta de teste continuará disponível.")
+            if st.button("Cancelar exclusão", key="cancel_settings_delete"):
+                st.session_state["settings_account_panel"] = None
+                st.rerun()
+
 values = {
     "theme": theme,
     "accent": "Roxo Orbit",
@@ -205,22 +228,5 @@ if st.button("Salvar configurações", type="primary", key="save_settings", widt
     save_profile_section(st.session_state, user, "preferences", preferences)
     if saved["theme"] in {"Claro", "Escuro"}:
         st.session_state["_settings_pending_theme"] = saved["theme"] == "Escuro"
-    st.success("Configurações salvas.")
+    st.session_state["_settings_saved_notice"] = True
     st.rerun()
-
-panel = st.session_state.get("settings_account_panel")
-if panel:
-    with st.container(key="settings_account_notice"):
-        if panel == "privacy":
-            st.info(
-                "As permissões de uso do histórico acadêmico podem ser ajustadas no card Assistente Orbit AI."
-            )
-        elif panel == "sessions":
-            st.info("1 dispositivo ativo nesta sessão. Nenhuma outra sessão foi identificada.")
-        else:
-            st.warning(
-                "A exclusão é permanente e será habilitada após a integração segura com o Xano."
-            )
-        if st.button("Fechar", key="close_settings_account_panel"):
-            st.session_state["settings_account_panel"] = None
-            st.rerun()

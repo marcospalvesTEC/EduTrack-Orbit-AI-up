@@ -191,3 +191,29 @@
 .stApp:has(.orbit-profile-dark) .orbit-profile-preferences dd,
 .stApp:has(.orbit-profile-dark) .orbit-profile-security dd,
 .stApp:has(.orbit-profile-dark) .orbit-profile-summary dt { color: #f5f3ff; }
+
+/* profile action polish 2026-09-28 */
+.st-key-profile_dialog_panel [data-testid="stFileUploaderDropzone"] button,
+.st-key-profile_dialog_panel [data-testid="stNumberInput"] button {
+  border-color: #7c3aed !important;
+  background: #7c3aed !important;
+  color: #fff !important;
+}
+.st-key-profile_dialog_panel [data-testid="stFileUploaderDropzone"] button p,
+.st-key-profile_dialog_panel [data-testid="stNumberInput"] button p {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+.st-key-profile_dialog_panel [data-baseweb="select"] svg {
+  color: #7c3aed !important;
+  fill: #7c3aed !important;
+}
+.st-key-profile_dialog_panel button[kind="primary"] {
+  background: #7c3aed !important;
+  border-color: #7c3aed !important;
+  color: #fff !important;
+}
+.st-key-profile_dialog_panel button[kind="primary"]:hover {
+  background: #6d28d9 !important;
+  border-color: #6d28d9 !important;
+}

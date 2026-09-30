@@ -105,3 +105,80 @@
   border-color: #8b5cf6 !important; color: #c4b5fd !important; }
 .stApp:has(.orbit-assistant-dark) .st-key-assistant_chat button[kind="tertiary"] p {
   color: #c4b5fd !important; -webkit-text-fill-color: #c4b5fd !important; }
+
+/* assistant light polish 2026-09-28 */
+.st-key-assistant_chat button[kind="tertiary"] {
+  min-height: 42px !important;
+  padding: 8px 16px !important;
+  margin: 2px 0 6px !important;
+}
+.st-key-assistant_chat button[kind="primary"] {
+  background: #7c3aed !important;
+  border-color: #7c3aed !important;
+  color: #fff !important;
+}
+.st-key-assistant_chat button[kind="primary"]:hover {
+  background: #6d28d9 !important;
+}
+.st-key-assistant_quick_actions h3,
+.orbit-assistant-safety h3 {
+  margin: 12px 0 8px;
+  color: #7c3aed;
+  font-size: 11px;
+  letter-spacing: .05em;
+}
+.st-key-assistant_quick_actions button {
+  min-height: 38px !important;
+  justify-content: flex-start !important;
+  border: 1px solid #ddd6fe !important;
+  background: #fff !important;
+  color: #7c3aed !important;
+  margin-bottom: 6px !important;
+}
+.st-key-assistant_quick_actions button p {
+  color: #7c3aed !important;
+  -webkit-text-fill-color: #7c3aed !important;
+  font-weight: 600 !important;
+}
+.st-key-assistant_quick_actions button:hover {
+  background: #f5f3ff !important;
+  border-color: #a78bfa !important;
+}
+.orbit-assistant-safety p {
+  margin: 0; padding: 14px; border-radius: 10px;
+  background: #f5f3ff; color: #6b7280; font-size: 11px; line-height: 17px;
+}
+
+
+/* assistant functional polish v2 */
+.st-key-assistant_chat [data-testid="stFormSubmitButton"] button,
+.st-key-assistant_chat form [data-testid="stFormSubmitButton"] button,
+.st-key-assistant_chat button[kind="primary"] {
+  background: #7c3aed !important;
+  background-color: #7c3aed !important;
+  border-color: #7c3aed !important;
+  color: #fff !important;
+}
+.st-key-assistant_chat [data-testid="stFormSubmitButton"] button p,
+.st-key-assistant_chat form [data-testid="stFormSubmitButton"] button p,
+.st-key-assistant_chat button[kind="primary"] p {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  font-weight: 700 !important;
+}
+.st-key-assistant_chat [data-testid="stFormSubmitButton"] button:hover,
+.st-key-assistant_chat form [data-testid="stFormSubmitButton"] button:hover,
+.st-key-assistant_chat button[kind="primary"]:hover {
+  background: #6d28d9 !important;
+  background-color: #6d28d9 !important;
+  border-color: #6d28d9 !important;
+}
+.st-key-assistant_pending_action_panel::before {
+  content: "AÇÃO AGUARDANDO CONFIRMAÇÃO";
+  display: block;
+  margin-bottom: 8px;
+  color: #7c3aed;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .08em;
+}

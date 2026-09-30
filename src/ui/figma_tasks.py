@@ -88,9 +88,9 @@ def render_task_metrics(tasks: list[Task]) -> None:
     st.markdown(
         f"""
 <section class="orbit-task-metrics" aria-label="Resumo das tarefas">
-  <div><span>A fazer</span><strong class="todo">{totals['A fazer']}</strong></div>
-  <div><span>Em andamento</span><strong class="doing">{totals['Em andamento']}</strong></div>
-  <div><span>Concluídas</span><strong class="done">{totals['Concluídas']}</strong></div>
+  <div><span>A fazer</span><strong class="todo">{totals["A fazer"]}</strong></div>
+  <div><span>Em andamento</span><strong class="doing">{totals["Em andamento"]}</strong></div>
+  <div><span>Concluídas</span><strong class="done">{totals["Concluídas"]}</strong></div>
 </section>
 """,
         unsafe_allow_html=True,
