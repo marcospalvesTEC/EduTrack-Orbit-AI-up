@@ -11,7 +11,7 @@ Este diretório registra o andamento das atividades da disciplina **Innovation L
 | 01 - Primeiro contato com Git e GitHub | ✅ Concluída | Repositório acadêmico, histórico de commits e push |
 | 02 - VS Code, Node.js e IA | 🟡 Aguardando evidências | Adicionar prints e versões |
 | 03 - OpenSpec | ✅ Concluída | Estrutura OpenSpec presente no repositório |
-| 04 - XanoScript | 🟡 Em validação | Integração Xano precisa de evidências |
+| 04 - XanoScript | 🟡 Em validação | Extensão e ambiente prontos; falta o Pull do XanoScript |
 | 05 - Branches e Pull Requests | ✅ Concluída | Branches, commits, merges e novo PR acadêmico |
 | 06 - Templates gratuitos | ⏳ Pendente | Criar referências em `docs/pesquisa/` |
 | 07 - Frontend | 🔄 Adaptada | Implementação em Streamlit |
@@ -40,6 +40,8 @@ tarefa-01-git-version.png
 tarefa-01-historico-commits.png
 tarefa-03-openspec-version.png
 tarefa-03-estrutura-openspec.png
+tarefa-04-arquivos-xs.png
+tarefa-04-push-xano.png
 tarefa-05-pull-request.png
 tarefa-05-merge.png
 ```
