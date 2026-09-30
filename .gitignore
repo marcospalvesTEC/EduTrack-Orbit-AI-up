@@ -9,6 +9,16 @@ __pycache__/
 .env
 .env.*
 .streamlit/secrets.toml
+*.pem
+*.key
+
+# Xano: versionar .xano/ e tables/, mas nunca credenciais.
+# O token fica no Secret Storage do VS Code, fora do repositorio.
+# Se o pull gerar algum arquivo de segredo, ignore-o pelo nome aqui.
+tables/**/*.secret.*
+tables/**/*.token.*
+.xano/**/secrets.*
+.xano/**/credentials.*
 
 # Editor and system
 .vscode/
@@ -19,3 +29,18 @@ Thumbs.db
 # Reports and temporary files
 *.log
 tmp/
+
+# Backups e artefatos locais de patch
+.backup_*/
+.orbit_patch_backup_*/
+*.bak
+*.orig
+*.rej
+
+# Scripts avulsos de correção pontual
+aplicar_*.py
+corrigir_*.py
+instalar_*.py
+
+# Scaffold padrão do OpenSpec (duplica app/, pages/ e src/)
+openspec/app/
