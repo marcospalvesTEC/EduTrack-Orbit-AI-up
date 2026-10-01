@@ -2,134 +2,147 @@
 
 ## Status
 
-🟡 **Em validação** — ambiente local preparado; Pull ainda não executado.
+🟡 **Em validação final** — conexão, primeiro Pull e versionamento Git concluídos.
+
+O Push de alteração para o Xano foi iniciado durante a validação, porém abortado
+antes da confirmação final por segurança, pois a extensão apresentou um alerta
+de possível alteração estrutural da tabela.
 
 ## Objetivo
 
-Conectar o ambiente local (VS Code) ao backend do Xano utilizando a extensão
-**XanoScript**, permitindo gerenciar o backend como código e versioná-lo no Git.
+Conectar o ambiente local do **EduTrack Orbit AI** ao backend do Xano utilizando
+a extensão **XanoScript** no VS Code, permitindo visualizar e versionar o backend
+como código por meio de arquivos `.xs`.
 
-## Conceitos
-
-- **Xano:** plataforma de backend No-Code que gerencia banco de dados e APIs.
-- **XanoScript (`.xs`):** representação da lógica do Xano em texto, o que permite
-  versionar o backend com Git.
-- **Pull:** baixar do painel do Xano as tabelas e configurações para o computador.
-- **Push:** enviar as alterações feitas nos arquivos `.xs` locais para o painel.
-
-## Estado verificado do ambiente
-
-Verificações executadas em 30/09/2026 na máquina de desenvolvimento:
+## Ambiente utilizado
 
 | Item | Resultado |
 |---|---|
-| Extensão XanoScript instalada | ✅ `xano.xanoscript-0.5.12` |
-| Login na extensão | ❌ Sem estado em `globalStorage` |
-| Pastas `tables/` e `.xano/` no repositório | ❌ Ainda não existem |
-| `*.xs` normalizado para LF | ✅ `.gitattributes` linha 15 |
-| `tables/` e `.xano/` versionáveis | ✅ `.gitignore` não os bloqueia |
+| VS Code | ✅ Utilizado |
+| Extensão XanoScript | ✅ Instalada |
+| Login no Xano | ✅ Realizado |
+| Instância | ✅ Free Instance (`x8ki-letl-twmt`) |
+| Branch Xano | ✅ `v1` — Live branch |
+| Primeiro Pull | ✅ Concluído |
+| Arquivos `.xs` locais | ✅ Recebidos |
+| Versionamento Git | ✅ Concluído |
+| Push para GitHub | ✅ Concluído |
+| Push de alteração para Xano | ⚠️ Abortado por segurança |
 
-Comandos usados:
+## Conexão com o XanoScript
 
-```powershell
-Get-ChildItem "$env:USERPROFILE\.vscode\extensions" -Directory | Where-Object Name -match 'xano'
-Test-Path "$env:APPDATA\Code\User\globalStorage\xano.xanoscript"
-Test-Path tables; Test-Path .xano
-```
+No VS Code foi executado:
 
-## Procedimento a executar
+`XanoScript: Login to Xano`
 
-### 1. Conta e workspace no Xano
+A autenticação foi concluída com sucesso.
 
-1. Criar conta em [xano.com](https://www.xano.com/) (plano gratuito).
-2. Criar o workspace `edutrack-ai` na instância.
-3. Em **Instances** → engrenagem da **Free Instance** → **Metadata API & MCP
-   Server** → **Manage Access Tokens** → **New Access Token**.
-4. Nomear como `VS Code` e selecionar os escopos: **Database** (CRUD),
-   **API Groups** (CRUD), **Functions** (CRUD) e **Content** (Read).
-5. Copiar o token imediatamente — ele aparece uma única vez.
+Em seguida foi selecionada a instância:
 
-> O token **não** deve ser salvo no repositório. A extensão o guarda no Secret
-> Storage do VS Code, fora da pasta do projeto.
+`Free Instance (x8ki-letl-twmt)`
 
-### 2. Conexão com o VS Code
+Depois foi selecionada a branch do Xano:
 
-1. `Ctrl + Shift + P` → **XanoScript: Login to Xano**.
-2. Escolher **Login via Browser** (primeira vez) ou **Enter Access Token**.
-3. `Ctrl + Shift + P` → **XanoScript: Select workspace** → `edutrack-ai`.
-4. Se aparecer o aviso de pull, escolher **Pull Changes**.
+`v1 — Live branch`
 
-### 3. Primeiro Pull
+> A branch `v1` pertence ao Xano e não deve ser confundida com a branch `main`
+> utilizada pelo Git/GitHub.
 
-1. `Ctrl + Shift + P` → **XanoScript: Pull latest changes from Xano**.
-2. Isso cria `tables/` com os arquivos `.xs` e a pasta oculta `.xano/`.
-3. Para exibir `.xano/`, usar `Ctrl + Shift + .` no explorador do VS Code.
+## Primeiro Pull
 
-### 4. Alteração e Push
+Após selecionar a branch `v1`, a extensão apresentou a opção:
 
-1. Abrir um `.xs` e adicionar o comentário `// Meu primeiro comentário via VS Code`.
-2. Salvar com `Ctrl + S`.
-3. `Ctrl + Shift + P` → **XanoScript: Push Stage Changes to Xano**.
-4. Conferir o comentário no painel do Xano.
+`Pull Changes`
 
-### 5. Commitar antes de deletar (ordem obrigatória)
+O Pull foi executado com sucesso e o backend do Xano passou a ser representado
+localmente no projeto por arquivos XanoScript (`.xs`).
 
-O passo de remoção de tabelas padrão é **irreversível**. O commit precisa existir
-**antes** da deleção para que a recuperação sugerida no roteiro funcione:
+Entre os diretórios recebidos estão:
 
-```powershell
-git add tables .xano
-git commit -m "feat: pull inicial do XanoScript"
-```
+- `.xano/`
+- `addons/`
+- `agents/`
+- `apis/`
+- `functions/`
+- `tables/`
+- `tools/`
 
-Só depois de remover os `.xs` indesejados e executar o Push, commitar a remoção:
+## Tabelas recebidas
 
-```powershell
-git add tables
-git commit -m "chore: remove tabelas padrao do Xano"
-```
+O diretório `tables/` passou a conter:
 
-> A ordem sugerida no roteiro (deletar → depois commitar) quebra a rede de
-> segurança de `git checkout HEAD~1 -- tables/`. Por isso o commit antecede a
-> deleção.
+- `887029_user.xs`
+- `887030_event_log.xs`
+- `887034_academic_tasks.xs`
+- `887035_subjects.xs`
 
-### 6. Remoção das tabelas padrão
+Isso confirmou que a integração entre o backend do Xano e o ambiente local
+estava funcionando corretamente.
 
-Manter apenas a tabela de autenticação. Na instância atual a tabela é `user`
-(nome padrão do Xano), e não `users` como descreve `xano/README.md`. A divergência
-está documentada e será resolvida nas Tarefas 11 e 13, quando forem criadas
-`subjects` e `academic_tasks`.
+## APIs e funções
 
-1. Deletar os arquivos `.xs` de `account`, `agent_conversation`, `agent_message`,
-   `event_log` e demais tabelas geradas automaticamente.
-2. Manter o `.xs` da tabela `user`.
-3. **XanoScript: Push Stage Changes to Xano** e conferir no painel.
+O Pull também trouxe para o projeto os endpoints e funções existentes no Xano.
 
-## Segurança aplicada nesta preparação
+Entre eles estão endpoints relacionados a:
 
-- URL real da instância removida de `.env.example` e
-  `.streamlit/secrets.toml.example`, substituída por placeholder.
-- `.gitignore` ignora arquivos de token e credenciais dentro de `tables/` e
-  `.xano/`, mas mantém esses diretórios versionáveis.
-- Commits separados para que a mudança de segurança fique identificável no
-  histórico (`1f2454f`).
+- autenticação;
+- usuários;
+- disciplinas;
+- tarefas acadêmicas;
+- logs de eventos.
 
-## Comandos de verificação
+Também foram recebidas funções XanoScript existentes no backend.
 
-```powershell
-git ls-files tables .xano
-Test-Path tables; Test-Path .xano
-```
+## Validação do Push para o Xano
 
-## Resultado
+Para testar o fluxo de alteração local, o arquivo:
 
-- [x] Extensão XanoScript instalada (`0.5.12`).
-- [x] `*.xs` preparado no `.gitattributes` para LF.
-- [x] `tables/` e `.xano/` liberados no `.gitignore`.
-- [x] URL privada do Xano removida do versionamento.
-- [ ] Workspace Xano criado e token gerado.
-- [ ] Login realizado na extensão do VS Code.
-- [ ] Pull executado e `tables/` com arquivos `.xs` visível.
-- [ ] Comentário de teste enviado via Push e conferido no painel.
-- [ ] Tabelas padrão removidas, mantendo apenas `user`.
-- [ ] Evidências (screenshots) adicionadas.
+`tables/887035_subjects.xs`
+
+foi aberto no VS Code e recebeu temporariamente um comentário de validação.
+
+Em seguida foi executado:
+
+`XanoScript: Push Stage Changes to Xano`
+
+A extensão detectou a alteração e solicitou o Stage dos arquivos.
+
+Na etapa seguinte, entretanto, o XanoScript apresentou um alerta informando que
+a operação envolvia uma tabela e que alterações estruturais poderiam causar
+perda de dados.
+
+Por segurança, foi selecionado:
+
+`Abort Push`
+
+O comentário de teste foi posteriormente removido e o arquivo foi restaurado ao
+estado recebido originalmente do Xano.
+
+> Nenhuma alteração estrutural foi enviada à tabela `subjects`.
+
+## Segurança
+
+Antes do versionamento, a pasta `.xano/` foi verificada.
+
+O arquivo `.xano/config.json` contém somente as propriedades principais:
+
+- `branch`
+- `instanceDisplay`
+- `instanceName`
+- `paths`
+- `workspaceId`
+- `workspaceName`
+
+Nenhuma propriedade principal de token ou senha foi identificada nessa
+verificação.
+
+O token de autenticação do Xano não foi inserido manualmente no repositório.
+
+## Versionamento no Git
+
+Os arquivos provenientes do Pull foram adicionados seletivamente ao Git.
+
+Commit criado:
+
+```text
+a6f451e feat: integra XanoScript e adiciona backend do Xano
