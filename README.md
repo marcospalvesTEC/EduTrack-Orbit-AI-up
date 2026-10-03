@@ -56,3 +56,21 @@ streamlit run app.py
 ## Segurança
 
 Credenciais, tokens e URLs privadas não devem ser adicionados ao GitHub. Configurações sensíveis serão armazenadas em `.streamlit/secrets.toml`.
+
+## Progresso Acadêmico
+
+### Tarefa 07 — Configuração Inicial do Projeto Streamlit ✅
+
+O ambiente de desenvolvimento do EduTrack Orbit AI foi validado com Python e Streamlit.
+
+Foram confirmados:
+
+- ambiente virtual `.venv`;
+- dependências registradas em `requirements.txt`;
+- aplicação principal em `app.py`;
+- estrutura modular com `pages/`, `src/` e `tests/`;
+- execução local do EduTrack Orbit AI em `localhost:8501`.
+
+A documentação e a evidência da atividade estão disponíveis em:
+
+- [`docs/tarefas/tarefa-07-streamlit.md`](docs/tarefas/tarefa-07-streamlit.md)
