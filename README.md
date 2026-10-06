@@ -23,7 +23,29 @@ Ajudar estudantes a organizar suas atividades, acompanhar o desempenho e visuali
 
 Projeto desenvolvido na disciplina Innovation Lab: Desenvolvimento Avançado No/Low Code.
 
-A primeira versão utilizará dados simulados. A autenticação e o banco de dados serão integrados posteriormente pelo Xano.
+O EduTrack Orbit AI encontra-se em versão MVP funcional, desenvolvido com Python e Streamlit e integrado ao Xano como backend.
+
+A versão atual possui:
+
+- autenticação e cadastro de usuários;
+- persistência de usuários e disciplinas no Xano;
+- gerenciamento de disciplinas;
+- gerenciamento visual de tarefas acadêmicas;
+- agenda acadêmica;
+- dashboards e relatórios;
+- assistente Orbit;
+- personalização por mascotes;
+- temas claro e escuro;
+- APIs REST para autenticação, disciplinas, tarefas e preferências;
+- registro de eventos no backend;
+- testes automatizados com Pytest;
+- versionamento com Git e GitHub.
+
+Na validação final do projeto, a suíte automatizada apresentou **88 testes aprovados**.
+
+### Observação
+
+Os endpoints CRUD de tarefas acadêmicas estão implementados no backend. Durante a validação final foi identificada uma inconsistência na persistência de uma nova tarefa criada pela interface, permanecendo como ponto de evolução da integração frontend-backend.
 
 ## Estrutura
 
@@ -32,6 +54,8 @@ A primeira versão utilizará dados simulados. A autenticação e o banco de dad
 - `pages/`: páginas do Streamlit
 - `src/`: código da aplicação
 - `tests/`: testes automatizados
+- `assets/`: recursos visuais da aplicação, incluindo os mascotes Orbit
+- `xano/` e `tables/`: arquivos relacionados ao backend e versionamento Xano/XanoScript
 
 ## Execução local
 
@@ -53,9 +77,23 @@ Executar a aplicação:
 streamlit run app.py
 ```
 
+## Testes
+
+Para executar os testes automatizados:
+
+```powershell
+python -m pytest -q
+```
+
+Última validação da versão de entrega:
+
+```text
+88 passed
+```
+
 ## Segurança
 
-Credenciais, tokens e URLs privadas não devem ser adicionados ao GitHub. Configurações sensíveis serão armazenadas em `.streamlit/secrets.toml`.
+Credenciais, tokens e URLs privadas não devem ser adicionados ao GitHub. Configurações sensíveis devem permanecer em `.streamlit/secrets.toml` e fora do versionamento público.
 
 ## Progresso Acadêmico
 
@@ -74,3 +112,9 @@ Foram confirmados:
 A documentação e a evidência da atividade estão disponíveis em:
 
 - [`docs/tarefas/tarefa-07-streamlit.md`](docs/tarefas/tarefa-07-streamlit.md)
+
+## Repositório
+
+Projeto disponível em:
+
+https://github.com/marcospalvesTEC/EduTrack-Orbit-AI-up
