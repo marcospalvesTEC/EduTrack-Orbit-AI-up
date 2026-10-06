@@ -17,7 +17,9 @@ from src.ui.figma_subjects import (
     render_subjects_header,
     safe_color,
 )
+from src.ui.pets import render_orbit_pet_banner
 from src.ui.theme import inject_custom_css
+from src.ui.orbit_global_actions import render_global_actions
 
 st.set_page_config(page_title="Disciplinas - EduTrack Orbit AI", page_icon="📚", layout="wide")
 inject_custom_css()
@@ -201,6 +203,13 @@ def render_subject_summary_dialog(subject: Subject) -> None:
 
 
 render_subjects_header(user)
+
+render_global_actions(
+    subjects,
+    tasks,
+    key_prefix="subjects",
+)
+render_orbit_pet_banner("raposa", "Raposa Feiticeira", "Organização e disciplinas")
 intro, action = st.columns([4.25, 2.15])
 with intro:
     st.markdown(

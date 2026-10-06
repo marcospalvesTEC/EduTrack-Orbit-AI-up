@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+
+from textwrap import dedent
 from html import escape
 from pathlib import Path
 
@@ -151,9 +153,9 @@ def install_assistant_css(user: dict[str, str]) -> None:
     css = (Path(__file__).parent / "figma_assistant.css").read_text(encoding="utf-8")
     theme_class = " orbit-assistant-dark" if st.session_state.get("edutrack_dark_mode") else ""
     first_name = safe(user.get("name", "Estudante").split()[0])
-    st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
+    st.markdown(dedent(f"<style>{css}</style>"), unsafe_allow_html=True)
     st.markdown(
-        f"""
+        dedent(f"""
 <div class="orbit-assistant{theme_class}" aria-label="Assistente Orbit">
   <header class="orbit-assistant-topbar">
     <div><h1>Boa noite, {first_name}</h1><p>Organize, acompanhe e evolua</p></div>
@@ -167,7 +169,7 @@ def install_assistant_css(user: dict[str, str]) -> None:
     <p>Seu apoio inteligente para planejar, estudar e evoluir.</p>
   </div>
 </div>
-""",
+"""),
         unsafe_allow_html=True,
     )
 
@@ -176,14 +178,14 @@ def render_assistant_welcome(user: dict[str, str]) -> None:
     """Render the assistant status and initial explanation."""
     first_name = safe(user.get("name", "Estudante").split()[0])
     st.markdown(
-        f"""
+        dedent(f"""
 <div class="orbit-assistant-status">✦ Orbit online</div>
 <div class="orbit-assistant-welcome">
   <strong>Olá, {first_name}! Como posso ajudar nos seus estudos hoje?</strong>
   <span>Posso analisar tarefas, sugerir um plano de estudo ou organizar sua agenda.<br>
   Sempre pedirei confirmação antes de alterar qualquer informação.</span>
 </div>
-""",
+"""),
         unsafe_allow_html=True,
     )
 
@@ -195,7 +197,7 @@ def render_messages(messages: list[dict[str, str]]) -> None:
         f"{safe(message.get('content', ''))}</article>"
         for message in messages
     )
-    st.markdown(f'<div class="orbit-assistant-messages">{rows}</div>', unsafe_allow_html=True)
+    st.markdown(dedent(f'<div class="orbit-assistant-messages">{rows}</div>'), unsafe_allow_html=True)
 
 
 def render_context(subjects: list[Subject]) -> None:
@@ -204,11 +206,11 @@ def render_context(subjects: list[Subject]) -> None:
     if not subject_rows:
         subject_rows = "<li>Nenhuma disciplina cadastrada</li>"
     st.markdown(
-        f"""
+        dedent(f"""
 <aside class="orbit-assistant-context">
   <h3>CONTEXTO ATUAL</h3><ul>{subject_rows}</ul>
 </aside>
-""",
+"""),
         unsafe_allow_html=True,
     )
 
@@ -216,14 +218,14 @@ def render_context(subjects: list[Subject]) -> None:
 def render_pending_action(action: dict[str, str]) -> None:
     """Render the action preview before the confirmation controls."""
     st.markdown(
-        f"""
+        dedent(f"""
 <div class="orbit-assistant-preview">
   <strong>Prévia da ação</strong>
   <span>Sessão de foco · {safe(action.get("subject", "Estudos"))} ·
     {safe(action.get("duration", "45"))} minutos</span>
   <small>Nenhuma informação foi alterada ainda.</small>
 </div>
-""",
+"""),
         unsafe_allow_html=True,
     )
 
@@ -231,11 +233,11 @@ def render_pending_action(action: dict[str, str]) -> None:
 def render_safety_note() -> None:
     """Render the assistant safety promise below native quick actions."""
     st.markdown(
-        """
+        dedent("""
 <div class="orbit-assistant-safety">
   <h3>ANTES DE EXECUTAR</h3>
   <p>O Orbit sempre mostrará uma prévia e pedirá sua confirmação antes de criar, editar ou excluir informações.</p>
 </div>
-""",
+"""),
         unsafe_allow_html=True,
     )

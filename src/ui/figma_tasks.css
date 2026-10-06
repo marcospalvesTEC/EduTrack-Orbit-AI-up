@@ -215,3 +215,33 @@
   .orbit-task-metrics { grid-template-columns: minmax(0,1fr); }
   .orbit-task-dialog-meta { grid-template-columns: minmax(0,1fr); }
 }
+
+/* ORBIT-FINAL-POLISH START */
+/* Tarefas: aumenta contraste do Kanban no tema claro. */
+.orbit-tasks-page:not(.orbit-tasks-dark) .orbit-tasks-topbar {
+  position: relative;
+  z-index: 2;
+  border-bottom: 1px solid #eceef5;
+}
+.orbit-tasks-page:not(.orbit-tasks-dark) .orbit-tasks-header-icons {
+  position: relative;
+  z-index: 3;
+}
+.orbit-tasks-page:not(.orbit-tasks-dark) .orbit-tasks-global-search {
+  border-color: #d8ccff;
+  background: #fbfaff;
+}
+.stApp:has(.orbit-tasks-page:not(.orbit-tasks-dark)) [class*="st-key-task_board_"] {
+  border-color: #d7dbe7 !important;
+  background: #f6f7fb !important;
+}
+.stApp:has(.orbit-tasks-page:not(.orbit-tasks-dark)) [class*="st-key-task_container_"] {
+  border-color: #d9ddea !important;
+  box-shadow: 0 2px 7px rgba(17,24,79,.045);
+}
+.stApp:has(.orbit-tasks-page:not(.orbit-tasks-dark)) .orbit-task-board-title span,
+.stApp:has(.orbit-tasks-page:not(.orbit-tasks-dark)) .orbit-task-card p,
+.stApp:has(.orbit-tasks-page:not(.orbit-tasks-dark)) .orbit-task-card small {
+  color: #5f6478;
+}
+/* ORBIT-FINAL-POLISH END */

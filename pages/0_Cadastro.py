@@ -33,10 +33,14 @@ if current_user(st.session_state) is not None:
 
 base_url = configured_xano_base_url()
 using_xano = base_url is not None
-service = (
-    XanoAuthService(base_url) if base_url else DemoAuthService(st.session_state[AUTH_USERS_KEY])
-)
+service = XanoAuthService(base_url) if base_url else None
 theme_class = install_registration_css()
+if not using_xano:
+    st.warning(
+        "O cadastro de contas está temporariamente indisponível porque o "
+        "EduTrack Orbit AI não está conectado ao Xano. "
+        "Você ainda pode acessar a conta demonstrativa pela tela de login."
+    )
 
 with st.container(key="registration_layout"):
     form_column, visual_column = st.columns([620, 820], gap=None)
@@ -66,9 +70,12 @@ with st.container(key="registration_layout"):
                 accepted_terms = st.checkbox(
                     "Li e aceito os Termos de Uso e a Política de Privacidade."
                 )
-                submitted = st.form_submit_button("Criar conta", type="primary", width="stretch")
+                submitted = st.form_submit_button("Criar conta", type="primary", width="stretch", disabled=not using_xano)
 
             if submitted:
+                if  not using_xano or service is None:
+                    st.error("Não foi possível acessar o backend do EduTrack. ","Nenhuma conta foi criada.")
+                    st.stop()
                 if not accepted_terms:
                     st.error("Aceite os Termos de Uso e a Política de Privacidade para continuar.")
                 else:

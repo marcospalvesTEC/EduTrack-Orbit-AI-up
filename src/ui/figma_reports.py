@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+
+from textwrap import dedent
 from collections import Counter
 from datetime import date
 from html import escape
@@ -166,15 +168,14 @@ def install_reports_css(user: dict[str, str]) -> None:
     css = (Path(__file__).parent / "figma_reports.css").read_text(encoding="utf-8")
     theme_class = " orbit-reports-dark" if st.session_state.get("edutrack_dark_mode") else ""
     first_name = safe(user.get("name", "Estudante").split()[0])
-    st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
+    st.markdown(dedent(f"<style>{css}</style>"), unsafe_allow_html=True)
     st.markdown(
-        f"""
+        dedent(f"""
 <div class="orbit-reports{theme_class}" aria-label="Relatórios acadêmicos">
   <header class="orbit-reports-topbar">
     <div><h1>Boa noite, {first_name}</h1><p>Organize, acompanhe e evolua</p></div>
     <div class="orbit-reports-header-icons">
-      <span class="orbit-reports-search">{icon("search", "")} Buscar...</span>
-      <span class="orbit-reports-bell">{icon("bell", "Notificações")}</span>
+      <span class="orbit-reports-bell" style="display:none">{icon("bell", "Notificações")}</span>
     </div>
   </header>
   <div class="orbit-reports-heading">
@@ -182,7 +183,7 @@ def install_reports_css(user: dict[str, str]) -> None:
     <p>Acompanhe sua evolução e identifique onde concentrar seus estudos.</p>
   </div>
 </div>
-""",
+"""),
         unsafe_allow_html=True,
     )
 
@@ -201,7 +202,7 @@ def render_report_metrics(metrics: dict[str, int]) -> None:
         for label, value, color in cards
     )
     st.markdown(
-        f'<section class="orbit-report-metrics">{content}</section>', unsafe_allow_html=True
+        dedent(f'<section class="orbit-report-metrics">{content}</section>'), unsafe_allow_html=True
     )
 
 
@@ -219,8 +220,8 @@ def render_performance(subjects: list[Subject], tasks: list[Task]) -> None:
     if not rows:
         rows = '<p class="orbit-report-empty">Nenhuma disciplina cadastrada.</p>'
     st.markdown(
-        '<section class="orbit-report-card orbit-performance"><h3>Desempenho por disciplina</h3>'
-        f"{rows}</section>",
+        dedent('<section class="orbit-report-card orbit-performance"><h3>Desempenho por disciplina</h3>'
+        f"{rows}</section>"),
         unsafe_allow_html=True,
     )
 
@@ -242,7 +243,7 @@ def render_distribution(tasks: list[Task]) -> None:
         for color, label, count, percent in legend
     )
     st.markdown(
-        f"""
+        dedent(f"""
 <section class="orbit-report-card orbit-distribution">
   <h3>Distribuição das tarefas</h3>
   <div class="orbit-donut-wrap">
@@ -252,7 +253,7 @@ def render_distribution(tasks: list[Task]) -> None:
     <ul>{legend_html}</ul>
   </div>
 </section>
-""",
+"""),
         unsafe_allow_html=True,
     )
 
@@ -269,8 +270,8 @@ def render_recent_history(tasks: list[Task]) -> None:
     if not rows:
         rows = '<p class="orbit-report-empty">Nenhuma atividade recente.</p>'
     st.markdown(
-        '<section class="orbit-report-card orbit-history"><h3>Histórico recente</h3>'
-        f"{rows}</section>",
+        dedent('<section class="orbit-report-card orbit-history"><h3>Histórico recente</h3>'
+        f"{rows}</section>"),
         unsafe_allow_html=True,
     )
 

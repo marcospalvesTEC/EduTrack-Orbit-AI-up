@@ -42,10 +42,15 @@ def inject_custom_css() -> None:
     _initialize_theme_state()
     dark_mode = bool(st.session_state["edutrack_dark_mode"])
 
+    accent_color = st.session_state.get(
+        "edutrack_accent_color",
+        COLOR_PROGRESS_PURPLE,
+    )
     custom_css = """
     <style>
     /* Design Tokens */
     :root {
+        --orbit-accent: __ORBIT_ACCENT__;
         --color-primary: #1A3644;
         --color-primary-dark: #0F2537;
         --color-primary-light: #2C4C5E;
@@ -63,12 +68,12 @@ def inject_custom_css() -> None:
     }
 
     /* Hide Streamlit chrome while preserving sidebar controls */
-    [data-testid="stToolbar"],
-    [data-testid="stMainMenu"],
-    #MainMenu {
-        display: none !important;
-        visibility: hidden !important;
-    }
+   [data-testid="stToolbar"] a[href*="github.com"],
+[data-testid="stMainMenu"],
+#MainMenu {
+    display: none !important;
+    visibility: hidden !important;
+}
 
     /* Primary Orbit action: purple + white */
     .stButton > button[kind="primary"],
@@ -392,6 +397,10 @@ def inject_custom_css() -> None:
     }
     </style>
     """
+    custom_css = custom_css.replace(
+    "__ORBIT_ACCENT__",
+    accent_color,
+)
     st.markdown(custom_css, unsafe_allow_html=True)
 
     if dark_mode:

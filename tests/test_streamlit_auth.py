@@ -187,5 +187,5 @@ def test_xano_session_is_not_labeled_as_demonstration():
     app.run()
 
     assert not app.exception
-    assert any("Sua conta" in markdown.value for markdown in app.markdown)
+    assert any("Sessão ativa" in markdown.value for markdown in app.markdown)
     assert not any("Sessão demonstrativa" in markdown.value for markdown in app.markdown)

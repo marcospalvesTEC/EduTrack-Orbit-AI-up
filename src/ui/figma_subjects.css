@@ -275,3 +275,31 @@ body:has(.orbit-subjects-dark) [data-testid="stDialog"] [data-testid="stProgress
   .orbit-subject-card { min-height: 190px; }
   .orbit-subject-dialog-metrics { grid-template-columns: repeat(2,minmax(0,1fr)); }
 }
+
+/* ORBIT-FINAL-POLISH START */
+/* Disciplinas: reduz o vazio entre o cabecalho e o conteudo. */
+.stApp:has(.orbit-subjects-page:not(.orbit-subjects-dark))
+  [data-testid="stHorizontalBlock"]:has(.orbit-subject-intro) {
+  min-height: 72px !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  align-items: center !important;
+}
+.orbit-subjects-page:not(.orbit-subjects-dark) .orbit-subject-intro {
+  padding-top: 0 !important;
+  padding-bottom: 2px !important;
+}
+.orbit-subjects-page:not(.orbit-subjects-dark) .orbit-subjects-topbar {
+  position: relative;
+  z-index: 2;
+  border-bottom: 1px solid #eceef5;
+}
+.orbit-subjects-page:not(.orbit-subjects-dark) .orbit-subjects-header-icons {
+  position: relative;
+  z-index: 3;
+}
+.orbit-subjects-page:not(.orbit-subjects-dark) .orbit-subjects-global-search {
+  border-color: #d8ccff;
+  background: #fbfaff;
+}
+/* ORBIT-FINAL-POLISH END */

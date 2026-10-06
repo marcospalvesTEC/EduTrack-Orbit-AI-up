@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+
+from textwrap import dedent
 import re
 from datetime import date
 from hashlib import sha1
@@ -54,18 +56,16 @@ def render_subjects_header(user: dict[str, str]) -> None:
     css = (Path(__file__).parent / "figma_subjects.css").read_text(encoding="utf-8")
     first_name = safe(user.get("name", "Estudante").split()[0])
     theme_class = " orbit-subjects-dark" if st.session_state.get("edutrack_dark_mode") else ""
-    st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
+    st.markdown(dedent(f"<style>{css}</style>"), unsafe_allow_html=True)
     st.markdown(
-        f"""
+        dedent(f"""
 <div class="orbit-subjects-page{theme_class}" aria-label="Disciplinas do estudante">
   <header class="orbit-subjects-topbar"><div><h1>Boa noite, {first_name}</h1>
     <p>Organize, acompanhe e evolua</p></div>
-    <div class="orbit-subjects-header-icons"><span class="orbit-subjects-global-search">
-      {icon("search", "")} Buscar...</span>
-      <span class="orbit-subjects-bell">{icon("bell", "Notificações")}</span></div>
+    <div class="orbit-subjects-header-icons"><span class="orbit-subjects-bell" style="display:none">{icon("bell", "Notificações")}</span></div>
   </header>
 </div>
-""",
+"""),
         unsafe_allow_html=True,
     )
 
@@ -74,7 +74,7 @@ def render_subject_dialog_theme_marker() -> None:
     """Expose the active theme inside Streamlit's portal-based dialog tree."""
     if st.session_state.get("edutrack_dark_mode"):
         st.markdown(
-            '<span class="orbit-subject-dialog-dark" aria-hidden="true"></span>',
+            dedent('<span class="orbit-subject-dialog-dark" aria-hidden="true"></span>'),
             unsafe_allow_html=True,
         )
 
@@ -87,13 +87,13 @@ def render_subject_metrics(subjects: list[Subject], tasks: list[Task]) -> None:
     ]
     average = round(sum(rates) / len(rates)) if rates else 0
     st.markdown(
-        f"""
+        dedent(f"""
 <section class="orbit-subject-metrics" aria-label="Resumo das disciplinas">
   <div><span>Disciplinas ativas</span><strong>{len(subjects)}</strong></div>
   <div><span>Média de progresso</span><strong>{average}%</strong></div>
   <div><span>Carga semanal</span><strong>{weekly_workload(subjects)} h</strong></div>
 </section>
-""",
+"""),
         unsafe_allow_html=True,
     )
 
@@ -128,13 +128,13 @@ def render_subject_cards(subjects: list[Subject], tasks: list[Task]) -> Subject 
     """Render clickable three-column cards and return the selected subject."""
     if not subjects:
         st.markdown(
-            '<div class="orbit-subject-empty">Nenhuma disciplina encontrada.</div>',
+            dedent('<div class="orbit-subject-empty">Nenhuma disciplina encontrada.</div>'),
             unsafe_allow_html=True,
         )
         return None
 
     selected = None
-    st.markdown('<div class="orbit-subject-grid-marker"></div>', unsafe_allow_html=True)
+    st.markdown(dedent('<div class="orbit-subject-grid-marker"></div>'), unsafe_allow_html=True)
     for offset in range(0, len(subjects), 3):
         columns = st.columns(3)
         for column, subject in zip(columns, subjects[offset : offset + 3], strict=False):
@@ -145,14 +145,14 @@ def render_subject_cards(subjects: list[Subject], tasks: list[Task]) -> Subject 
             with column:
                 with st.container(border=True, key=container_key):
                     st.markdown(
-                        '<article class="orbit-subject-card">'
+                        dedent('<article class="orbit-subject-card">'
                         f'<span class="orbit-subject-accent" style="background:{color}"></span>'
                         f"<h2>{safe(subject.name)}</h2>"
                         f"<p>{safe(subject.professor)}</p>"
                         f"<p>{progress['completion_rate']:g}% concluído · "
                         f"{progress['total_tasks']} tarefas</p>"
                         f"<p>{safe(deadline_label(subject, tasks))}</p>"
-                        "</article>",
+                        "</article>"),
                         unsafe_allow_html=True,
                     )
                     if st.button(

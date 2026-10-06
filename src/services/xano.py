@@ -143,3 +143,82 @@ class XanoAuthService:
             return self._authenticated_result(data, "Conta criada com sucesso.")
         except XanoError as error:
             return XanoAuthResult(AuthResult(False, str(error)))
+
+def get_pet_preferences(
+    token: str,
+) -> list[dict[str, Any]]:
+    """Retorna as preferências de mascote do usuário autenticado."""
+
+    base_url = configured_xano_base_url()
+
+    if not base_url:
+        return []
+
+    client = XanoClient(base_url)
+
+    data = client.request(
+        "GET",
+        "profile/pets",
+        token=token,
+    )
+
+    if not isinstance(data, list):
+        return []
+
+    return [
+        item
+        for item in data
+        if isinstance(item, dict)
+    ]
+
+
+def get_pet_for_screen(
+    token: str,
+    screen_key: str,
+) -> str | None:
+    """Retorna o mascote salvo para uma tela específica."""
+
+    preferences = get_pet_preferences(token)
+
+    for preference in preferences:
+        if preference.get("screen_key") != screen_key:
+            continue
+
+        pet_key = preference.get("pet_key")
+
+        if isinstance(pet_key, str):
+            return pet_key
+
+    return None
+
+
+def save_pet_preference(
+    token: str,
+    screen_key: str,
+    pet_key: str,
+) -> dict[str, Any]:
+    """Cria ou atualiza a preferência de mascote no Xano."""
+
+    base_url = configured_xano_base_url()
+
+    if not base_url:
+        raise XanoError("Xano não está configurado.")
+
+    client = XanoClient(base_url)
+
+    data = client.request(
+        "POST",
+        "profile/pet",
+        token=token,
+        payload={
+            "screen_key": screen_key,
+            "pet_key": pet_key,
+        },
+    )
+
+    if not isinstance(data, dict):
+        raise XanoError(
+            "Resposta inválida ao salvar preferência de mascote."
+        )
+
+    return data

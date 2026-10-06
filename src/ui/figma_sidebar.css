@@ -99,3 +99,60 @@
   [data-testid="stSidebar"] { width: min(292px,88vw) !important;
     min-width: min(292px,88vw) !important; }
 }
+[data-testid="stSidebar"]:has(.orbit-shell-dark)
+.orbit-shell-account strong {
+  color: #F8FAFC !important;
+  -webkit-text-fill-color: #F8FAFC !important;
+}
+
+[data-testid="stSidebar"]:has(.orbit-shell-dark)
+.orbit-shell-account a {
+  color: #C4B5FD !important;
+  -webkit-text-fill-color: #C4B5FD !important;
+}
+
+[data-testid="stSidebar"]:has(.orbit-shell-dark)
+.orbit-shell-account small {
+  color: #CBD5E1 !important;
+  -webkit-text-fill-color: #CBD5E1 !important;
+}
+
+/* ORBIT-FINAL-POLISH START */
+/* Acabamento global: roxo Orbit no tema claro sem interferir nos overlays invisiveis. */
+[data-testid="stDecoration"] { display: none !important; }
+
+.stApp:not(:has(.orbit-shell-dark)) .stButton > button[kind="primary"],
+.stApp:not(:has(.orbit-shell-dark)) .stDownloadButton > button,
+.stApp:not(:has(.orbit-shell-dark)) [data-testid="stFormSubmitButton"] > button,
+.stApp:not(:has(.orbit-shell-dark)) [data-testid="stBaseButton-primary"] {
+  border-color: #7c3aed !important;
+  background: #7c3aed !important;
+  color: #fff !important;
+  box-shadow: none !important;
+}
+.stApp:not(:has(.orbit-shell-dark)) .stButton > button[kind="primary"] p,
+.stApp:not(:has(.orbit-shell-dark)) .stDownloadButton > button p,
+.stApp:not(:has(.orbit-shell-dark)) [data-testid="stFormSubmitButton"] > button p,
+.stApp:not(:has(.orbit-shell-dark)) [data-testid="stBaseButton-primary"] p {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+.stApp:not(:has(.orbit-shell-dark)) .stButton > button[kind="primary"]:hover,
+.stApp:not(:has(.orbit-shell-dark)) .stDownloadButton > button:hover,
+.stApp:not(:has(.orbit-shell-dark)) [data-testid="stFormSubmitButton"] > button:hover,
+.stApp:not(:has(.orbit-shell-dark)) [data-testid="stBaseButton-primary"]:hover {
+  border-color: #6d28d9 !important;
+  background: #6d28d9 !important;
+  color: #fff !important;
+}
+.stApp button:focus-visible,
+.stApp input:focus-visible,
+.stApp textarea:focus-visible,
+.stApp [data-baseweb="select"]:focus-within {
+  outline-color: #a78bfa !important;
+}
+.stApp:not(:has(.orbit-shell-dark)) [data-baseweb="tab"][aria-selected="true"] {
+  color: #6d28d9 !important;
+  border-bottom-color: #7c3aed !important;
+}
+/* ORBIT-FINAL-POLISH END */

@@ -19,6 +19,7 @@ from src.ui.figma_assistant import (
     render_safety_note,
 )
 from src.ui.orbit_global_actions import render_global_actions
+from src.ui.pets import render_orbit_pet_banner
 from src.ui.theme import inject_custom_css
 
 st.set_page_config(page_title="Assistente - EduTrack Orbit AI", page_icon="🤖", layout="wide")
@@ -53,6 +54,7 @@ def submit_prompt(prompt: str) -> None:
 
 
 install_assistant_css(user)
+render_orbit_pet_banner("axolote", "Axolote Mago", "Conhecimento e Assistente Orbit")
 render_global_actions(subjects, tasks, key_prefix="assistant")
 
 chat_column, context_column = st.columns([2.28, 1])

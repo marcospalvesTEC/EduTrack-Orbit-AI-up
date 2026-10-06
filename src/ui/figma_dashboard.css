@@ -117,3 +117,563 @@
 .orbit-dashboard-dark .orbit-bubble { background: #171a2e; }
 .orbit-dashboard-dark .orbit-tip-panel { background: #171a2e; border-color: #e5e7eb; }
 .orbit-dashboard-dark .orbit-chart { border-color: #e5e7eb; }
+
+/* ORBIT PATCH START */
+.st-key-dashboard_topbar {
+  min-height: 96px;
+  padding: 20px 32px !important;
+  background: #ffffff;
+  border: 0 !important;
+}
+.st-key-dashboard_topbar [data-testid="stHorizontalBlock"] {
+  align-items: center;
+}
+.orbit-native-greeting h1 {
+  margin: 0 0 4px;
+  color: #0f1757;
+  font-size: 22px;
+  line-height: 27px;
+  font-weight: 700;
+}
+.orbit-native-greeting p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+/* Importante: neutraliza o absolute legado apenas dentro do Dashboard. */
+.st-key-dashboard_topbar .st-key-dashboard_global_actions {
+  position: static !important;
+  inset: auto !important;
+  top: auto !important;
+  right: auto !important;
+  width: 100% !important;
+  z-index: auto !important;
+}
+.st-key-dashboard_topbar .st-key-dashboard_global_actions [data-testid="stHorizontalBlock"] {
+  gap: 16px !important;
+}
+.st-key-dashboard_topbar .st-key-dashboard_global_actions [data-baseweb="input"] {
+  min-height: 44px !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 999px !important;
+  background: #f8fafc !important;
+  box-shadow: none !important;
+}
+.st-key-dashboard_topbar .st-key-dashboard_global_actions button {
+  width: 44px !important;
+  min-width: 44px !important;
+  height: 44px !important;
+  min-height: 44px !important;
+  padding: 0 !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 50% !important;
+  background: #ffffff !important;
+  color: #7c3aed !important;
+  box-shadow: none !important;
+}
+
+/* Resultados ficam no fluxo, sem cortar cabeçalho/popover. */
+.st-key-dashboard_global_search_results {
+  position: relative !important;
+  inset: auto !important;
+  top: auto !important;
+  right: auto !important;
+  width: min(390px, 100%) !important;
+  max-height: 360px;
+  margin: 8px 32px 0 auto !important;
+  z-index: 60;
+  padding: 14px !important;
+  border: 1px solid #ddd6fe;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 16px 40px rgba(15,23,87,.14);
+}
+
+.orbit-pet-stage {
+  width: 100%;
+  height: 220px;
+  display: grid;
+  place-items: center;
+}
+.orbit-pet-stage img {
+  display: block;
+  width: 90%;
+  height: 220px;
+  object-fit: contain;
+}
+
+/* Dark mode */
+.stApp:has(.orbit-dashboard-dark) .st-key-dashboard_topbar {
+  background: #1a1d30 !important;
+  border-bottom: 1px solid #2c3048 !important;
+}
+.stApp:has(.orbit-dashboard-dark) .orbit-native-greeting h1 {
+  color: #f7f5ff !important;
+}
+.stApp:has(.orbit-dashboard-dark) .orbit-native-greeting p {
+  color: #9fa3b8 !important;
+}
+.stApp:has(.orbit-dashboard-dark)
+  .st-key-dashboard_topbar
+  .st-key-dashboard_global_actions
+  [data-baseweb="input"] {
+  border-color: #30354e !important;
+  background: #171a2c !important;
+}
+.stApp:has(.orbit-dashboard-dark)
+  .st-key-dashboard_topbar
+  .st-key-dashboard_global_actions
+  input {
+  color: #f4f2ff !important;
+  -webkit-text-fill-color: #f4f2ff !important;
+}
+.stApp:has(.orbit-dashboard-dark)
+  .st-key-dashboard_topbar
+  .st-key-dashboard_global_actions
+  button {
+  border-color: #30354e !important;
+  background: #171a2c !important;
+  color: #c4b5fd !important;
+}
+.stApp:has(.orbit-dashboard-dark) .st-key-dashboard_global_search_results {
+  border-color: #30354e !important;
+  background: #1a1d30 !important;
+  color: #f4f2ff !important;
+}
+.stApp:has(.orbit-dashboard-dark) .orbit-pet {
+  background: #211b36 !important;
+}
+
+@media (max-width: 900px) {
+  .st-key-dashboard_topbar {
+    padding: 16px !important;
+  }
+  .st-key-dashboard_global_search_results {
+    width: 100% !important;
+    margin: 8px 0 0 !important;
+  }
+}
+/* ORBIT PATCH END */
+/* =========================================================
+   DASHBOARD CARDS — ALIGN / SIZE / DARK BORDER
+   ========================================================= */
+
+/* Espaçamento do grid dos 4 cards */
+.orbit-dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    align-items: stretch;
+    margin-top: 16px;
+}
+
+/* Cada card do dashboard */
+.orbit-dashboard-card {
+    border-radius: 24px;
+    min-height: 390px;
+    height: 390px;
+    padding: 22px 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    overflow: hidden;
+}
+
+/* Dark mode: fundo escuro, borda clara */
+.orbit-dashboard-dark .orbit-dashboard-card {
+    background: #171a2e;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    box-shadow: none;
+}
+
+/* Cabeçalho padronizado de todos os cards */
+.orbit-card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    min-height: 84px;
+    margin-bottom: 18px;
+}
+
+/* Título do card */
+.orbit-card-title {
+    margin: 0;
+    font-size: 2.05rem;
+    line-height: 1.06;
+    font-weight: 800;
+    color: #0b1b61;
+    flex: 1;
+}
+
+/* Dark mode: título branco */
+.orbit-dashboard-dark .orbit-card-title {
+    color: #ffffff;
+}
+
+/* Ação do cabeçalho: Ver todas / data */
+.orbit-card-meta {
+    white-space: nowrap;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #0b1b61;
+    margin-top: 6px;
+    text-align: right;
+    flex-shrink: 0;
+}
+
+/* Dark mode: ação branca */
+.orbit-dashboard-dark .orbit-card-meta {
+    color: #ffffff;
+}
+
+/* Corpo do card */
+.orbit-card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* Textos internos no dark */
+.orbit-dashboard-dark .orbit-card-body,
+.orbit-dashboard-dark .orbit-card-body p,
+.orbit-dashboard-dark .orbit-card-body span,
+.orbit-dashboard-dark .orbit-card-body small,
+.orbit-dashboard-dark .orbit-card-body strong,
+.orbit-dashboard-dark .orbit-card-body li {
+    color: #ffffff !important;
+}
+
+/* Texto secundário no dark */
+.orbit-dashboard-dark .orbit-card-body small,
+.orbit-dashboard-dark .orbit-card-body .muted,
+.orbit-dashboard-dark .orbit-week-total {
+    color: #c8cee8 !important;
+}
+
+/* Links internos */
+.orbit-card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Progress chart area */
+.orbit-progress-card-chart {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+}
+
+/* Ajuste responsivo */
+@media (max-width: 1200px) {
+    .orbit-dashboard-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 720px) {
+    .orbit-dashboard-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .orbit-dashboard-card {
+        min-height: auto;
+        height: auto;
+    }
+
+    .orbit-card-head {
+        min-height: auto;
+    }
+}
+
+/* ORBIT-FINAL-POLISH START */
+/* Home: pesquisa livre no topo e cabecalhos dos cards alinhados. */
+.orbit-dashboard:not(.orbit-dashboard-dark) .orbit-topbar {
+  position: relative;
+  z-index: 2;
+  border-bottom: 1px solid #eceef5;
+}
+.orbit-dashboard:not(.orbit-dashboard-dark) .orbit-header-icons {
+  position: relative;
+  z-index: 3;
+}
+.orbit-dashboard:not(.orbit-dashboard-dark) .orbit-search {
+  border-color: #d8ccff;
+  background: #fbfaff;
+}
+.orbit-dashboard:not(.orbit-dashboard-dark) .orbit-card-title {
+  min-height: 38px;
+  align-items: flex-start;
+}
+.orbit-dashboard:not(.orbit-dashboard-dark) .orbit-card-title h2 {
+  min-height: 38px;
+  display: flex;
+  align-items: flex-start;
+}
+/* ORBIT-FINAL-POLISH END */
+
+/* ORBIT-HOME-SEARCH-NOTIFICATIONS-FINAL START */
+/*
+  Home — Busca + notificações no padrão visual Orbit:
+  - campo arredondado com contorno lilás/roxo
+  - lupa dentro do campo
+  - botão circular com sino roxo
+  - widgets nativos com keys estáveis para funcionalidade futura
+*/
+.st-key-dashboard_topbar {
+  min-height: 128px;
+  padding: 24px 36px !important;
+  border-bottom: 1px solid #e7e9f1 !important;
+  background: #ffffff !important;
+}
+
+.st-key-dashboard_topbar [data-testid="stHorizontalBlock"] {
+  align-items: center !important;
+}
+
+.st-key-dashboard_topbar .orbit-native-greeting h1 {
+  margin: 0 0 8px;
+  color: #0f1757;
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 800;
+}
+
+.st-key-dashboard_topbar .orbit-native-greeting p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+/* =========================
+   BUSCA
+========================= */
+.st-key-dashboard_search {
+  position: relative !important;
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+.st-key-dashboard_search [data-testid="stTextInput"] {
+  margin: 0 !important;
+}
+
+.st-key-dashboard_search div[data-baseweb="input"] {
+  width: 100% !important;
+  min-height: 50px !important;
+  border: 1px solid #d8ccff !important;
+  border-radius: 999px !important;
+  background: #fbfaff !important;
+  box-shadow: none !important;
+  overflow: hidden !important;
+}
+
+.st-key-dashboard_search div[data-baseweb="input"]:hover {
+  border-color: #c4b5fd !important;
+}
+
+.st-key-dashboard_search div[data-baseweb="input"]:focus-within {
+  border-color: #8b5cf6 !important;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, .12) !important;
+}
+
+.st-key-dashboard_search input {
+  min-height: 48px !important;
+  padding: 0 18px 0 48px !important;
+  border: 0 !important;
+  background: transparent !important;
+  color: #334155 !important;
+  -webkit-text-fill-color: #334155 !important;
+  font-size: 13px !important;
+}
+
+.st-key-dashboard_search input::placeholder {
+  color: #6b7280 !important;
+  -webkit-text-fill-color: #6b7280 !important;
+  opacity: 1 !important;
+}
+
+.st-key-dashboard_search::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 18px !important;
+  top: 25px !important;
+  z-index: 20 !important;
+  width: 18px !important;
+  height: 18px !important;
+  transform: translateY(-50%) !important;
+  pointer-events: none !important;
+  background: #64748b !important;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M21 21l-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat !important;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M21 21l-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat !important;
+}
+
+/* =========================
+   NOTIFICAÇÕES
+========================= */
+.st-key-dashboard_notifications {
+  display: flex !important;
+  justify-content: flex-end !important;
+  margin: 0 !important;
+}
+
+.st-key-dashboard_notifications [data-testid="stButton"] {
+  display: flex !important;
+  justify-content: flex-end !important;
+  margin: 0 !important;
+}
+
+.st-key-dashboard_notifications button {
+  position: relative !important;
+  width: 50px !important;
+  min-width: 50px !important;
+  max-width: 50px !important;
+  height: 50px !important;
+  min-height: 50px !important;
+  padding: 0 !important;
+  border: 1px solid #d8ccff !important;
+  border-radius: 50% !important;
+  background: #ffffff !important;
+  box-shadow: none !important;
+  overflow: hidden !important;
+  color: transparent !important;
+}
+
+.st-key-dashboard_notifications button:hover {
+  border-color: #a78bfa !important;
+  background: #f7f3ff !important;
+}
+
+.st-key-dashboard_notifications button:focus-visible {
+  outline: 3px solid rgba(124, 58, 237, .16) !important;
+  outline-offset: 2px !important;
+}
+
+.st-key-dashboard_notifications button p,
+.st-key-dashboard_notifications button span {
+  font-size: 0 !important;
+  line-height: 0 !important;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.st-key-dashboard_notifications button svg {
+  display: none !important;
+}
+
+.st-key-dashboard_notifications button::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  width: 21px !important;
+  height: 21px !important;
+  margin: auto !important;
+  background: #7c3aed !important;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M12 22a2.5 2.5 0 0 0 2.45-2h-4.9A2.5 2.5 0 0 0 12 22Zm7-6v-5a7 7 0 0 0-5.5-6.84V3.5a1.5 1.5 0 0 0-3 0v.66A7 7 0 0 0 5 11v5l-2 2v1h18v-1l-2-2Zm-12 1 1-1v-5a4 4 0 1 1 8 0v5l1 1H7Z'/%3E%3C/svg%3E") center / contain no-repeat !important;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M12 22a2.5 2.5 0 0 0 2.45-2h-4.9A2.5 2.5 0 0 0 12 22Zm7-6v-5a7 7 0 0 0-5.5-6.84V3.5a1.5 1.5 0 0 0-3 0v.66A7 7 0 0 0 5 11v5l-2 2v1h18v-1l-2-2Zm-12 1 1-1v-5a4 4 0 1 1 8 0v5l1 1H7Z'/%3E%3C/svg%3E") center / contain no-repeat !important;
+}
+
+/* =========================
+   DARK MODE
+========================= */
+.stApp:has(.orbit-dashboard-dark) .st-key-dashboard_topbar {
+  border-bottom-color: #30354e !important;
+  background: #171a2e !important;
+}
+
+.stApp:has(.orbit-dashboard-dark)
+.st-key-dashboard_topbar .orbit-native-greeting h1 {
+  color: #f5f3ff !important;
+}
+
+.stApp:has(.orbit-dashboard-dark)
+.st-key-dashboard_topbar .orbit-native-greeting p {
+  color: #a9a8bc !important;
+}
+
+.stApp:has(.orbit-dashboard-dark)
+.st-key-dashboard_search div[data-baseweb="input"] {
+  border-color: #8b5cf6 !important;
+  background: #171a2e !important;
+}
+
+.stApp:has(.orbit-dashboard-dark)
+.st-key-dashboard_search input {
+  color: #f5f3ff !important;
+  -webkit-text-fill-color: #f5f3ff !important;
+}
+
+.stApp:has(.orbit-dashboard-dark)
+.st-key-dashboard_search input::placeholder {
+  color: #b9b8c9 !important;
+  -webkit-text-fill-color: #b9b8c9 !important;
+}
+
+.stApp:has(.orbit-dashboard-dark)
+.st-key-dashboard_search::before {
+  background: #c4b5fd !important;
+}
+
+.stApp:has(.orbit-dashboard-dark)
+.st-key-dashboard_notifications button {
+  border-color: #8b5cf6 !important;
+  background: #171a2e !important;
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+@media (max-width: 900px) {
+  .st-key-dashboard_topbar {
+    min-height: auto;
+    padding: 18px 20px !important;
+  }
+}
+/* ORBIT-HOME-SEARCH-NOTIFICATIONS-FINAL END */
+
+/* ORBIT-HIDE-DASHBOARD-SEARCH START */
+/* Home: remove o campo Buscar e mantém somente o sino. */
+.st-key-dashboard_search {
+  display: none !important;
+}
+
+div[data-testid="column"]:has(.st-key-dashboard_search) {
+  display: none !important;
+}
+
+div[data-testid="stHorizontalBlock"]:has(.st-key-dashboard_notifications) {
+  justify-content: flex-end !important;
+  align-items: center !important;
+}
+
+div[data-testid="column"]:has(.st-key-dashboard_notifications) {
+  flex: 0 0 56px !important;
+  width: 56px !important;
+  min-width: 56px !important;
+  margin-left: auto !important;
+}
+
+.st-key-dashboard_notifications button {
+  width: 50px !important;
+  min-width: 50px !important;
+  max-width: 50px !important;
+  height: 50px !important;
+  min-height: 50px !important;
+  padding: 0 !important;
+  border: 1.5px solid #8b5cf6 !important;
+  border-radius: 50% !important;
+  background: #ffffff !important;
+  color: #7c3aed !important;
+  box-shadow: none !important;
+}
+
+.st-key-dashboard_notifications button:hover {
+  border-color: #7c3aed !important;
+  background: #f7f3ff !important;
+}
+/* ORBIT-HIDE-DASHBOARD-SEARCH END */

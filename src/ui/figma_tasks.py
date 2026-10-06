@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+
+from textwrap import dedent
 from datetime import date
 from hashlib import sha1
 from html import escape
@@ -55,18 +57,16 @@ def render_tasks_header(user: dict[str, str]) -> None:
     css = (Path(__file__).parent / "figma_tasks.css").read_text(encoding="utf-8")
     first_name = safe(user.get("name", "Estudante").split()[0])
     theme_class = " orbit-tasks-dark" if st.session_state.get("edutrack_dark_mode") else ""
-    st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
+    st.markdown(dedent(f"<style>{css}</style>"), unsafe_allow_html=True)
     st.markdown(
-        f"""
+        dedent(f"""
 <div class="orbit-tasks-page{theme_class}" aria-label="Tarefas do estudante">
   <header class="orbit-tasks-topbar"><div><h1>Boa noite, {first_name}</h1>
     <p>Organize, acompanhe e evolua</p></div>
-    <div class="orbit-tasks-header-icons"><span class="orbit-tasks-global-search">
-      {icon("search", "")} Buscar...</span>
-      <span class="orbit-tasks-bell">{icon("bell", "Notificações")}</span></div>
+    <div class="orbit-tasks-header-icons"><span class="orbit-tasks-bell" style="display:none">{icon("bell", "Notificações")}</span></div>
   </header>
 </div>
-""",
+"""),
         unsafe_allow_html=True,
     )
 
@@ -75,7 +75,7 @@ def render_task_dialog_theme_marker() -> None:
     """Expose the dark theme inside Streamlit's portal-based dialog tree."""
     if st.session_state.get("edutrack_dark_mode"):
         st.markdown(
-            '<span class="orbit-task-dialog-dark" aria-hidden="true"></span>',
+            dedent('<span class="orbit-task-dialog-dark" aria-hidden="true"></span>'),
             unsafe_allow_html=True,
         )
 
@@ -86,13 +86,13 @@ def render_task_metrics(tasks: list[Task]) -> None:
     for task in tasks:
         totals[board_status(task)] += 1
     st.markdown(
-        f"""
+        dedent(f"""
 <section class="orbit-task-metrics" aria-label="Resumo das tarefas">
   <div><span>A fazer</span><strong class="todo">{totals["A fazer"]}</strong></div>
   <div><span>Em andamento</span><strong class="doing">{totals["Em andamento"]}</strong></div>
   <div><span>Concluídas</span><strong class="done">{totals["Concluídas"]}</strong></div>
 </section>
-""",
+"""),
         unsafe_allow_html=True,
     )
 
@@ -127,13 +127,13 @@ def render_task_board(tasks: list[Task]) -> Task | None:
         with column:
             with st.container(border=True, key=f"task_board_{group_keys[group]}"):
                 st.markdown(
-                    f'<div class="orbit-task-board-title"><strong>{group}</strong>'
-                    f"<span>{len(grouped)}</span></div>",
+                    dedent(f'<div class="orbit-task-board-title"><strong>{group}</strong>'
+                    f"<span>{len(grouped)}</span></div>"),
                     unsafe_allow_html=True,
                 )
                 if not grouped:
                     st.markdown(
-                        '<div class="orbit-task-column-empty">Nenhuma tarefa nesta etapa.</div>',
+                        dedent('<div class="orbit-task-column-empty">Nenhuma tarefa nesta etapa.</div>'),
                         unsafe_allow_html=True,
                     )
                 for task in grouped:
@@ -143,14 +143,14 @@ def render_task_board(tasks: list[Task]) -> Task | None:
                         description = task.description.strip()
                         details = description if description else deadline_text(task)
                         st.markdown(
-                            '<article class="orbit-task-card">'
+                            dedent('<article class="orbit-task-card">'
                             f"<h2>{safe(task.title)}</h2>"
                             f"<p>{safe(task.subject_name)} · {safe(deadline_text(task))}</p>"
                             '<span class="orbit-task-priority '
                             f'priority-{task.priority.name.lower()}">'
                             f"Prioridade {safe(task.priority.value.lower())}</span>"
                             f'<small title="{safe(description)}">{safe(details)}</small>'
-                            "</article>",
+                            "</article>"),
                             unsafe_allow_html=True,
                         )
                         if st.button(

@@ -1,6 +1,7 @@
 """Session helpers and route protection for demonstration authentication."""
 
 from __future__ import annotations
+from src.services.demo_auth import DEMO_EMAIL
 
 from collections.abc import Callable, MutableMapping
 from typing import Any
@@ -119,9 +120,15 @@ def render_session_sidebar(
             with st.container(key="orbit_sidebar_tools"):
                 with st.expander("Ferramentas de demonstração"):
                     demo_tools()
+        is_demo_session = user.get("email", "").strip().lower() == DEMO_EMAIL   
+
         account_label = (
-            "Sua conta" if st.session_state.get(AUTH_TOKEN_KEY) else "Sessão demonstrativa"
+            "Sessão demonstrativa"
+      if is_demo_session
+      else "Sessão ativa"
         )
+  
+        
         with st.container(key="orbit_sidebar_account"):
             render_sidebar_account(user, account_label)
             if st.button("Sair", width="stretch", key="auth_logout"):

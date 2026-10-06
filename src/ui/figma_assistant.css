@@ -182,3 +182,36 @@
   font-weight: 800;
   letter-spacing: .08em;
 }
+
+/* ORBIT-FINAL-POLISH START */
+/* Assistente: compacta o espaco vazio e aproxima as acoes do conteudo. */
+.orbit-assistant:not(.orbit-assistant-dark) .orbit-assistant-topbar {
+  position: relative;
+  z-index: 2;
+  border-bottom: 1px solid #eceef5;
+}
+.orbit-assistant:not(.orbit-assistant-dark) .orbit-assistant-header-icons {
+  position: relative;
+  z-index: 3;
+}
+.orbit-assistant:not(.orbit-assistant-dark) .orbit-assistant-search {
+  border-color: #d8ccff;
+  background: #fbfaff;
+}
+.stApp:has(.orbit-assistant) .orbit-assistant-heading {
+  padding-top: 20px;
+  padding-bottom: 14px;
+}
+.stApp:has(.orbit-assistant) .st-key-assistant_chat,
+.stApp:has(.orbit-assistant) .orbit-assistant-context {
+  min-height: 610px;
+}
+.stApp:has(.orbit-assistant) .orbit-assistant-messages {
+  min-height: 180px;
+  padding-bottom: 14px;
+}
+.stApp:has(.orbit-assistant) .orbit-assistant-context ul {
+  margin-bottom: 20px;
+  gap: 9px;
+}
+/* ORBIT-FINAL-POLISH END */

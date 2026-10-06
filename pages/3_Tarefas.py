@@ -15,7 +15,9 @@ from src.ui.figma_tasks import (
     render_tasks_header,
     safe,
 )
+from src.ui.pets import render_orbit_pet_banner
 from src.ui.theme import inject_custom_css
+from src.ui.orbit_global_actions import render_global_actions
 
 st.set_page_config(page_title="Tarefas - EduTrack Orbit AI", page_icon="📝", layout="wide")
 inject_custom_css()
@@ -169,6 +171,13 @@ def render_task_dialog(task: Task) -> None:
 
 
 render_tasks_header(user)
+
+render_global_actions(
+    subjects,
+    tasks,
+    key_prefix="tasks",
+)
+render_orbit_pet_banner("lagosta", "Lagosta Boxeadora", "Tarefas e persistência")
 intro, action = st.columns([5, 1])
 with intro:
     st.markdown(

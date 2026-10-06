@@ -15,7 +15,9 @@ from src.ui.figma_reports import (
     report_insight,
     report_metrics,
 )
+from src.ui.pets import render_orbit_pet_banner
 from src.ui.theme import inject_custom_css
+from src.ui.orbit_global_actions import render_global_actions
 
 st.set_page_config(page_title="Relatórios - EduTrack Orbit AI", page_icon="📊", layout="wide")
 inject_custom_css()
@@ -31,6 +33,13 @@ preferences = load_profile_section(
     DEFAULT_PROFILE_PREFERENCES,
 )
 install_reports_css(user)
+
+render_global_actions(
+    subjects,
+    tasks,
+    key_prefix="reports",
+)
+render_orbit_pet_banner("caracol", "Caracol Curandeiro", "Progresso e equilíbrio")
 
 with st.container(key="reports_controls"):
     semester_column, subject_column, spacer_column, export_column = st.columns([1, 1.18, 2.2, 0.85])

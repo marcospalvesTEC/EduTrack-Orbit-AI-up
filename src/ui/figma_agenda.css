@@ -352,3 +352,38 @@
   color: #fff !important;
   border-radius: 14px !important;
 }
+
+/* ORBIT-FINAL-POLISH START */
+/* Agenda: reforca bordas e textos no modo claro sem alterar a paleta escura. */
+.orbit-agenda-page:not(.orbit-agenda-dark) .orbit-agenda-topbar {
+  position: relative;
+  z-index: 2;
+  border-bottom: 1px solid #eceef5;
+}
+.orbit-agenda-page:not(.orbit-agenda-dark) .orbit-agenda-header-icons {
+  position: relative;
+  z-index: 3;
+}
+.orbit-agenda-page:not(.orbit-agenda-dark) .orbit-agenda-global-search {
+  border-color: #d8ccff;
+  background: #fbfaff;
+}
+.stApp:has(.orbit-agenda-page:not(.orbit-agenda-dark)) .st-key-agenda_calendar_grid,
+.stApp:has(.orbit-agenda-page:not(.orbit-agenda-dark)) [class*="st-key-agenda_day_cell_"],
+.stApp:has(.orbit-agenda-page:not(.orbit-agenda-dark)) [class*="st-key-agenda_week_day_"],
+.stApp:has(.orbit-agenda-page:not(.orbit-agenda-dark)) .orbit-agenda-upcoming,
+.stApp:has(.orbit-agenda-page:not(.orbit-agenda-dark)) .orbit-agenda-mini {
+  border-color: #d4d8e4 !important;
+}
+.stApp:has(.orbit-agenda-page:not(.orbit-agenda-dark)) .orbit-agenda-weekdays,
+.stApp:has(.orbit-agenda-page:not(.orbit-agenda-dark)) .orbit-agenda-weekdays div,
+.stApp:has(.orbit-agenda-page:not(.orbit-agenda-dark)) .orbit-agenda-week-day-content time,
+.stApp:has(.orbit-agenda-page:not(.orbit-agenda-dark)) .orbit-agenda-week-day-content small,
+.stApp:has(.orbit-agenda-page:not(.orbit-agenda-dark)) .orbit-agenda-upcoming small {
+  color: #5e6478;
+}
+.stApp:has(.orbit-agenda-page:not(.orbit-agenda-dark)) .orbit-agenda-day-content strong,
+.stApp:has(.orbit-agenda-page:not(.orbit-agenda-dark)) .orbit-agenda-week-day-content h3 {
+  color: #1b245c;
+}
+/* ORBIT-FINAL-POLISH END */
